@@ -1,0 +1,20 @@
+{
+  "name": "quiz-battle",
+  "version": "1.0.0",
+  "description": "Projeto ADS 5º semestre.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Celsoroch/quiz-battle.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Celsoroch/quiz-battle/issues"
+  },
+  "homepage": "https://github.com/Celsoroch/quiz-battle#readme"
+}
