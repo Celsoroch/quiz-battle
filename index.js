@@ -212,6 +212,9 @@ function proximaQuestao(nQuestao) {
     botao_j1.disabled = false;
     botao_j2.disabled = false;
 
+    // 
+    jaClicouPraJogar = false;
+
     // coloca o número
     numero.textContent = nQuestao
 
@@ -248,11 +251,21 @@ function desbloquearAlternativas() {
     d.classList.remove('bloqueado')
 }
 
-let clicouPrajogar = false;
+let jaClicouPraJogar = false;
+function chamaAcertou(nQuestao, resposta) {
+    if(jaClicouPraJogar === false) {
+        verificarSeAcertou(nQuestao, resposta);
+    } else {
+        alert('Você não pode clicar de novo!');
+    }
+}
 
+let clicouPrajogar = false;
 function verificarSeAcertou(nQuestao, resposta) {
 
     if (clicouPrajogar === true) {
+        jaClicouPraJogar = true;
+        bloquearAlternativas();
         let numeroDaQuestao = nQuestao.value
         console.log("Questão " + numeroDaQuestao)
     
@@ -274,7 +287,7 @@ function verificarSeAcertou(nQuestao, resposta) {
                 console.log('Pontos jogador 2 ' + pontos_j2_num);
             }
             instrucoes.textContent = 'Acertou! Parabéns!'
-
+            
             setTimeout(function() {
                 instrucoes.textContent = `Leia a questão e clique na resposta correta`;
             }, 5000);
@@ -287,7 +300,7 @@ function verificarSeAcertou(nQuestao, resposta) {
         }
     
         // bloquear a escolha de opcoes
-        bloquearAlternativas();
+        // bloquearAlternativas();
     
         setTimeout(function() {
             proxima = numeroDaQuestao+1
