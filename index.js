@@ -333,7 +333,7 @@ function fimDoJogo() {
         aviso.textContent = avisoFinal;
     }
 
-    if(pontos_j1 === pontos_j2) {
+    if(pontos_j1_num === pontos_j2_num) {
         let avisoFinal = `
             Parabéns ${j1.nome} e ${j2.nome}\n
             Tivemos um empate!
