@@ -19,6 +19,17 @@ let articleQuestoes = document.querySelector('.questoes')
 // ol li com as alternativas
 let alternativas = document.querySelector('#alternativas')
 
+// Botão jogar
+const botaoJogar = document.querySelector('.botao_jogar');
+
+botaoJogar.addEventListener('click', () => {
+    if (botaoJogar.disabled === true) {
+        console.log('função bloqueada');
+    } else {
+        console.log('botão jogar');
+    }
+})
+
 const q0 = {
     numQuestao   : 0,
     pergunta     : "Pergunta",
@@ -148,6 +159,7 @@ function verificarSeAcertou(nQuestao, resposta) {
 
     // bloquear a escolha de opcoes
     bloquearAlternativas()
+    botaoJogar.disabled = true;
 
     setTimeout(function() {
         //respostaEsta.textContent = '...'
@@ -157,7 +169,9 @@ function verificarSeAcertou(nQuestao, resposta) {
             console.log('Fim do Jogo!')
             fimDoJogo()
         } else {
-            proximaQuestao(proxima)
+            proximaQuestao(proxima);
+            botaoJogar.disabled = false;
+
         }
     }, 250)
     desbloquearAlternativas()
@@ -190,3 +204,4 @@ function fimDoJogo() {
         location.reload();
     }, 2000)
 }
+
