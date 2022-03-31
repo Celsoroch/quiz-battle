@@ -175,7 +175,6 @@ const questoes = [q0, q1, q2, q3, q4, q5, q6, q7];
 // Constante com uma array de objetos com os jogadores
 const jogadores = [j1, j2, j3];
 
-
 let numero = document.querySelector('#numero')
 let total  = document.querySelector('#total')
 
@@ -193,7 +192,6 @@ pontos_j1.textContent = 'Pontos: ' + pontos_j1_num;
 jogador2.textContent = j2.nome
 pontos_j2.textContent = 'Pontos: ' + pontos_j2_num;
 
-
 // MONTAR A 1a QUESTAO COMPLETA, para iniciar o Quiz
 // // Coloca o número da questão em azul
 numQuestao.textContent = q1.numQuestao
@@ -204,7 +202,6 @@ a.textContent = q1.alternativaA
 b.textContent = q1.alternativaB
 c.textContent = q1.alternativaC
 d.textContent = q1.alternativaD
-
 
 // CONFIGURAR O VALUE INICIAL DA 1a QUESTAO COMPLETA
 a.setAttribute('value', '1A')
@@ -219,20 +216,22 @@ function proximaQuestao(nQuestao) {
     // Abilita os botões
     botao_j1.disabled = false;
     botao_j2.disabled = false;
-    // Retorna para o padrão
-    // instrucoes.textContent = `Leia a questão e clique na resposta correta`;
 
     // coloca o número
     numero.textContent = nQuestao
+
     // Coloca o número da questão em azul
     numQuestao.textContent = questoes[nQuestao].numQuestao
+
     // Coloca o parametro da questão
     pergunta.textContent   = questoes[nQuestao].pergunta
+
     // Coloca o texto das alternativas
     a.textContent = questoes[nQuestao].alternativaA
     b.textContent = questoes[nQuestao].alternativaB
     c.textContent = questoes[nQuestao].alternativaC
     d.textContent = questoes[nQuestao].alternativaD
+
     // Configura o value da questão
     a.setAttribute('value', nQuestao+'A')
     b.setAttribute('value', nQuestao+'B')
@@ -284,26 +283,18 @@ function verificarSeAcertou(nQuestao, resposta) {
             setTimeout(function() {
                 instrucoes.textContent = `Leia a questão e clique na resposta correta`;
             }, 100);
-            // pontos += 10 // pontos = pontos + 10
         } else {
             instrucoes.textContent = 'Errou, preste mais atenção!'
 
             setTimeout(function() {
                 instrucoes.textContent = `Leia a questão e clique na resposta correta`;
             }, 100);
-            //console.log("Errou!")
-            //respostaEsta.textContent = "Errada 😢"
         }
-    
-        // atualizar placar
-        // placar = pontos
-        // instrucoes.textContent = "Pontos " + placar
     
         // bloquear a escolha de opcoes
         bloquearAlternativas();
     
         setTimeout(function() {
-            //respostaEsta.textContent = '...'
             proxima = numeroDaQuestao+1
     
             if(proxima > totalDeQuestoes) {
@@ -360,11 +351,10 @@ function fimDoJogo() {
 
     // OCULTAR O ARTICLE DA QUESTAO
     articleQuestoes.style.display = 'none';
-    // divJogador1.style.display = 'none';
-    // divJogador2.style.display = 'none';
+    divJogador1.style.display = 'none';
+    divJogador2.style.display = 'none';
 
     setTimeout(function() {
-        // pontos = 0 // zerar placar
         pontos_j1_num = 0;
         pontos_j2_num = 0
         location.reload();
