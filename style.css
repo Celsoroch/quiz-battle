@@ -27,7 +27,7 @@ main {
 section {
     width: 100%;
     margin: 0 auto;
-    height: 600px;
+    height: 590px;
     padding: 1rem;
     margin-bottom: 0.625rem;
     display: flex;
@@ -65,10 +65,10 @@ h1 {
 
 /* article que acomoda a questao completa */
 .questoes {
-    padding: 1.5rem;
+    padding: 10px 50px;
     border: 1px solid #ececec;
     border-radius: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .questoes ol li {
@@ -109,9 +109,9 @@ h1 {
 
 .jogador1 {
     display: inline-block;
-    padding-top: 10px;
-    margin-left: 400px;
-    margin-right: 625px;
+    padding-top: 5px;
+    margin-left: 350px;
+    margin-right: 590px;
 }
 
 .jogador2 {
@@ -122,8 +122,7 @@ h1 {
     color: whitesmoke;
     background: #045c85;
     height: 50px;
-    /* padding-bottom: 10px; */
-    /* margin-bottom: 10px; */
+    margin-top: 5px;
 }
 
 .botao_jogar:hover {
@@ -131,8 +130,10 @@ h1 {
     cursor: pointer;
 }
 
-#pontos {
-    padding-bottom: 5px;
+.pontos_1, .pontos_2 {
+    color:#00b0ff;
+    background-color: #ececec;
+    margin-top: 0px;
 }
 
 /* ANIMACAO */
