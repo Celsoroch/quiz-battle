@@ -1,9 +1,7 @@
 let titulo = document.querySelector('h1')
 let instrucoes = document.querySelector('#instrucoes')
 let aviso = document.querySelector('#aviso')
-//let respostaEsta = document.querySelector('#respostaEsta')
-let pontos = 0 // pontos para o placar
-let placar = 0 // placar
+
 
 // PERGUNTA
 let numQuestao = document.querySelector('#numQuestao')
@@ -17,6 +15,7 @@ let d = document.querySelector('#d')
 
 // article com a class questoes
 let articleQuestoes = document.querySelector('.questoes')
+
 // ol li com as alternativas
 let alternativas = document.querySelector('#alternativas')
 
@@ -29,16 +28,18 @@ let jogador2 = document.querySelector('.nome_jogador_2');
 // Botão jogadores
 let botao_j1 = document.querySelector('.botao_j1');
 let botao_j2 = document.querySelector('.botao_j2');
+
 // configura botões
 let clicou = ''
-// 1
+
+// // 1
 botao_j1.addEventListener('click', () => {
     instrucoes.textContent = `${jogador1.textContent} joga!`
     clicou = 'jogador1'
     botao_j2.disabled = true;
     clicouPrajogar = true
 });
-// 2
+// // 2
 botao_j2.addEventListener('click', () => {
     instrucoes.textContent = `${jogador2.textContent} joga!`
     clicou = 'jogador2'
@@ -55,7 +56,6 @@ let pontos_j2_num = 0;
 
 // Botão jogar
 const botaoJogar = document.querySelector('.botao_jogar');
-
 botaoJogar.addEventListener('click', () => {
     if (botaoJogar.disabled === true) {
         console.log('função bloqueada');
@@ -168,7 +168,10 @@ const questoes = [q0, q1, q2, q3, q4, q5, q6, q7];
 // Constante com uma array de objetos com os jogadores
 const jogadores = [j1, j2];
 
-let numero = document.querySelector('#numero')
+// número 
+let numero = document.querySelector('#numero');
+
+// total
 let total  = document.querySelector('#total')
 
 // Coloca um numero "1" de 7
@@ -212,7 +215,7 @@ function proximaQuestao(nQuestao) {
     botao_j1.disabled = false;
     botao_j2.disabled = false;
 
-    // 
+    // ja cliclou
     jaClicouPraJogar = false;
 
     // coloca o número
@@ -237,20 +240,7 @@ function proximaQuestao(nQuestao) {
     d.setAttribute('value', nQuestao+'D');
 }
 
-function bloquearAlternativas() {
-    a.classList.add('bloqueado')
-    b.classList.add('bloqueado')
-    c.classList.add('bloqueado')
-    d.classList.add('bloqueado')
-}
-
-function desbloquearAlternativas() {
-    a.classList.remove('bloqueado')
-    b.classList.remove('bloqueado')
-    c.classList.remove('bloqueado')
-    d.classList.remove('bloqueado')
-}
-
+// Verifica se já foi escolhida a resposta certa
 let jaClicouPraJogar = false;
 function chamaAcertou(nQuestao, resposta) {
     if(jaClicouPraJogar === false) {
@@ -260,12 +250,12 @@ function chamaAcertou(nQuestao, resposta) {
     }
 }
 
+// Verifica se acertou a resposta
 let clicouPrajogar = false;
 function verificarSeAcertou(nQuestao, resposta) {
 
     if (clicouPrajogar === true) {
         jaClicouPraJogar = true;
-        bloquearAlternativas();
         let numeroDaQuestao = nQuestao.value
         console.log("Questão " + numeroDaQuestao)
     
@@ -299,9 +289,6 @@ function verificarSeAcertou(nQuestao, resposta) {
             }, 5000);
         }
     
-        // bloquear a escolha de opcoes
-        // bloquearAlternativas();
-    
         setTimeout(function() {
             proxima = numeroDaQuestao+1
     
@@ -314,7 +301,6 @@ function verificarSeAcertou(nQuestao, resposta) {
     
             }
         }, 5000)
-        desbloquearAlternativas()
     } else {
         alert('Calma!!, quem clicar primeiro joga!')
     }
@@ -327,7 +313,7 @@ function fimDoJogo() {
 
     if(pontos_j1_num > pontos_j2_num) {
         let pont = ''
-        pontos == 0 ? pont = 'ponto' : pont = 'pontos'
+        pontos_j2 == 0 ? pont = 'ponto' : pont = 'pontos'
 
         let avisoFinal = `
             Parabéns ${j1.nome}\n
@@ -338,11 +324,19 @@ function fimDoJogo() {
 
     if (pontos_j2_num > pontos_j1_num) {
         let pont = ''
-        pontos == 0 ? pont = 'ponto' : pont = 'pontos'
+        pontos_j2 == 0 ? pont = 'ponto' : pont = 'pontos'
 
         let avisoFinal = `
             Parabéns ${j2.nome}\n
             Você conseguiu ${pontos_j2_num} ${pont}
+        `
+        aviso.textContent = avisoFinal;
+    }
+
+    if(pontos_j1 === pontos_j2) {
+        let avisoFinal = `
+            Parabéns ${j1.nome} e ${j2.nome}\n
+            Tivemos um empate!
         `
         aviso.textContent = avisoFinal;
     }
@@ -362,6 +356,7 @@ function fimDoJogo() {
     divJogador1.style.display = 'none';
     divJogador2.style.display = 'none';
 
+    // Faz com que a página recarregue
     setTimeout(function() {
         pontos_j1_num = 0;
         pontos_j2_num = 0
