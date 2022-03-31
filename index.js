@@ -161,19 +161,12 @@ const j2 = {
     email: "messiLio@gmail.com",
     idade: "35"
 }
-const j3 = {
-    id: "3C38",
-    nome: "Cristiano",
-    sobreome: "Ronaldo",
-    email: "crisRonaldo@gmail.com",
-    idade: "38"
-}
 
 // Constante com uma arrau de objetos com as questões
 const questoes = [q0, q1, q2, q3, q4, q5, q6, q7];
 
 // Constante com uma array de objetos com os jogadores
-const jogadores = [j1, j2, j3];
+const jogadores = [j1, j2];
 
 let numero = document.querySelector('#numero')
 let total  = document.querySelector('#total')
@@ -195,8 +188,10 @@ pontos_j2.textContent = 'Pontos: ' + pontos_j2_num;
 // MONTAR A 1a QUESTAO COMPLETA, para iniciar o Quiz
 // // Coloca o número da questão em azul
 numQuestao.textContent = q1.numQuestao
+
 // // Coloca o parametro da questão 
 pergunta.textContent   = q1.pergunta
+
 // // Coloca o texto das alternativas
 a.textContent = q1.alternativaA
 b.textContent = q1.alternativaB
@@ -282,13 +277,13 @@ function verificarSeAcertou(nQuestao, resposta) {
 
             setTimeout(function() {
                 instrucoes.textContent = `Leia a questão e clique na resposta correta`;
-            }, 100);
+            }, 5000);
         } else {
             instrucoes.textContent = 'Errou, preste mais atenção!'
 
             setTimeout(function() {
                 instrucoes.textContent = `Leia a questão e clique na resposta correta`;
-            }, 100);
+            }, 5000);
         }
     
         // bloquear a escolha de opcoes
@@ -305,7 +300,7 @@ function verificarSeAcertou(nQuestao, resposta) {
                 botaoJogar.disabled = false;
     
             }
-        }, 100)
+        }, 5000)
         desbloquearAlternativas()
     } else {
         alert('Calma!!, quem clicar primeiro joga!')
@@ -358,5 +353,5 @@ function fimDoJogo() {
         pontos_j1_num = 0;
         pontos_j2_num = 0
         location.reload();
-    }, 200000)
+    }, 10000)
 }
