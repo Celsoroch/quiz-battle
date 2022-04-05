@@ -4,15 +4,29 @@
   "description": "Projeto ADS 5º semestre.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack -w"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Celsoroch/quiz-battle.git"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "babel-loader": "^8.2.2",
+    "webpack": "^5.58.2",
+    "webpack-cli": "^4.9.1"
+  },
+  "dependencies": {
+    "core-js": "^3.18.3",
+    "css-loader": "^6.4.0",
+    "regenerator-runtime": "^0.13.9",
+    "style-loader": "^3.3.0"
+  },
   "bugs": {
     "url": "https://github.com/Celsoroch/quiz-battle/issues"
   },

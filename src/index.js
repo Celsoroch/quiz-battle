@@ -1,3 +1,5 @@
+import './assets/css/styles.css';
+
 let titulo = document.querySelector('h1');
 let instrucoes = document.querySelector('#instrucoes');
 let aviso = document.querySelector('#aviso');
@@ -27,6 +29,35 @@ let jogador2 = document.querySelector('.nome_jogador_2');
 // Botão jogadores
 let botao_j1 = document.querySelector('.botao_j1');
 let botao_j2 = document.querySelector('.botao_j2');
+
+// Seta respostas
+const respostaA = document.querySelector('.respostaA');
+const respostaB = document.querySelector('.respostaB');
+const respostaC = document.querySelector('.respostaC');
+const respostaD = document.querySelector('.respostaD');
+
+// Configura respostas
+let jaClicouPraJogar = false;
+respostaA.addEventListener('click', () => {
+    let nQuestao = a;
+    let resposta = a;
+    chamaAcertou(nQuestao, resposta);
+});
+respostaB.addEventListener('click', () => {
+    let nQuestao = b;
+    let resposta = b;
+    chamaAcertou(nQuestao, resposta);
+});
+respostaC.addEventListener('click', () => {
+    let nQuestao = c;
+    let resposta = c;
+    chamaAcertou(nQuestao, resposta);
+});
+respostaD.addEventListener('click', () => {
+    let nQuestao = d;
+    let resposta = d;
+    chamaAcertou(nQuestao, resposta);
+});
 
 // configura botões
 let clicou = '';
@@ -229,7 +260,6 @@ function proximaQuestao(nQuestao) {
 };
 
 // Verifica se já foi escolhida a resposta certa
-let jaClicouPraJogar = false;
 function chamaAcertou(nQuestao, resposta) {
     if(jaClicouPraJogar === false) {
         verificarSeAcertou(nQuestao, resposta);
@@ -278,7 +308,7 @@ function verificarSeAcertou(nQuestao, resposta) {
         };
     
         setTimeout(function() {
-            proxima = numeroDaQuestao+1;
+            let proxima = numeroDaQuestao+1;
     
             if(proxima > totalDeQuestoes) {
                 console.log('Fim do Jogo!');

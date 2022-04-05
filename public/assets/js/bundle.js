@@ -1,0 +1,962 @@
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/assets/css/styles.css":
+/*!*************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/assets/css/styles.css ***!
+  \*************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap);"]);
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\r\n/* Aula 20 Maia Quiz */\r\n\r\n* {\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\r\n    font-family: 'Roboto', sans-serif;\r\n    font-size: 1.25rem;\r\n}\r\n\r\nbody {\r\n    width: 100vw;\r\n    height: 100vh;\r\n    background: #222;\r\n    color: #fff;\r\n}\r\n\r\nmain {\r\n    width: 100%;\r\n    height: 100%;\r\n    padding: 1rem; /* espacamento interno */\r\n}\r\n\r\nsection {\r\n    width: 100%;\r\n    margin: 0 auto;\r\n    height: 590px;\r\n    padding: 1rem;\r\n    margin-bottom: 0.625rem;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\nh1 {\r\n    text-align: center;\r\n    font-size: 1.75rem;\r\n    margin: 0.625rem;\r\n}\r\n\r\n.centro {\r\n    text-align: center;\r\n}\r\n\r\n.questao {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n}\r\n\r\n#numQuestao {\r\n    display: block;\r\n    background: #00b0ff;\r\n    padding: 4px 10px 2px 10px;\r\n    border-radius: 50%;\r\n}\r\n\r\n#pergunta {\r\n    margin-left: 1rem;\r\n}\r\n\r\n/* article que acomoda a questao completa */\r\n.questoes {\r\n    padding: 10px 50px;\r\n    border: 1px solid #ececec;\r\n    border-radius: 5px;\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.questoes ol li {\r\n    display: block;\r\n    margin: 1rem;\r\n    padding: 1rem;\r\n    border-radius: 8px;\r\n}\r\n\r\n.questoes ol li:hover {\r\n    background: #00b0ff;\r\n    cursor: pointer;\r\n}\r\n\r\n.bloqueado {\r\n    display: none;\r\n}\r\n\r\n.bloqueado li:hover {\r\n    display: none;\r\n}\r\n\r\n#instrucoes {\r\n    background: #ccc;\r\n    color: #191919;\r\n    padding: 0.625rem;\r\n    border-radius: 8px;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    margin-bottom: 1rem;\r\n    animation: piscar .75s infinite alternate;\r\n}\r\n\r\n#aviso {\r\n    color: #00b0ff;\r\n}\r\n\r\n.jogador1 {\r\n    display: inline-block;\r\n    padding-top: 5px;\r\n    margin-left: 350px;\r\n    margin-right: 590px;\r\n}\r\n\r\n.jogador2 {\r\n    display: inline-block;\r\n}\r\n\r\n.botao_jogar{\r\n    color: whitesmoke;\r\n    background: #045c85;\r\n    height: 50px;\r\n    margin-top: 5px;\r\n}\r\n\r\n.botao_jogar:hover {\r\n    background: #00b0ff;\r\n    cursor: pointer;\r\n}\r\n\r\n.pontos_1, .pontos_2 {\r\n    color:#00b0ff;\r\n    background-color: #ececec;\r\n    margin-top: 0px;\r\n}\r\n\r\n/* ANIMACAO */\r\n\r\n/* Animar o input */\r\n@keyframes piscar {\r\n    0% {\r\n        filter: drop-shadow(0 0 15px #00b0ff);\r\n        -webkit-filter: drop-shadow(0 0 15px #00b0ff);\r\n        -moz-filter: drop-shadow(0 0 15px #00b0ff);\r\n        -o-filter: drop-shadow(0 0 15px #00b0ff);\r\n        -ms-filter: drop-shadow(0 0 15px #00b0ff);\r\n    }\r\n    100% {\r\n    }\r\n}\r\n\r\n.animar {\r\n    animation: piscar .75s infinite alternate;\r\n}\r\n\r\n.aparecer {\r\n    animation: aparecer .5s infinite alternate;\r\n}\r\n\r\n@keyframes aparecer {\r\n    0% {\r\n        opacity: 0\r\n    }\r\n    100% {\r\n        opacity: 1\r\n    }\r\n}\r\n", "",{"version":3,"sources":["webpack://./src/assets/css/styles.css"],"names":[],"mappings":";AACA,sBAAsB;;AAItB;IACI,SAAS;IACT,UAAU;IACV,sBAAsB;IACtB,iCAAiC;IACjC,kBAAkB;AACtB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,gBAAgB;IAChB,WAAW;AACf;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,aAAa,EAAE,wBAAwB;AAC3C;;AAEA;IACI,WAAW;IACX,cAAc;IACd,aAAa;IACb,aAAa;IACb,uBAAuB;IACvB,aAAa;IACb,sBAAsB;IACtB,uBAAuB;IACvB,mBAAmB;AACvB;;AAEA;IACI,kBAAkB;IAClB,kBAAkB;IAClB,gBAAgB;AACpB;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,aAAa;IACb,mBAAmB;IACnB,8BAA8B;AAClC;;AAEA;IACI,cAAc;IACd,mBAAmB;IACnB,0BAA0B;IAC1B,kBAAkB;AACtB;;AAEA;IACI,iBAAiB;AACrB;;AAEA,2CAA2C;AAC3C;IACI,kBAAkB;IAClB,yBAAyB;IACzB,kBAAkB;IAClB,mBAAmB;AACvB;;AAEA;IACI,cAAc;IACd,YAAY;IACZ,aAAa;IACb,kBAAkB;AACtB;;AAEA;IACI,mBAAmB;IACnB,eAAe;AACnB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,gBAAgB;IAChB,cAAc;IACd,iBAAiB;IACjB,kBAAkB;;IAElB,aAAa;IACb,uBAAuB;IACvB,mBAAmB;IACnB,yCAAyC;AAC7C;;AAEA;IACI,cAAc;AAClB;;AAEA;IACI,qBAAqB;IACrB,gBAAgB;IAChB,kBAAkB;IAClB,mBAAmB;AACvB;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,iBAAiB;IACjB,mBAAmB;IACnB,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,mBAAmB;IACnB,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,yBAAyB;IACzB,eAAe;AACnB;;AAEA,aAAa;;AAEb,mBAAmB;AACnB;IACI;QACI,qCAAqC;QACrC,6CAA6C;QAC7C,0CAA0C;QAC1C,wCAAwC;QACxC,yCAAyC;IAC7C;IACA;IACA;AACJ;;AAEA;IACI,yCAAyC;AAC7C;;AAEA;IACI,0CAA0C;AAC9C;;AAEA;IACI;QACI;IACJ;IACA;QACI;IACJ;AACJ","sourcesContent":["\r\n/* Aula 20 Maia Quiz */\r\n\r\n@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');\r\n\r\n* {\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\r\n    font-family: 'Roboto', sans-serif;\r\n    font-size: 1.25rem;\r\n}\r\n\r\nbody {\r\n    width: 100vw;\r\n    height: 100vh;\r\n    background: #222;\r\n    color: #fff;\r\n}\r\n\r\nmain {\r\n    width: 100%;\r\n    height: 100%;\r\n    padding: 1rem; /* espacamento interno */\r\n}\r\n\r\nsection {\r\n    width: 100%;\r\n    margin: 0 auto;\r\n    height: 590px;\r\n    padding: 1rem;\r\n    margin-bottom: 0.625rem;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\nh1 {\r\n    text-align: center;\r\n    font-size: 1.75rem;\r\n    margin: 0.625rem;\r\n}\r\n\r\n.centro {\r\n    text-align: center;\r\n}\r\n\r\n.questao {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n}\r\n\r\n#numQuestao {\r\n    display: block;\r\n    background: #00b0ff;\r\n    padding: 4px 10px 2px 10px;\r\n    border-radius: 50%;\r\n}\r\n\r\n#pergunta {\r\n    margin-left: 1rem;\r\n}\r\n\r\n/* article que acomoda a questao completa */\r\n.questoes {\r\n    padding: 10px 50px;\r\n    border: 1px solid #ececec;\r\n    border-radius: 5px;\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.questoes ol li {\r\n    display: block;\r\n    margin: 1rem;\r\n    padding: 1rem;\r\n    border-radius: 8px;\r\n}\r\n\r\n.questoes ol li:hover {\r\n    background: #00b0ff;\r\n    cursor: pointer;\r\n}\r\n\r\n.bloqueado {\r\n    display: none;\r\n}\r\n\r\n.bloqueado li:hover {\r\n    display: none;\r\n}\r\n\r\n#instrucoes {\r\n    background: #ccc;\r\n    color: #191919;\r\n    padding: 0.625rem;\r\n    border-radius: 8px;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    margin-bottom: 1rem;\r\n    animation: piscar .75s infinite alternate;\r\n}\r\n\r\n#aviso {\r\n    color: #00b0ff;\r\n}\r\n\r\n.jogador1 {\r\n    display: inline-block;\r\n    padding-top: 5px;\r\n    margin-left: 350px;\r\n    margin-right: 590px;\r\n}\r\n\r\n.jogador2 {\r\n    display: inline-block;\r\n}\r\n\r\n.botao_jogar{\r\n    color: whitesmoke;\r\n    background: #045c85;\r\n    height: 50px;\r\n    margin-top: 5px;\r\n}\r\n\r\n.botao_jogar:hover {\r\n    background: #00b0ff;\r\n    cursor: pointer;\r\n}\r\n\r\n.pontos_1, .pontos_2 {\r\n    color:#00b0ff;\r\n    background-color: #ececec;\r\n    margin-top: 0px;\r\n}\r\n\r\n/* ANIMACAO */\r\n\r\n/* Animar o input */\r\n@keyframes piscar {\r\n    0% {\r\n        filter: drop-shadow(0 0 15px #00b0ff);\r\n        -webkit-filter: drop-shadow(0 0 15px #00b0ff);\r\n        -moz-filter: drop-shadow(0 0 15px #00b0ff);\r\n        -o-filter: drop-shadow(0 0 15px #00b0ff);\r\n        -ms-filter: drop-shadow(0 0 15px #00b0ff);\r\n    }\r\n    100% {\r\n    }\r\n}\r\n\r\n.animar {\r\n    animation: piscar .75s infinite alternate;\r\n}\r\n\r\n.aparecer {\r\n    animation: aparecer .5s infinite alternate;\r\n}\r\n\r\n@keyframes aparecer {\r\n    0% {\r\n        opacity: 0\r\n    }\r\n    100% {\r\n        opacity: 1\r\n    }\r\n}\r\n"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/api.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+*/
+module.exports = function (cssWithMappingToString) {
+  var list = []; // return the list of modules as css string
+
+  list.toString = function toString() {
+    return this.map(function (item) {
+      var content = "";
+      var needLayer = typeof item[5] !== "undefined";
+
+      if (item[4]) {
+        content += "@supports (".concat(item[4], ") {");
+      }
+
+      if (item[2]) {
+        content += "@media ".concat(item[2], " {");
+      }
+
+      if (needLayer) {
+        content += "@layer".concat(item[5].length > 0 ? " ".concat(item[5]) : "", " {");
+      }
+
+      content += cssWithMappingToString(item);
+
+      if (needLayer) {
+        content += "}";
+      }
+
+      if (item[2]) {
+        content += "}";
+      }
+
+      if (item[4]) {
+        content += "}";
+      }
+
+      return content;
+    }).join("");
+  }; // import a list of modules into the list
+
+
+  list.i = function i(modules, media, dedupe, supports, layer) {
+    if (typeof modules === "string") {
+      modules = [[null, modules, undefined]];
+    }
+
+    var alreadyImportedModules = {};
+
+    if (dedupe) {
+      for (var k = 0; k < this.length; k++) {
+        var id = this[k][0];
+
+        if (id != null) {
+          alreadyImportedModules[id] = true;
+        }
+      }
+    }
+
+    for (var _k = 0; _k < modules.length; _k++) {
+      var item = [].concat(modules[_k]);
+
+      if (dedupe && alreadyImportedModules[item[0]]) {
+        continue;
+      }
+
+      if (typeof layer !== "undefined") {
+        if (typeof item[5] === "undefined") {
+          item[5] = layer;
+        } else {
+          item[1] = "@layer".concat(item[5].length > 0 ? " ".concat(item[5]) : "", " {").concat(item[1], "}");
+          item[5] = layer;
+        }
+      }
+
+      if (media) {
+        if (!item[2]) {
+          item[2] = media;
+        } else {
+          item[1] = "@media ".concat(item[2], " {").concat(item[1], "}");
+          item[2] = media;
+        }
+      }
+
+      if (supports) {
+        if (!item[4]) {
+          item[4] = "".concat(supports);
+        } else {
+          item[1] = "@supports (".concat(item[4], ") {").concat(item[1], "}");
+          item[4] = supports;
+        }
+      }
+
+      list.push(item);
+    }
+  };
+
+  return list;
+};
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/sourceMaps.js":
+/*!************************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/sourceMaps.js ***!
+  \************************************************************/
+/***/ ((module) => {
+
+
+
+module.exports = function (item) {
+  var content = item[1];
+  var cssMapping = item[3];
+
+  if (!cssMapping) {
+    return content;
+  }
+
+  if (typeof btoa === "function") {
+    var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(cssMapping))));
+    var data = "sourceMappingURL=data:application/json;charset=utf-8;base64,".concat(base64);
+    var sourceMapping = "/*# ".concat(data, " */");
+    var sourceURLs = cssMapping.sources.map(function (source) {
+      return "/*# sourceURL=".concat(cssMapping.sourceRoot || "").concat(source, " */");
+    });
+    return [content].concat(sourceURLs).concat([sourceMapping]).join("\n");
+  }
+
+  return [content].join("\n");
+};
+
+/***/ }),
+
+/***/ "./src/assets/css/styles.css":
+/*!***********************************!*\
+  !*** ./src/assets/css/styles.css ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_styles_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js!./styles.css */ "./node_modules/css-loader/dist/cjs.js!./src/assets/css/styles.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_styles_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_styles_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_styles_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_styles_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
+  \****************************************************************************/
+/***/ ((module) => {
+
+
+
+var stylesInDOM = [];
+
+function getIndexByIdentifier(identifier) {
+  var result = -1;
+
+  for (var i = 0; i < stylesInDOM.length; i++) {
+    if (stylesInDOM[i].identifier === identifier) {
+      result = i;
+      break;
+    }
+  }
+
+  return result;
+}
+
+function modulesToDom(list, options) {
+  var idCountMap = {};
+  var identifiers = [];
+
+  for (var i = 0; i < list.length; i++) {
+    var item = list[i];
+    var id = options.base ? item[0] + options.base : item[0];
+    var count = idCountMap[id] || 0;
+    var identifier = "".concat(id, " ").concat(count);
+    idCountMap[id] = count + 1;
+    var indexByIdentifier = getIndexByIdentifier(identifier);
+    var obj = {
+      css: item[1],
+      media: item[2],
+      sourceMap: item[3],
+      supports: item[4],
+      layer: item[5]
+    };
+
+    if (indexByIdentifier !== -1) {
+      stylesInDOM[indexByIdentifier].references++;
+      stylesInDOM[indexByIdentifier].updater(obj);
+    } else {
+      var updater = addElementStyle(obj, options);
+      options.byIndex = i;
+      stylesInDOM.splice(i, 0, {
+        identifier: identifier,
+        updater: updater,
+        references: 1
+      });
+    }
+
+    identifiers.push(identifier);
+  }
+
+  return identifiers;
+}
+
+function addElementStyle(obj, options) {
+  var api = options.domAPI(options);
+  api.update(obj);
+
+  var updater = function updater(newObj) {
+    if (newObj) {
+      if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap && newObj.supports === obj.supports && newObj.layer === obj.layer) {
+        return;
+      }
+
+      api.update(obj = newObj);
+    } else {
+      api.remove();
+    }
+  };
+
+  return updater;
+}
+
+module.exports = function (list, options) {
+  options = options || {};
+  list = list || [];
+  var lastIdentifiers = modulesToDom(list, options);
+  return function update(newList) {
+    newList = newList || [];
+
+    for (var i = 0; i < lastIdentifiers.length; i++) {
+      var identifier = lastIdentifiers[i];
+      var index = getIndexByIdentifier(identifier);
+      stylesInDOM[index].references--;
+    }
+
+    var newLastIdentifiers = modulesToDom(newList, options);
+
+    for (var _i = 0; _i < lastIdentifiers.length; _i++) {
+      var _identifier = lastIdentifiers[_i];
+
+      var _index = getIndexByIdentifier(_identifier);
+
+      if (stylesInDOM[_index].references === 0) {
+        stylesInDOM[_index].updater();
+
+        stylesInDOM.splice(_index, 1);
+      }
+    }
+
+    lastIdentifiers = newLastIdentifiers;
+  };
+};
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/insertBySelector.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/insertBySelector.js ***!
+  \********************************************************************/
+/***/ ((module) => {
+
+
+
+var memo = {};
+/* istanbul ignore next  */
+
+function getTarget(target) {
+  if (typeof memo[target] === "undefined") {
+    var styleTarget = document.querySelector(target); // Special case to return head of iframe instead of iframe itself
+
+    if (window.HTMLIFrameElement && styleTarget instanceof window.HTMLIFrameElement) {
+      try {
+        // This will throw an exception if access to iframe is blocked
+        // due to cross-origin restrictions
+        styleTarget = styleTarget.contentDocument.head;
+      } catch (e) {
+        // istanbul ignore next
+        styleTarget = null;
+      }
+    }
+
+    memo[target] = styleTarget;
+  }
+
+  return memo[target];
+}
+/* istanbul ignore next  */
+
+
+function insertBySelector(insert, style) {
+  var target = getTarget(insert);
+
+  if (!target) {
+    throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");
+  }
+
+  target.appendChild(style);
+}
+
+module.exports = insertBySelector;
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/insertStyleElement.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/insertStyleElement.js ***!
+  \**********************************************************************/
+/***/ ((module) => {
+
+
+
+/* istanbul ignore next  */
+function insertStyleElement(options) {
+  var element = document.createElement("style");
+  options.setAttributes(element, options.attributes);
+  options.insert(element, options.options);
+  return element;
+}
+
+module.exports = insertStyleElement;
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js":
+/*!**********************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js ***!
+  \**********************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+
+
+/* istanbul ignore next  */
+function setAttributesWithoutAttributes(styleElement) {
+  var nonce =  true ? __webpack_require__.nc : 0;
+
+  if (nonce) {
+    styleElement.setAttribute("nonce", nonce);
+  }
+}
+
+module.exports = setAttributesWithoutAttributes;
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/styleDomAPI.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/styleDomAPI.js ***!
+  \***************************************************************/
+/***/ ((module) => {
+
+
+
+/* istanbul ignore next  */
+function apply(styleElement, options, obj) {
+  var css = "";
+
+  if (obj.supports) {
+    css += "@supports (".concat(obj.supports, ") {");
+  }
+
+  if (obj.media) {
+    css += "@media ".concat(obj.media, " {");
+  }
+
+  var needLayer = typeof obj.layer !== "undefined";
+
+  if (needLayer) {
+    css += "@layer".concat(obj.layer.length > 0 ? " ".concat(obj.layer) : "", " {");
+  }
+
+  css += obj.css;
+
+  if (needLayer) {
+    css += "}";
+  }
+
+  if (obj.media) {
+    css += "}";
+  }
+
+  if (obj.supports) {
+    css += "}";
+  }
+
+  var sourceMap = obj.sourceMap;
+
+  if (sourceMap && typeof btoa !== "undefined") {
+    css += "\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))), " */");
+  } // For old IE
+
+  /* istanbul ignore if  */
+
+
+  options.styleTagTransform(css, styleElement, options.options);
+}
+
+function removeStyleElement(styleElement) {
+  // istanbul ignore if
+  if (styleElement.parentNode === null) {
+    return false;
+  }
+
+  styleElement.parentNode.removeChild(styleElement);
+}
+/* istanbul ignore next  */
+
+
+function domAPI(options) {
+  var styleElement = options.insertStyleElement(options);
+  return {
+    update: function update(obj) {
+      apply(styleElement, options, obj);
+    },
+    remove: function remove() {
+      removeStyleElement(styleElement);
+    }
+  };
+}
+
+module.exports = domAPI;
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/runtime/styleTagTransform.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/style-loader/dist/runtime/styleTagTransform.js ***!
+  \*********************************************************************/
+/***/ ((module) => {
+
+
+
+/* istanbul ignore next  */
+function styleTagTransform(css, styleElement) {
+  if (styleElement.styleSheet) {
+    styleElement.styleSheet.cssText = css;
+  } else {
+    while (styleElement.firstChild) {
+      styleElement.removeChild(styleElement.firstChild);
+    }
+
+    styleElement.appendChild(document.createTextNode(css));
+  }
+}
+
+module.exports = styleTagTransform;
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			id: moduleId,
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _assets_css_styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/css/styles.css */ "./src/assets/css/styles.css");
+
+var titulo = document.querySelector('h1');
+var instrucoes = document.querySelector('#instrucoes');
+var aviso = document.querySelector('#aviso'); // PERGUNTA
+
+var numQuestao = document.querySelector('#numQuestao');
+var pergunta = document.querySelector('#pergunta'); // ALTERNATIVAS
+
+var a = document.querySelector('#a');
+var b = document.querySelector('#b');
+var c = document.querySelector('#c');
+var d = document.querySelector('#d'); // article com a class questoes
+
+var articleQuestoes = document.querySelector('.questoes'); // ol li com as alternativas
+
+var alternativas = document.querySelector('#alternativas'); // Jogadores
+
+var divJogador1 = document.querySelector('.jogador1');
+var jogador1 = document.querySelector('.nome_jogador_1');
+var divJogador2 = document.querySelector('.jogador2');
+var jogador2 = document.querySelector('.nome_jogador_2'); // Botão jogadores
+
+var botao_j1 = document.querySelector('.botao_j1');
+var botao_j2 = document.querySelector('.botao_j2'); // Seta respostas
+
+var respostaA = document.querySelector('.respostaA');
+var respostaB = document.querySelector('.respostaB');
+var respostaC = document.querySelector('.respostaC');
+var respostaD = document.querySelector('.respostaD'); // Configura respostas
+
+var jaClicouPraJogar = false;
+respostaA.addEventListener('click', function () {
+  var nQuestao = a;
+  var resposta = a;
+  chamaAcertou(nQuestao, resposta);
+});
+respostaB.addEventListener('click', function () {
+  var nQuestao = b;
+  var resposta = b;
+  chamaAcertou(nQuestao, resposta);
+});
+respostaC.addEventListener('click', function () {
+  var nQuestao = c;
+  var resposta = c;
+  chamaAcertou(nQuestao, resposta);
+});
+respostaD.addEventListener('click', function () {
+  var nQuestao = d;
+  var resposta = d;
+  chamaAcertou(nQuestao, resposta);
+}); // configura botões
+
+var clicou = ''; // // 1
+
+botao_j1.addEventListener('click', function () {
+  instrucoes.textContent = "".concat(jogador1.textContent, " joga!");
+  clicou = 'jogador1';
+  botao_j2.disabled = true;
+  clicouPrajogar = true;
+}); // // 2
+
+botao_j2.addEventListener('click', function () {
+  instrucoes.textContent = "".concat(jogador2.textContent, " joga!");
+  clicou = 'jogador2';
+  botao_j1.disabled = true;
+  clicouPrajogar = true;
+}); // Pontos jogadores
+
+var pontos_j1 = document.querySelector('.pontos_1');
+var pontos_j1_num = 0;
+var pontos_j2 = document.querySelector('.pontos_2');
+var pontos_j2_num = 0; // Questões
+
+var q0 = {
+  numQuestao: 0,
+  pergunta: "Pergunta",
+  alternativaA: "Alternativa A",
+  alternativaB: "Alternativa B",
+  alternativaC: "Alternativa C",
+  alternativaD: "Alternativa D",
+  correta: "0"
+};
+var q1 = {
+  numQuestao: 1,
+  pergunta: "Qual filósofo grego pediu que Alexandre, o Grande, saísse da frente do sol, quando questionado sobre qual era o seu maior desejo?",
+  alternativaA: "Epicuro",
+  alternativaB: "Diógenes",
+  alternativaC: "Epiteto",
+  alternativaD: "Sócrates",
+  correta: "Diógenes"
+};
+var q2 = {
+  numQuestao: 2,
+  pergunta: "Quem foi o Ultímo presidente antes do Golpe Militar de 1964?",
+  alternativaA: "Jânio Quadros",
+  alternativaB: "Jacinto Anjos",
+  alternativaC: "Getúlio Vargas",
+  alternativaD: "João Goulart",
+  correta: "João Goulart"
+};
+var q3 = {
+  numQuestao: 3,
+  pergunta: "Quem é o autor de “O Príncipe”?",
+  alternativaA: "Maquiavel",
+  alternativaB: "Antoine de Saint-Exupéry",
+  alternativaC: "Montesquieu",
+  alternativaD: "Thomas Hobbes",
+  correta: "Maquiavel"
+};
+var q4 = {
+  numQuestao: 4,
+  pergunta: "Quem foi o Autor(a) de Frankenstein?",
+  alternativaA: "H.P Lovecratf",
+  alternativaB: "Mary Ann Shelly",
+  alternativaC: "Bram Stoker",
+  alternativaD: "Ian Fleming",
+  correta: "Mary Ann Shelly"
+};
+var q5 = {
+  numQuestao: 5,
+  pergunta: "Em que ano terminou a Primeira Guerra Mundial?",
+  alternativaA: "1917",
+  alternativaB: "1915",
+  alternativaC: "1920",
+  alternativaD: "1914",
+  correta: "1914"
+};
+var q6 = {
+  numQuestao: 6,
+  pergunta: "Quem pintou Noite Estrelada?",
+  alternativaA: "Leonardo da Vinci",
+  alternativaB: "Pablo Picasso",
+  alternativaC: "Van Gogh",
+  alternativaD: "Tarsila do Amaral",
+  correta: "Van Gogh"
+};
+var q7 = {
+  numQuestao: 7,
+  pergunta: "Júpiter e Plutão são os correlatos romanos de quais deuses gregos?",
+  alternativaA: "Ares e Hermes",
+  alternativaB: "Cronos e Apolo",
+  alternativaC: "Zeus e Hades",
+  alternativaD: "Dionísio e Deméter",
+  correta: "Zeus e Hades"
+}; // Jogadores
+
+var j1 = {
+  id: "1N33",
+  nome: "Neymar",
+  sobreome: "Júnior",
+  email: "neyjunior@gmail.com",
+  idade: "33"
+};
+var j2 = {
+  id: "1M35",
+  nome: "Messi",
+  sobreome: "Lionel",
+  email: "messiLio@gmail.com",
+  idade: "35"
+}; // Constante com uma arrau de objetos com as questões
+
+var questoes = [q0, q1, q2, q3, q4, q5, q6, q7]; // Constante com uma array de objetos com os jogadores
+
+var jogadores = [j1, j2]; // número 
+
+var numero = document.querySelector('#numero'); // total
+
+var total = document.querySelector('#total'); // Coloca um numero "1" de 7
+
+numero.textContent = q1.numQuestao; // Coloca o número 1 de "7"
+
+var totalDeQuestoes = questoes.length - 1;
+console.log("Total de questões " + totalDeQuestoes);
+total.textContent = totalDeQuestoes; // Monta o jogador1 
+
+jogador1.textContent = j1.nome;
+pontos_j1.textContent = 'Pontos: ' + pontos_j1_num;
+jogador2.textContent = j2.nome;
+pontos_j2.textContent = 'Pontos: ' + pontos_j2_num; // MONTAR A 1a QUESTAO COMPLETA, para iniciar o Quiz
+// // Coloca o número da questão em azul
+
+numQuestao.textContent = q1.numQuestao; // // Coloca o parametro da questão 
+
+pergunta.textContent = q1.pergunta; // // Coloca o texto das alternativas
+
+a.textContent = q1.alternativaA;
+b.textContent = q1.alternativaB;
+c.textContent = q1.alternativaC;
+d.textContent = q1.alternativaD; // CONFIGURAR O VALUE INICIAL DA 1a QUESTAO COMPLETA
+
+a.setAttribute('value', '1A');
+b.setAttribute('value', '1B');
+c.setAttribute('value', '1C');
+d.setAttribute('value', '1D'); // PARA MONTAR AS PROXIMAS QUESTOES
+
+function proximaQuestao(nQuestao) {
+  // Abilita o clicou para jogar
+  clicouPrajogar = false; // Abilita os botões
+
+  botao_j1.disabled = false;
+  botao_j2.disabled = false; // ja cliclou
+
+  jaClicouPraJogar = false; // coloca o número
+
+  numero.textContent = nQuestao; // Coloca o número da questão em azul
+
+  numQuestao.textContent = questoes[nQuestao].numQuestao; // Coloca o parametro da questão
+
+  pergunta.textContent = questoes[nQuestao].pergunta; // Coloca o texto das alternativas
+
+  a.textContent = questoes[nQuestao].alternativaA;
+  b.textContent = questoes[nQuestao].alternativaB;
+  c.textContent = questoes[nQuestao].alternativaC;
+  d.textContent = questoes[nQuestao].alternativaD; // Configura o value da questão
+
+  a.setAttribute('value', nQuestao + 'A');
+  b.setAttribute('value', nQuestao + 'B');
+  c.setAttribute('value', nQuestao + 'C');
+  d.setAttribute('value', nQuestao + 'D');
+}
+
+; // Verifica se já foi escolhida a resposta certa
+
+function chamaAcertou(nQuestao, resposta) {
+  if (jaClicouPraJogar === false) {
+    verificarSeAcertou(nQuestao, resposta);
+  } else {
+    alert('Você não pode clicar de novo!');
+  }
+
+  ;
+}
+
+; // Verifica se acertou a resposta
+
+var clicouPrajogar = false;
+
+function verificarSeAcertou(nQuestao, resposta) {
+  if (clicouPrajogar === true) {
+    jaClicouPraJogar = true;
+    var numeroDaQuestao = nQuestao.value;
+    console.log("Questão " + numeroDaQuestao); // Pega resposta escolhida
+
+    var respostaEscolhida = resposta.textContent; // Pega resposta certa
+
+    var certa = questoes[numeroDaQuestao].correta;
+
+    if (respostaEscolhida == certa) {
+      if (clicou === 'jogador1') {
+        pontos_j1_num += 10;
+        pontos_j1.textContent = 'Pontos: ' + pontos_j1_num;
+        console.log('Pontos jogador 1 ' + pontos_j1_num);
+      }
+
+      ;
+
+      if (clicou === 'jogador2') {
+        pontos_j2_num += 10;
+        pontos_j2.textContent = 'Pontos: ' + pontos_j2_num;
+        console.log('Pontos jogador 2 ' + pontos_j2_num);
+      }
+
+      ;
+      instrucoes.textContent = 'Acertou! Parabéns!';
+      setTimeout(function () {
+        instrucoes.textContent = "Leia a quest\xE3o e clique na resposta correta";
+      }, 5000);
+    } else {
+      instrucoes.textContent = 'Errou, preste mais atenção!';
+      setTimeout(function () {
+        instrucoes.textContent = "Leia a quest\xE3o e clique na resposta correta";
+      }, 5000);
+    }
+
+    ;
+    setTimeout(function () {
+      var proxima = numeroDaQuestao + 1;
+
+      if (proxima > totalDeQuestoes) {
+        console.log('Fim do Jogo!');
+        fimDoJogo();
+      } else {
+        proximaQuestao(proxima);
+      }
+
+      ;
+    }, 5000);
+  } else {
+    alert('Calma!!, quem clicar primeiro joga!');
+  }
+
+  ;
+}
+
+;
+
+function fimDoJogo() {
+  instrucoes.textContent = "Fim de Jogo!";
+  numQuestao.textContent = "";
+
+  if (pontos_j1_num > pontos_j2_num) {
+    var pont = '';
+    pontos_j1_num === 0 ? pont = 'ponto' : pont = 'pontos';
+    var avisoFinal = "\n            Parab\xE9ns ".concat(j1.nome, "\n\n            Voc\xEA conseguiu ").concat(pontos_j1_num, " ").concat(pont, "\n        ");
+    aviso.textContent = avisoFinal;
+  }
+
+  ;
+
+  if (pontos_j2_num > pontos_j1_num) {
+    var _pont = '';
+    pontos_j2_num === 0 ? _pont = 'ponto' : _pont = 'pontos';
+
+    var _avisoFinal = "\n            Parab\xE9ns ".concat(j2.nome, "\n\n            Voc\xEA conseguiu ").concat(pontos_j2_num, " ").concat(_pont, "\n        ");
+
+    aviso.textContent = _avisoFinal;
+  }
+
+  ;
+
+  if (pontos_j1_num === pontos_j2_num) {
+    var _avisoFinal2 = "\n            Parab\xE9ns ".concat(j1.nome, " e ").concat(j2.nome, "\n\n            Tivemos um empate!\n        ");
+
+    aviso.textContent = _avisoFinal2;
+  }
+
+  ;
+  a.textContent = "";
+  b.textContent = "";
+  c.textContent = "";
+  d.textContent = "";
+  a.setAttribute('value', '0');
+  b.setAttribute('value', '0');
+  c.setAttribute('value', '0');
+  d.setAttribute('value', '0'); // OCULTAR O ARTICLE DA QUESTAO
+
+  articleQuestoes.style.display = 'none';
+  divJogador1.style.display = 'none';
+  divJogador2.style.display = 'none'; // Faz com que a página recarregue
+
+  setTimeout(function () {
+    pontos_j1_num = 0;
+    pontos_j2_num = 0;
+    location.reload();
+  }, 10000);
+}
+
+;
+})();
+
+/******/ })()
+;
+//# sourceMappingURL=bundle.js.map
