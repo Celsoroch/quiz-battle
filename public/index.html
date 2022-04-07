@@ -14,6 +14,14 @@
 
             <h1>Quiz</h1>
 
+            <header class="contador">
+                <div class="timer">
+                    <div class="text-center" id="time_txt">Tempo:</div>
+                    <div id="time_sec">15</div>
+                </div>
+                <div class="time_line"></div>
+            </header>
+
             <article class='centro' id='instrucoes'>
                 Leia a questão e clique na resposta correta
             </article>
@@ -38,28 +46,89 @@
             <article id='aviso'>Questão <span id='numero'></span> de <span id='total'></span></article>
             
         </section>
-        <div class="jogador1">
-            <li class="nome_jogador_1">Jgoador 1</li>
-            <article>
-                <button class="botao_jogar botao_j1">Clique para jogar</button>
-            </article>
-            <article class='pontos_1'>
-                Pontos
-            </article>
-        </div>
-    
-        <div class="jogador2">
-            <li class="nome_jogador_2">Jogador 2</li>
-            <article>
-                <button class="botao_jogar botao_j2">Clique para jogar</button>
-            </article>
-            <article class='pontos_2'>
-                Pontos
-            </article>
+        <div class="players">
+            <div class="jogador1">
+                <li class="nome_jogador_1">Jgoador 1</li>
+                <article>
+                    <button class="botao_jogar botao_j1">Clique para jogar</button>
+                </article>
+                <article class='pontos_1'>
+                    Pontos
+                </article>
+            </div>
+        
+            <div class="jogador2">
+                <li class="nome_jogador_2">Jogador 2</li>
+                <article>
+                    <button class="botao_jogar botao_j2">Clique para jogar</button>
+                </article>
+                <article class='pontos_2'>
+                    Pontos
+                </article>
+            </div>
         </div>
 
     </main>
 
+    <div class="box_equipes">
+        <div class="equipes">
+            
+            <table class="tabelas">
+                <tr class="element_principal">
+                    <th>Equipes</th>
+                    <th colspan="4">Nome Dos Jogadores</th>
+                </tr>
+                <tr>
+                    <td>Ted</td>
+                    <td>Gabriel</td>
+                    <td>David</td>
+                    <td>Gabigol</td>
+                    <td>Neymar</td>
+                </tr>
+                <tr>
+                    <td>Junior</td>
+                    <td>Marcelo</td>
+                    <td>Ricardo</td>
+                    <td>Luan</td>
+                    <td>Kaka</td>
+                </tr>
+                <tr>
+                    <td>Ted</td>
+                    <td>Rodrigo</td>
+                    <td>Thiago</td>
+                    <td>Naldo</td>
+                    <td>Felipe</td>
+                </tr>
+                <tr>
+                    <td>Junior</td>
+                    <td>Alisson</td>
+                    <td>Coutinho</td>
+                    <td>Miranda</td>
+                    <td>Willian</td>
+                </tr>
+            </table>
+
+
+        </div>
+    </div>
+
+    <div class="box_Tela-Usuario">
+
+        <table class="usuario_equipe">
+            <tr>
+                <th colspan="4">Minha Equipe</th>
+            </tr>
+            <tr>
+                <td>Ted</td>
+                <td>Gabriel</td>
+                <td>David</td>
+                <td>Gabigol</td>
+                <td>Neymar</td>
+            </tr>
+        </table>
+
+    </div>
+    
 <!-- JS externo -->
     <script src="./assets/js/bundle.js"></script>
 
