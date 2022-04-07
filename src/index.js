@@ -66,6 +66,7 @@ let clicou = '';
 
 // // 1
 botao_j1.addEventListener('click', () => {
+    configEquipe_1();
     instrucoes.textContent = `${jogador1.textContent} joga!`;
     clicou = 'jogador1';
     botao_j2.disabled = true;
@@ -73,6 +74,7 @@ botao_j1.addEventListener('click', () => {
 });
 // // 2
 botao_j2.addEventListener('click', () => {
+    configEquipe_1();
     instrucoes.textContent = `${jogador2.textContent} joga!`;
     clicou = 'jogador2';
     botao_j1.disabled = true;
@@ -284,3 +286,18 @@ function fimDoJogo() {
         location.reload();
     }, 10000);
 };
+
+const equipe_1 = document.querySelector('.equipe_1');
+const jogador_1_e1 = document.querySelector('.jogador_1_e1');
+const jogador_2_e1 = document.querySelector('.jogador_2_e1');
+const jogador_3_e1 = document.querySelector('.jogador_3_e1');
+const jogador_4_e1 = document.querySelector('.jogador_4_e1');
+const pontos = document.querySelector('.pontos_e1');
+
+function configEquipe_1 () {
+    jogador_1_e1.textContent = 'jogador1    sdas';
+    jogador_2_e1.textContent = 'jogador2';
+    jogador_3_e1.textContent = 'jogador3';
+    jogador_4_e1.textContent = 'jogador4';
+    pontos.textContent = 0;
+}

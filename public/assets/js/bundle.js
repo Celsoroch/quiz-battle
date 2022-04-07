@@ -789,6 +789,7 @@ respostaD.addEventListener('click', function () {
 var clicou = ''; // // 1
 
 botao_j1.addEventListener('click', function () {
+  configEquipe_1();
   instrucoes.textContent = "".concat(jogador1.textContent, " joga!");
   clicou = 'jogador1';
   botao_j2.disabled = true;
@@ -796,6 +797,7 @@ botao_j1.addEventListener('click', function () {
 }); // // 2
 
 botao_j2.addEventListener('click', function () {
+  configEquipe_1();
   instrucoes.textContent = "".concat(jogador2.textContent, " joga!");
   clicou = 'jogador2';
   botao_j1.disabled = true;
@@ -994,6 +996,20 @@ function fimDoJogo() {
 }
 
 ;
+var equipe_1 = document.querySelector('.equipe_1');
+var jogador_1_e1 = document.querySelector('.jogador_1_e1');
+var jogador_2_e1 = document.querySelector('.jogador_2_e1');
+var jogador_3_e1 = document.querySelector('.jogador_3_e1');
+var jogador_4_e1 = document.querySelector('.jogador_4_e1');
+var pontos = document.querySelector('.pontos_e1');
+
+function configEquipe_1() {
+  jogador_1_e1.textContent = 'jogador1    sdas';
+  jogador_2_e1.textContent = 'jogador2';
+  jogador_3_e1.textContent = 'jogador3';
+  jogador_4_e1.textContent = 'jogador4';
+  pontos.textContent = 0;
+}
 })();
 
 /******/ })()
