@@ -287,6 +287,7 @@ function fimDoJogo() {
     }, 10000);
 };
 
+// Teste 
 const equipe_1 = document.querySelector('.equipe_1');
 const jogador_1_e1 = document.querySelector('.jogador_1_e1');
 const jogador_2_e1 = document.querySelector('.jogador_2_e1');
