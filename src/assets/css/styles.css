@@ -8,31 +8,32 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    font-size: 1.25rem;
+    font-size: 1.25rem;   
 }
 
 body {
-    position: fixed;
-    width: 700%;
-    height: 700%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     background: #222;
     color: #fff;
 }
 
 main {
-    top: 1%;
-    position: relative;
-    right: 46rem;
-
-    width: 20%;
-    height: 100%;
-    padding: 1rem; /* espacamento interno */
+    flex-grow: 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 80%;
+    padding: 50px; /* espacamento interno */
 }
 
 section {
     width: 100%;
     margin: 0 auto;
-    height: 590px;
+    height: 700px;
     padding: 1rem;
     margin-bottom: 0.625rem;
     display: flex;
@@ -46,7 +47,6 @@ h1 {
     text-align: center;
     font-size: 1.75rem;
     margin: 0.625rem;
-    left: 24rem;
 }
 
 .centro {
@@ -55,6 +55,7 @@ h1 {
 
 .questao {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
 }
@@ -70,15 +71,15 @@ h1 {
     margin-left: 1rem;
 }
 
-/* article que acomoda a questao completa */
 .questoes {
-    width: 30%;
-    height: 100%;
-
-    padding: 10px 50px;
-    border: 2px solid #ececec;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 5px;
+    border: 2px solid #ffffff;
     border-radius: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    min-width: 60%;
+    max-width: 90%;
 }
 
 .questoes ol li {
@@ -115,7 +116,7 @@ h1 {
 #aviso {
     color: #00b0ff;
 }
-
+/*
 .jogador1 {
     display: inline-block;
     padding-top: 5px;
@@ -127,80 +128,20 @@ h1 {
     display: inline-block;
     padding-top: 5px;
 }
-
+*/
 .botao_jogar{
     color: whitesmoke;
     background: #045c85;
     height: 50px;
-    margin-top: 5px;
+    width: 125%;
+    text-align: center;
+    margin-top: 10px;
+    border-radius: 15px;
 }
 
 .botao_jogar:hover {
     background: #00b0ff;
     cursor: pointer;
-}
-
-.pontos_1, .pontos_2 {
-    color:#00b0ff;
-    background-color: #ececec;
-    margin-top: 0px;
-}
-
-/* Players*/
-.players {
-    position: relative;
-    left: 70%;
-    display: flex;
-}
-
-.timer {
-
-    display: flex;
-    background: #00b0ff;
-    padding: 0.60rem;
-    border-radius: 50%;
-}
-
-/* TELA DA TABELA */
-.box_equipes {
-    top: -98%;
-    display: inline-flex;
-    position: relative;
-    width: 6%;
-    height: 5%;
-    left: 50rem;
-    background: #00b0ff;
-    border-radius: 3rem;
-}
-
-/* ESTILO BASICO DA TABELA */
-.tabelas {
-    position: relative;
-    display: inline-table;
-    width: 170%;
-    height: 95%;
-    left: 7%;
-
-}
-
-/* TELA DO USUARIO COM SUA EQUIPE  */
-.box_Tela-Usuario {
-    position: relative;
-    display: inline-flex;
-    top: -292rem;
-    left: -8em;
-    background: #045c85;
-    border-radius: 10rem;
-    width: 28rem;
-    height: 5rem;
-}
-
-.usuario_equipe {
-    position: relative;
-    display: inline-table;
-    width: 150%;
-    height: 85%;
-    left: 4%;
 }
 
 /* ANIMACAO */
@@ -233,4 +174,80 @@ h1 {
     100% {
         opacity: 1
     }
+}
+
+.timer {
+
+    display: flex;
+    background: #00b0ff;
+    padding: 0.60rem;
+    border-radius: 50%;
+}
+
+/* TELA DAS TABELAS */
+.box_equipes {
+    display: flex;
+    flex-direction: column;
+        
+}
+
+/* TELA DA TABELA */
+.equipes {
+    position: relative;
+    top: 22%;
+    padding: 25px 28px;
+    background: #25bfee;
+    border: 2px solid #f0f0f0;
+    border-radius: 5px;
+    right: 30px;
+    max-width: 100%;
+}
+
+.tabelas {
+    text-align: center;
+}
+
+.border_td {
+    border-color: rgb(0, 0, 0);
+    border-style: groove;
+    border-radius: 10px;
+}
+
+.border_td_usu {
+    padding: 5px;
+    border-color: cyan;
+    border-style: groove;
+    border-radius: 10px;
+}
+
+/* TELA DO USUARIO COM SUA EQUIPE/BOTAO  */
+.equipe_botao {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    top: 30%;
+    left: 15%;
+}
+
+/* TELA DO USUARIO COM SUA EQUIPE  */
+.box_Tela-Usuario {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 10px;
+    background: #045c85;
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+}
+
+/* botao*/
+.players {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.jogador2 {
+    margin-left: 40%;
 }
