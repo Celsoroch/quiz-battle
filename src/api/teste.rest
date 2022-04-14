@@ -1,0 +1,11 @@
+###
+GET http://localhost:3000/questoes
+###
+GET http://localhost:3000/questoes/2
+###
+GET http://localhost:3000/jogadores
+###
+GET http://localhost:3000/jogadores/nj33
+### 
+GET http://localhost:3000/equipe/Eq-ps
+###
