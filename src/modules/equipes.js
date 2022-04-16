@@ -39,7 +39,6 @@ async function config_eqps() {
 
     let { data } = await axios ('http://localhost:3000/equipe');
     console.log(data);
-    const ids = [];
     let tamanho = data.length;
     console.log(tamanho);
     let minimo = 0;

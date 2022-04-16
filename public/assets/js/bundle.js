@@ -2214,7 +2214,7 @@ function config_eqps() {
 
 function _config_eqps() {
   _config_eqps = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    var _yield$axios, data, ids, tamanho, minimo, nums, random, id_eq1, jogs1, data_jog1, id_eq2, jogs2, data_jog2, id_eq3, jogs3, data_jog3, id_eq4, jogs4, data_jog4, id_minha, jogsM, data_meq;
+    var _yield$axios, data, tamanho, minimo, nums, random, id_eq1, jogs1, data_jog1, id_eq2, jogs2, data_jog2, id_eq3, jogs3, data_jog3, id_eq4, jogs4, data_jog4, id_minha, jogsM, data_meq;
 
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
@@ -2227,22 +2227,21 @@ function _config_eqps() {
             _yield$axios = _context.sent;
             data = _yield$axios.data;
             console.log(data);
-            ids = [];
             tamanho = data.length;
             console.log(tamanho);
             minimo = 0;
             nums = [];
 
-          case 10:
+          case 9:
             if (!(nums.length < 4)) {
-              _context.next = 17;
+              _context.next = 16;
               break;
             }
 
-            _context.next = 13;
+            _context.next = 12;
             return Math.floor(Math.random() * (tamanho - minimo) + minimo);
 
-          case 13:
+          case 12:
             random = _context.sent;
 
             if (data[random].id_equipe !== 'Eq-ps') {
@@ -2252,17 +2251,17 @@ function _config_eqps() {
               }
             }
 
-            _context.next = 10;
+            _context.next = 9;
             break;
 
-          case 17:
+          case 16:
             // equipe 1
             equipe_1.textContent = data[nums[0]].id_equipe;
             id_eq1 = data[nums[0]].id_equipe;
-            _context.next = 21;
+            _context.next = 20;
             return axios("http://localhost:3000/jogadoresid/".concat(id_eq1));
 
-          case 21:
+          case 20:
             jogs1 = _context.sent;
             data_jog1 = jogs1.data;
             console.log(data_jog1);
@@ -2273,10 +2272,10 @@ function _config_eqps() {
 
             equipe_2.textContent = data[nums[1]].id_equipe;
             id_eq2 = data[nums[1]].id_equipe;
-            _context.next = 32;
+            _context.next = 31;
             return axios("http://localhost:3000/jogadoresid/".concat(id_eq2));
 
-          case 32:
+          case 31:
             jogs2 = _context.sent;
             data_jog2 = jogs2.data;
             jog_1_eq2.textContent = data_jog2[0].nome;
@@ -2286,10 +2285,10 @@ function _config_eqps() {
 
             equipe_3.textContent = data[nums[2]].id_equipe;
             id_eq3 = data[nums[2]].id_equipe;
-            _context.next = 42;
+            _context.next = 41;
             return axios("http://localhost:3000/jogadoresid/".concat(id_eq3));
 
-          case 42:
+          case 41:
             jogs3 = _context.sent;
             data_jog3 = jogs3.data;
             jog_1_eq3.textContent = data_jog3[0].nome;
@@ -2299,10 +2298,10 @@ function _config_eqps() {
 
             equipe_4.textContent = data[nums[3]].id_equipe;
             id_eq4 = data[nums[3]].id_equipe;
-            _context.next = 52;
+            _context.next = 51;
             return axios("http://localhost:3000/jogadoresid/".concat(id_eq4));
 
-          case 52:
+          case 51:
             jogs4 = _context.sent;
             data_jog4 = jogs4.data;
             jog_1_eq4.textContent = data_jog4[0].nome;
@@ -2311,10 +2310,10 @@ function _config_eqps() {
             jog_4_eq4.textContent = data_jog4[3].nome; // Minha equipe
 
             id_minha = 'Eq-ps';
-            _context.next = 61;
+            _context.next = 60;
             return axios("http://localhost:3000/jogadoresid/".concat(id_minha));
 
-          case 61:
+          case 60:
             jogsM = _context.sent;
             data_meq = jogsM.data;
             console.log(data_meq);
@@ -2323,7 +2322,7 @@ function _config_eqps() {
             jog_3_meq.textContent = data_meq[2].nome;
             jog_4_meq.textContent = data_meq[3].nome;
 
-          case 68:
+          case 67:
           case "end":
             return _context.stop();
         }
