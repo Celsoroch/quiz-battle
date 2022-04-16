@@ -1,6 +1,6 @@
 import './assets/css/styles.css';
 const questoes = require('./modules/questoes');
-const jogadores = require('./modules/jogador');
+const equipes = require('./modules/equipes');
 const startTime = require('./modules/timer');
 
 
@@ -22,7 +22,7 @@ let articleQuestoes = document.querySelector('.questoes');
 
 // Jogadores
 let divJogador1 = document.querySelector('.jogador1');
-let jogador1 = document.querySelector('.nome_jogador_1');
+// let jogador1 = document.querySelector('.nome_jogador_1');
 let divJogador2 = document.querySelector('.jogador2');
 let jogador2 = document.querySelector('.nome_jogador_2');
 
@@ -76,13 +76,13 @@ botao_j1.addEventListener('click', () => {
     startTime();
 });
 // // 2
-botao_j2.addEventListener('click', () => {
-    // configEquipe_1();
-    instrucoes.textContent = `${jogador2.textContent} joga!`;
-    clicou = 'jogador2';
-    botao_j1.disabled = true;
-    clicouPrajogar = true;
-});
+// botao_j2.addEventListener('click', () => {
+//     // configEquipe_1();
+//     instrucoes.textContent = `${jogador2.textContent} joga!`;
+//     clicou = 'jogador2';
+//     botao_j1.disabled = true;
+//     clicouPrajogar = true;
+// });
 
 // Pontos jogadores
 let pontos_j1 = document.querySelector('.pontos_1');
@@ -104,14 +104,6 @@ numero.textContent = q0.numQuestao;
 let totalDeQuestoes = (questoes.length)-1;
 console.log("Total de questões " + totalDeQuestoes);
 total.textContent = totalDeQuestoes;
-
-// Monta o jogador1
-const j1 = jogadores[0];
-// jogador1.textContent = j1.nome;
-// pontos_j1.textContent = 'Pontos: ' + pontos_j1_num;
-const j2 = jogadores[1];
-// jogador2.textContent = j2.nome;
-// pontos_j2.textContent = 'Pontos: ' + pontos_j2_num;
 
 // MONTAR A 1a QUESTAO COMPLETA, para iniciar o Quiz
 // // Coloca o número da questão em azul
@@ -289,19 +281,3 @@ function fimDoJogo() {
         location.reload();
     }, 10000);
 };
-
-// // Teste 
-// const equipe_1 = document.querySelector('.equipe_1');
-// const jogador_1_e1 = document.querySelector('.jogador_1_e1');
-// const jogador_2_e1 = document.querySelector('.jogador_2_e1');
-// const jogador_3_e1 = document.querySelector('.jogador_3_e1');
-// const jogador_4_e1 = document.querySelector('.jogador_4_e1');
-// const pontos = document.querySelector('.pontos_e1');
-
-// function configEquipe_1 () {
-//     jogador_1_e1.textContent = 'jogador1    sdas';
-//     jogador_2_e1.textContent = 'jogador2';
-//     jogador_3_e1.textContent = 'jogador3';
-//     jogador_4_e1.textContent = 'jogador4';
-//     pontos.textContent = 0;
-// }

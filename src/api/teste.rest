@@ -9,3 +9,4 @@ GET http://localhost:3000/jogadores/nj33
 ### 
 GET http://localhost:3000/equipe/Eq-ps
 ###
+GET http://localhost:3000/jogadoresid/Eq-ps
