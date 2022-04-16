@@ -113,6 +113,48 @@ module.exports = questoes;
 
 /***/ }),
 
+/***/ "./src/modules/timer.js":
+/*!******************************!*\
+  !*** ./src/modules/timer.js ***!
+  \******************************/
+/***/ ((module) => {
+
+var time_sec = document.querySelector('#time_sec');
+var ss = 15;
+var tempo = 1000;
+var cron;
+
+function start() {
+  cron = setInterval(function () {
+    timer();
+  }, tempo);
+}
+
+function pause() {
+  clearInterval(cron);
+}
+
+function stop() {
+  clearInterval(cron);
+}
+
+function timer() {
+  ss--;
+
+  if (ss === 0) {
+    stop();
+    console.log('Acabou!');
+  }
+
+  ;
+  var format = "".concat(ss);
+  time_sec.textContent = format;
+}
+
+module.exports = start;
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/assets/css/styles.css":
 /*!*************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/assets/css/styles.css ***!
@@ -735,7 +777,8 @@ var questoes = __webpack_require__(/*! ./modules/questoes */ "./src/modules/ques
 
 var jogadores = __webpack_require__(/*! ./modules/jogador */ "./src/modules/jogador.js");
 
-var titulo = document.querySelector('h1');
+var startTime = __webpack_require__(/*! ./modules/timer */ "./src/modules/timer.js");
+
 var instrucoes = document.querySelector('#instrucoes');
 var aviso = document.querySelector('#aviso'); // PERGUNTA
 
@@ -747,9 +790,7 @@ var b = document.querySelector('#b');
 var c = document.querySelector('#c');
 var d = document.querySelector('#d'); // article com a class questoes
 
-var articleQuestoes = document.querySelector('.questoes'); // ol li com as alternativas
-
-var alternativas = document.querySelector('#alternativas'); // Jogadores
+var articleQuestoes = document.querySelector('.questoes'); // Jogadores
 
 var divJogador1 = document.querySelector('.jogador1');
 var jogador1 = document.querySelector('.nome_jogador_1');
@@ -787,13 +828,18 @@ respostaD.addEventListener('click', function () {
 }); // configura botões
 
 var clicou = ''; // // 1
+// botao_j1.addEventListener('click', () => {
+//     // configEquipe_1();
+//     instrucoes.textContent = `${jogador1.textContent} joga!`;
+//     clicou = 'jogador1';
+//     botao_j2.disabled = true;
+//     clicouPrajogar = true;
+// });
 
 botao_j1.addEventListener('click', function () {
-  // configEquipe_1();
-  instrucoes.textContent = "".concat(jogador1.textContent, " joga!");
-  clicou = 'jogador1';
-  botao_j2.disabled = true;
-  clicouPrajogar = true;
+  console.log('clicou'); // config(5);
+
+  startTime();
 }); // // 2
 
 botao_j2.addEventListener('click', function () {

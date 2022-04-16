@@ -1,8 +1,9 @@
 import './assets/css/styles.css';
 const questoes = require('./modules/questoes');
 const jogadores = require('./modules/jogador');
+const startTime = require('./modules/timer');
 
-let titulo = document.querySelector('h1');
+
 let instrucoes = document.querySelector('#instrucoes');
 let aviso = document.querySelector('#aviso');
 
@@ -18,9 +19,6 @@ let d = document.querySelector('#d');
 
 // article com a class questoes
 let articleQuestoes = document.querySelector('.questoes');
-
-// ol li com as alternativas
-let alternativas = document.querySelector('#alternativas');
 
 // Jogadores
 let divJogador1 = document.querySelector('.jogador1');
@@ -65,12 +63,17 @@ respostaD.addEventListener('click', () => {
 let clicou = '';
 
 // // 1
+// botao_j1.addEventListener('click', () => {
+//     // configEquipe_1();
+//     instrucoes.textContent = `${jogador1.textContent} joga!`;
+//     clicou = 'jogador1';
+//     botao_j2.disabled = true;
+//     clicouPrajogar = true;
+// });
 botao_j1.addEventListener('click', () => {
-    // configEquipe_1();
-    instrucoes.textContent = `${jogador1.textContent} joga!`;
-    clicou = 'jogador1';
-    botao_j2.disabled = true;
-    clicouPrajogar = true;
+    console.log('clicou');
+    // config(5);
+    startTime();
 });
 // // 2
 botao_j2.addEventListener('click', () => {
