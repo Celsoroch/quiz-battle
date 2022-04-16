@@ -1,7 +1,23 @@
-
-/* Aula 20 Maia Quiz */
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
+:root {
+
+    /*CORES A SEREM ADICIONADAS*/
+    --fundo-color: #4B80F2;
+    --contador-color: #4EB4FC;
+    --equipes-color: #52D0E6;
+    --equipePRINC-color: #4EFCE8;
+    --respost-color: #4BF2AF;
+    --respostMOUSE-color: #4B80F2;
+    --contorno-color: #03ff9e;
+
+    /*GRADUAÇÃO DE CORES*/
+    --gradual-color: linear-gradient(-40deg, #a3e0d6, #168897, #e56df5, #00ffaa);
+    --gradualEQUIPE-color: linear-gradient(-40deg,  #00ffaa, #e56df5, #1aecf3, #1a52ee);
+
+    /*ADICIONAR FONTES PARA TEXTO*/
+
+}
 
 * {
     margin: 0;
@@ -17,8 +33,28 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #222;
+    background: var(--gradual-color);
+    background-size: 800% 100%;
+    animation: colors 20s ease infinite;
     color: #fff;
+}
+
+@keyframes colors {
+    0% {
+        background-position: 0% 50%;
+    }
+    25% {
+        background-position: 50% 0%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    75% {
+        background-position: 50% 0%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 main {
@@ -75,11 +111,12 @@ h1 {
     display: flex;
     flex-direction: column;
     padding: 10px 5px;
-    border: 2px solid #ffffff;
+    border: 3px solid var(--contorno-color);
     border-radius: 5px;
     margin-bottom: 20px;
     min-width: 60%;
     max-width: 90%;
+    background: #4B80F2;
 }
 
 .questoes ol li {
@@ -103,7 +140,7 @@ h1 {
 }
 
 #instrucoes {
-    background: #ccc;
+    background: rgb(8, 211, 126);
     color: #191919;
     padding: 0.625rem;
     border-radius: 8px;
@@ -114,34 +151,25 @@ h1 {
 }
 
 #aviso {
-    color: #00b0ff;
-}
-/*
-.jogador1 {
-    display: inline-block;
-    padding-top: 5px;
-    margin-left: -20px;
-    margin-right: 230px;
+    color: #600872;
 }
 
-.jogador2 {
-    display: inline-block;
-    padding-top: 5px;
-}
-*/
-.botao_jogar{
+.botao{
     color: whitesmoke;
     background: #045c85;
     height: 50px;
-    width: 125%;
-    text-align: center;
-    margin-top: 10px;
-    border-radius: 15px;
+    margin-top: 5px;
 }
 
-.botao_jogar:hover {
+.botao:hover {
     background: #00b0ff;
     cursor: pointer;
+}
+
+.pontos_1, .pontos_2 {
+    color:#00b0ff;
+    background-color: #ffffff;
+    margin-top: 0px;
 }
 
 /* ANIMACAO */
@@ -149,11 +177,11 @@ h1 {
 /* Animar o input */
 @keyframes piscar {
     0% {
-        filter: drop-shadow(0 0 15px #00b0ff);
-        -webkit-filter: drop-shadow(0 0 15px #00b0ff);
-        -moz-filter: drop-shadow(0 0 15px #00b0ff);
-        -o-filter: drop-shadow(0 0 15px #00b0ff);
-        -ms-filter: drop-shadow(0 0 15px #00b0ff);
+        filter: drop-shadow(0 0 20px #00b0ff);
+        -webkit-filter: drop-shadow(0 0 20px #00b0ff);
+        -moz-filter: drop-shadow(0 0 20px #00b0ff);
+        -o-filter: drop-shadow(0 0 20px #00b0ff);
+        -ms-filter: drop-shadow(0 0 20px #00b0ff);
     }
     100% {
     }
@@ -177,49 +205,52 @@ h1 {
 }
 
 .timer {
-
     display: flex;
     background: #00b0ff;
-    padding: 0.60rem;
+    padding: 0.45rem;
     border-radius: 50%;
+    margin-bottom: 10px;
 }
-
 /* TELA DAS TABELAS */
 .box_equipes {
     display: flex;
-    flex-direction: column;
-        
+    flex-direction: column;        
 }
-
 /* TELA DA TABELA */
 .equipes {
     position: relative;
     top: 22%;
     padding: 25px 28px;
-    background: #25bfee;
-    border: 2px solid #f0f0f0;
+    border: 3px solid var(--contorno-color);
     border-radius: 5px;
     right: 30px;
     max-width: 100%;
+    background: var(--gradualEQUIPE-color);
+    background-size: 800% 100%;
+    animation: colors 15s ease infinite;
+}
+
+@keyframes colors {
+    0% {
+        background-position: 0% 50%;
+    }
+    25% {
+        background-position: 50% 0%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    75% {
+        background-position: 50% 0%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .tabelas {
     text-align: center;
 }
-
-.border_td {
-    border-color: rgb(0, 0, 0);
-    border-style: groove;
-    border-radius: 10px;
-}
-
-.border_td_usu {
-    padding: 5px;
-    border-color: cyan;
-    border-style: groove;
-    border-radius: 10px;
-}
-
 /* TELA DO USUARIO COM SUA EQUIPE/BOTAO  */
 .equipe_botao {
     position: relative;
@@ -228,26 +259,54 @@ h1 {
     align-self: flex-start;
     top: 30%;
     left: 15%;
+    text-align: center;
 }
-
 /* TELA DO USUARIO COM SUA EQUIPE  */
 .box_Tela-Usuario {
     position: relative;
     display: flex;
     flex-direction: column;
     padding: 5px 10px;
-    background: #045c85;
-    border: 2px solid #ffffff;
-    border-radius: 10px;
+    border: 2px solid var(--contorno-color);
+    border-radius: 10rem;
+    background: var(--gradualEQUIPE-color);
+    background-size: 800% 100%;
+    animation: colors 12s ease infinite;
 }
 
+@keyframes colors {
+    0% {
+        background-position: 0% 50%;
+    }
+    25% {
+        background-position: 50% 0%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    75% {
+        background-position: 50% 0%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
 /* botao*/
 .players {
     position: relative;
     display: flex;
     flex-direction: row;
 }
-
 .jogador2 {
-    margin-left: 40%;
+    margin-left: 30%;
+}
+
+.botao {
+    border-radius: 10rem;
+    padding: 10px;
+}
+
+.jog_equipe {
+    padding-left: 15px;
+    padding-right: 5px;
 }
