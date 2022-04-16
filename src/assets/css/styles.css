@@ -3,17 +3,19 @@
 :root {
 
     /*CORES A SEREM ADICIONADAS*/
-    --fundo-color: #4B80F2;
-    --contador-color: #4EB4FC;
+    --fundo-color: #254b9c;
+    --contador-color: #194cbb;
     --equipes-color: #52D0E6;
     --equipePRINC-color: #4EFCE8;
     --respost-color: #4BF2AF;
-    --respostMOUSE-color: #4B80F2;
+    --respostMOUSE-color: #3f68c2;
     --contorno-color: #03ff9e;
 
+
     /*GRADUAÇÃO DE CORES*/
-    --gradual-color: linear-gradient(-40deg, #a3e0d6, #168897, #e56df5, #00ffaa);
-    --gradualEQUIPE-color: linear-gradient(-40deg,  #00ffaa, #e56df5, #1aecf3, #1a52ee);
+    --gradual-color: linear-gradient(-40deg, #678d87, #106570, #9e4fa8, #007c53);
+    --gradualEQUIPE-color: linear-gradient(-40deg,  #00754e, #74357c, #0d7a7e, #0f3291);
+    --gradualBOTAO-color: linear-gradient(-40deg,  #61073e, #670774, #151fa1, #074aa1);
 
     /*ADICIONAR FONTES PARA TEXTO*/
 
@@ -116,7 +118,7 @@ h1 {
     margin-bottom: 20px;
     min-width: 60%;
     max-width: 90%;
-    background: #4B80F2;
+    background: var(--fundo-color);
 }
 
 .questoes ol li {
@@ -156,7 +158,7 @@ h1 {
 
 .botao{
     color: whitesmoke;
-    background: #045c85;
+
     height: 50px;
     margin-top: 5px;
 }
@@ -206,7 +208,7 @@ h1 {
 
 .timer {
     display: flex;
-    background: #00b0ff;
+    background: var(--contador-color);
     padding: 0.45rem;
     border-radius: 50%;
     margin-bottom: 10px;
@@ -299,12 +301,36 @@ h1 {
 }
 .jogador2 {
     margin-left: 30%;
+    
 }
 
 .botao {
     border-radius: 10rem;
     padding: 10px;
+    border: 2px solid var(--contorno-color);
+    background: var(--gradualBOTAO-color);
+    background-size: 800% 100%;
+    animation: colors 7s ease infinite;
 }
+
+@keyframes colors {
+    0% {
+        background-position: 0% 50%;
+    }
+    25% {
+        background-position: 50% 0%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    75% {
+        background-position: 50% 0%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 
 .jog_equipe {
     padding-left: 15px;

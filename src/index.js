@@ -22,9 +22,7 @@ let articleQuestoes = document.querySelector('.questoes');
 
 // Jogadores
 let divJogador1 = document.querySelector('.jogador1');
-// let jogador1 = document.querySelector('.nome_jogador_1');
 let divJogador2 = document.querySelector('.jogador2');
-let jogador2 = document.querySelector('.nome_jogador_2');
 
 // Botão jogadores
 let botao_j1 = document.querySelector('.botao_j1');
