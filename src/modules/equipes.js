@@ -38,16 +38,16 @@ let jog_4_eq4 = document.querySelector('.jog_4_eq4');
 async function config_eqps() {
 
     let { data } = await axios ('http://localhost:3000/equipe');
-    console.log(data);
+    // console.log(data);
     let tamanho = data.length;
-    console.log(tamanho);
+    // console.log(tamanho);
     let minimo = 0;
     let nums = [];
     while (nums.length < 4) {
         let random = await Math.floor(Math.random() * (tamanho - minimo) + minimo);
         if (data[random].id_equipe !== 'Eq-ps') {
             if (nums.indexOf(random) === -1) {
-                console.log(data[random].id_equipe);
+                // console.log(data[random].id_equipe);
                 nums.push(random);
             }
         }
@@ -58,7 +58,7 @@ async function config_eqps() {
     let id_eq1 = data[nums[0]].id_equipe;
     let jogs1 = await axios (`http://localhost:3000/jogadoresid/${id_eq1}`);
     let data_jog1 = jogs1.data;
-    console.log(data_jog1)
+    // console.log(data_jog1);
     jog_1_eq1.textContent = data_jog1[0].nome;
     jog_2_eq1.textContent = data_jog1[1].nome;
     jog_3_eq1.textContent = data_jog1[2].nome;
@@ -98,7 +98,7 @@ async function config_eqps() {
     let id_minha = 'Eq-ps';
     let jogsM = await axios(`http://localhost:3000/jogadoresid/${id_minha}`);
     let data_meq = jogsM.data;
-    console.log(data_meq);
+    // console.log(data_meq);
     jog_1_meq.textContent = data_meq[0].nome;
     jog_2_meq.textContent = data_meq[1].nome;
     jog_3_meq.textContent = data_meq[2].nome;

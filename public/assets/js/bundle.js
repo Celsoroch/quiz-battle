@@ -2226,45 +2226,45 @@ function _config_eqps() {
           case 2:
             _yield$axios = _context.sent;
             data = _yield$axios.data;
-            console.log(data);
-            tamanho = data.length;
-            console.log(tamanho);
+            // console.log(data);
+            tamanho = data.length; // console.log(tamanho);
+
             minimo = 0;
             nums = [];
 
-          case 9:
+          case 7:
             if (!(nums.length < 4)) {
-              _context.next = 16;
+              _context.next = 14;
               break;
             }
 
-            _context.next = 12;
+            _context.next = 10;
             return Math.floor(Math.random() * (tamanho - minimo) + minimo);
 
-          case 12:
+          case 10:
             random = _context.sent;
 
             if (data[random].id_equipe !== 'Eq-ps') {
               if (nums.indexOf(random) === -1) {
-                console.log(data[random].id_equipe);
+                // console.log(data[random].id_equipe);
                 nums.push(random);
               }
             }
 
-            _context.next = 9;
+            _context.next = 7;
             break;
 
-          case 16:
+          case 14:
             // equipe 1
             equipe_1.textContent = data[nums[0]].id_equipe;
             id_eq1 = data[nums[0]].id_equipe;
-            _context.next = 20;
+            _context.next = 18;
             return axios("http://localhost:3000/jogadoresid/".concat(id_eq1));
 
-          case 20:
+          case 18:
             jogs1 = _context.sent;
-            data_jog1 = jogs1.data;
-            console.log(data_jog1);
+            data_jog1 = jogs1.data; // console.log(data_jog1);
+
             jog_1_eq1.textContent = data_jog1[0].nome;
             jog_2_eq1.textContent = data_jog1[1].nome;
             jog_3_eq1.textContent = data_jog1[2].nome;
@@ -2272,10 +2272,10 @@ function _config_eqps() {
 
             equipe_2.textContent = data[nums[1]].id_equipe;
             id_eq2 = data[nums[1]].id_equipe;
-            _context.next = 31;
+            _context.next = 28;
             return axios("http://localhost:3000/jogadoresid/".concat(id_eq2));
 
-          case 31:
+          case 28:
             jogs2 = _context.sent;
             data_jog2 = jogs2.data;
             jog_1_eq2.textContent = data_jog2[0].nome;
@@ -2285,10 +2285,10 @@ function _config_eqps() {
 
             equipe_3.textContent = data[nums[2]].id_equipe;
             id_eq3 = data[nums[2]].id_equipe;
-            _context.next = 41;
+            _context.next = 38;
             return axios("http://localhost:3000/jogadoresid/".concat(id_eq3));
 
-          case 41:
+          case 38:
             jogs3 = _context.sent;
             data_jog3 = jogs3.data;
             jog_1_eq3.textContent = data_jog3[0].nome;
@@ -2298,10 +2298,10 @@ function _config_eqps() {
 
             equipe_4.textContent = data[nums[3]].id_equipe;
             id_eq4 = data[nums[3]].id_equipe;
-            _context.next = 51;
+            _context.next = 48;
             return axios("http://localhost:3000/jogadoresid/".concat(id_eq4));
 
-          case 51:
+          case 48:
             jogs4 = _context.sent;
             data_jog4 = jogs4.data;
             jog_1_eq4.textContent = data_jog4[0].nome;
@@ -2310,19 +2310,19 @@ function _config_eqps() {
             jog_4_eq4.textContent = data_jog4[3].nome; // Minha equipe
 
             id_minha = 'Eq-ps';
-            _context.next = 60;
+            _context.next = 57;
             return axios("http://localhost:3000/jogadoresid/".concat(id_minha));
 
-          case 60:
+          case 57:
             jogsM = _context.sent;
-            data_meq = jogsM.data;
-            console.log(data_meq);
+            data_meq = jogsM.data; // console.log(data_meq);
+
             jog_1_meq.textContent = data_meq[0].nome;
             jog_2_meq.textContent = data_meq[1].nome;
             jog_3_meq.textContent = data_meq[2].nome;
             jog_4_meq.textContent = data_meq[3].nome;
 
-          case 67:
+          case 63:
           case "end":
             return _context.stop();
         }
@@ -2341,7 +2341,11 @@ config_eqps();
 /*!*********************************!*\
   !*** ./src/modules/questoes.js ***!
   \*********************************/
-/***/ ((module) => {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 // Questões
 var q0 = {
@@ -2352,71 +2356,240 @@ var q0 = {
   alternativaC: "Alternativa C",
   alternativaD: "Alternativa D",
   correta: "0"
-};
-var q1 = {
-  numQuestao: 1,
-  pergunta: "Qual filósofo grego pediu que Alexandre, o Grande, saísse da frente do sol, quando questionado sobre qual era o seu maior desejo?",
-  alternativaA: "Epicuro",
-  alternativaB: "Diógenes",
-  alternativaC: "Epiteto",
-  alternativaD: "Sócrates",
-  correta: "Diógenes"
-};
-var q2 = {
-  numQuestao: 2,
-  pergunta: "Quem foi o Ultímo presidente antes do Golpe Militar de 1964?",
-  alternativaA: "Jânio Quadros",
-  alternativaB: "Jacinto Anjos",
-  alternativaC: "Getúlio Vargas",
-  alternativaD: "João Goulart",
-  correta: "João Goulart"
-};
-var q3 = {
-  numQuestao: 3,
-  pergunta: "Quem é o autor de “O Príncipe”?",
-  alternativaA: "Maquiavel",
-  alternativaB: "Antoine de Saint-Exupéry",
-  alternativaC: "Montesquieu",
-  alternativaD: "Thomas Hobbes",
-  correta: "Maquiavel"
-};
-var q4 = {
-  numQuestao: 4,
-  pergunta: "Quem foi o Autor(a) de Frankenstein?",
-  alternativaA: "H.P Lovecratf",
-  alternativaB: "Mary Ann Shelly",
-  alternativaC: "Bram Stoker",
-  alternativaD: "Ian Fleming",
-  correta: "Mary Ann Shelly"
-};
-var q5 = {
-  numQuestao: 5,
-  pergunta: "Em que ano terminou a Primeira Guerra Mundial?",
-  alternativaA: "1917",
-  alternativaB: "1915",
-  alternativaC: "1920",
-  alternativaD: "1914",
-  correta: "1914"
-};
-var q6 = {
-  numQuestao: 6,
-  pergunta: "Quem pintou Noite Estrelada?",
-  alternativaA: "Leonardo da Vinci",
-  alternativaB: "Pablo Picasso",
-  alternativaC: "Van Gogh",
-  alternativaD: "Tarsila do Amaral",
-  correta: "Van Gogh"
-};
-var q7 = {
-  numQuestao: 7,
-  pergunta: "Júpiter e Plutão são os correlatos romanos de quais deuses gregos?",
-  alternativaA: "Ares e Hermes",
-  alternativaB: "Cronos e Apolo",
-  alternativaC: "Zeus e Hades",
-  alternativaD: "Dionísio e Deméter",
-  correta: "Zeus e Hades"
-};
-var questoes = [q0, q1, q2, q3, q4, q5, q6, q7];
+}; // Para TEste
+
+var botao_j1 = document.querySelector('.botao_j1');
+botao_j1.addEventListener('click', function () {
+  console.log('clicou');
+  clicouPrajogar = true;
+}); // 
+
+var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+
+var _require = __webpack_require__(/*! regenerator-runtime */ "./node_modules/regenerator-runtime/runtime.js"),
+    async = _require.async; // Total de perguntas
+
+
+var total = document.querySelector('#total'); // Aviso
+
+var aviso = document.querySelector('#aviso'); // Opcoes de tela
+
+var contador = document.querySelector('.contador');
+var centro = document.querySelector('.centro');
+var questoesHTML = document.querySelector('.questoes');
+var quiz = document.querySelector('.quiz');
+var box_equipe = document.querySelector('.box_equipes');
+var minhaEqui = document.querySelector('.equipe_botao'); // Minha equipe
+
+var pontosMinhaEq = document.querySelector('.pontos_meq');
+var pontos = 0;
+pontosMinhaEq.textContent = pontos; // PERGUNTA
+
+var numQuestao = document.querySelector('#numQuestao');
+var pergunta = document.querySelector('#pergunta');
+var numero = document.querySelector('#numero'); // ALTERNATIVAS
+
+var a = document.querySelector('#a');
+var b = document.querySelector('#b');
+var c = document.querySelector('#c');
+var d = document.querySelector('#d'); // configura respostas
+
+var respostaA = document.querySelector('.respostaA');
+var respostaB = document.querySelector('.respostaB');
+var respostaC = document.querySelector('.respostaC');
+var respostaD = document.querySelector('.respostaD');
+
+function configQuestoes() {
+  return _configQuestoes.apply(this, arguments);
+}
+
+function _configQuestoes() {
+  _configQuestoes = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+    var jaClicouPraJogar, clicouPrajogar, cont_questoes, _yield$axios, data, totalDeQuestoes, correta, chamaAcertou, verificarSeAcertou, proximaQuestao, fimDoJogo;
+
+    return regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            fimDoJogo = function _fimDoJogo() {
+              instrucoes.textContent = "Fim de Jogo!";
+              numQuestao.textContent = "";
+              pergunta.textContent = "";
+              quiz.textContent = ""; // contador.styles.display = 'none';
+              // centro.styles.display = 'none';
+              // questoesHTML.styles.display = 'none';
+
+              contador.remove('contador');
+              centro.remove('centro');
+              questoesHTML.remove('questoes');
+              minhaEqui.remove('.equipe_botao');
+              box_equipe.remove('.box_equipes');
+              var avisoFinal = "\n            Parab\xE9ns \n\n            Voc\xEA conseguiu ".concat(pontos, " pontos\n        ");
+              aviso.textContent = avisoFinal;
+              a.textContent = "";
+              b.textContent = "";
+              c.textContent = "";
+              d.textContent = "";
+              a.setAttribute('value', '0');
+              b.setAttribute('value', '0');
+              c.setAttribute('value', '0');
+              d.setAttribute('value', '0'); // Faz com que a página recarregue
+
+              setTimeout(function () {
+                location.reload();
+              }, 10000);
+            };
+
+            proximaQuestao = function _proximaQuestao(nQuestao) {
+              // Abilita o clicou para jogar
+              clicouPrajogar = false; // ja cliclou
+
+              jaClicouPraJogar = false; // coloca o número
+
+              numero.textContent = nQuestao + 1;
+              console.log(nQuestao); // Coloca o número da questão em azul
+
+              numQuestao.textContent = nQuestao + 1; // Coloca o parametro da questão
+
+              pergunta.textContent = data[nQuestao].pergunta; // Coloca o texto das alternativas
+
+              a.textContent = data[nQuestao].alternativa_a;
+              b.textContent = data[nQuestao].alternativa_b;
+              c.textContent = data[nQuestao].alternativa_c;
+              d.textContent = data[nQuestao].alternativa_d;
+              correta = data[nQuestao].correta; // Configura o value da questão
+
+              a.setAttribute('value', nQuestao + 'A');
+              b.setAttribute('value', nQuestao + 'B');
+              c.setAttribute('value', nQuestao + 'C');
+              d.setAttribute('value', nQuestao + 'D');
+            };
+
+            verificarSeAcertou = function _verificarSeAcertou(resposta) {
+              if (clicouPrajogar === true) {
+                console.log('verifica acertou = true');
+                jaClicouPraJogar = true; // let numeroDaQuestao = nQuestao.value;
+                // console.log("Questão " + numeroDaQuestao);
+                // Pega resposta escolhida
+
+                var respostaEscolhida = resposta.textContent;
+                console.log('resposta = ' + respostaEscolhida); // Pega resposta certa
+
+                var certa = data[cont_questoes].correta;
+                console.log('certa = ' + certa);
+
+                if (respostaEscolhida == certa) {
+                  instrucoes.textContent = 'Acertou! Parabéns!';
+                  pontos += 10;
+                  pontosMinhaEq.textContent = pontos;
+                  setTimeout(function () {
+                    instrucoes.textContent = "Leia a quest\xE3o e clique na resposta correta";
+                  }, 100);
+                } else {
+                  instrucoes.textContent = 'Errou, preste mais atenção!';
+                  setTimeout(function () {
+                    instrucoes.textContent = "Leia a quest\xE3o e clique na resposta correta";
+                  }, 100);
+                }
+
+                ;
+                setTimeout(function () {
+                  cont_questoes++; // cont_questoes === totalDeQuestoes
+
+                  if (cont_questoes === 3) {
+                    console.log('Fim do Jogo!');
+                    fimDoJogo();
+                  } else {
+                    proximaQuestao(cont_questoes);
+                  }
+
+                  ;
+                }, 100);
+              } else {
+                alert('Calma!!, quem clicar primeiro joga!');
+              }
+
+              ;
+            };
+
+            chamaAcertou = function _chamaAcertou(resposta) {
+              if (jaClicouPraJogar === false) {
+                // console.log('Chama acertou');
+                verificarSeAcertou(resposta);
+              } else {
+                alert('Você não pode clicar de novo!');
+              }
+
+              ;
+            };
+
+            // Configurações de cliques
+            jaClicouPraJogar = false;
+            clicouPrajogar = false;
+            cont_questoes = 0;
+            _context.next = 9;
+            return axios('http://localhost:3000/questoes/1');
+
+          case 9:
+            _yield$axios = _context.sent;
+            data = _yield$axios.data;
+            console.log(data);
+            totalDeQuestoes = data.length; // console.log('Total de questões = ' + totalDeQuestoes);
+
+            total.textContent = data.length;
+            numero.textContent = cont_questoes + 1;
+            numQuestao.textContent = cont_questoes + 1;
+            pergunta.textContent = data[cont_questoes].pergunta;
+            a.textContent = data[cont_questoes].alternativa_a;
+            b.textContent = data[cont_questoes].alternativa_b;
+            c.textContent = data[cont_questoes].alternativa_c;
+            d.textContent = data[cont_questoes].alternativa_d;
+            correta = data[cont_questoes].correta;
+            a.setAttribute('value', cont_questoes + 'A');
+            b.setAttribute('value', cont_questoes + 'B');
+            c.setAttribute('value', cont_questoes + 'C');
+            d.setAttribute('value', cont_questoes + 'D');
+            respostaA.addEventListener('click', function () {
+              var resposta = a;
+              clicouPrajogar = true;
+              chamaAcertou(resposta);
+            });
+            respostaB.addEventListener('click', function () {
+              var resposta = b;
+              clicouPrajogar = true;
+              chamaAcertou(resposta);
+            });
+            respostaC.addEventListener('click', function () {
+              var resposta = c;
+              clicouPrajogar = true;
+              chamaAcertou(resposta);
+            });
+            respostaD.addEventListener('click', function () {
+              var resposta = d;
+              clicouPrajogar = true;
+              chamaAcertou(resposta);
+            }); // Chama acertou;
+
+            ; // // Verifica se acertou;
+
+            ; // Proxima questão
+
+            ; // Fim de jogo
+
+            ;
+
+          case 34:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+  return _configQuestoes.apply(this, arguments);
+}
+
+configQuestoes();
+var questoes = [q0];
 module.exports = questoes;
 
 /***/ }),
@@ -3849,262 +4022,25 @@ var questoes = __webpack_require__(/*! ./modules/questoes */ "./src/modules/ques
 
 var equipes = __webpack_require__(/*! ./modules/equipes */ "./src/modules/equipes.js");
 
-var startTime = __webpack_require__(/*! ./modules/timer */ "./src/modules/timer.js");
+var startTime = __webpack_require__(/*! ./modules/timer */ "./src/modules/timer.js"); // PERGUNTA
 
-var instrucoes = document.querySelector('#instrucoes');
-var aviso = document.querySelector('#aviso'); // PERGUNTA
 
-var numQuestao = document.querySelector('#numQuestao');
 var pergunta = document.querySelector('#pergunta'); // ALTERNATIVAS
 
 var a = document.querySelector('#a');
 var b = document.querySelector('#b');
 var c = document.querySelector('#c');
-var d = document.querySelector('#d'); // article com a class questoes
+var d = document.querySelector('#d'); // número 
 
-var articleQuestoes = document.querySelector('.questoes'); // Jogadores
-
-var divJogador1 = document.querySelector('.jogador1');
-var divJogador2 = document.querySelector('.jogador2'); // Botão jogadores
-
-var botao_j1 = document.querySelector('.botao_j1');
-var botao_j2 = document.querySelector('.botao_j2'); // Seta respostas
-
-var respostaA = document.querySelector('.respostaA');
-var respostaB = document.querySelector('.respostaB');
-var respostaC = document.querySelector('.respostaC');
-var respostaD = document.querySelector('.respostaD'); // Configura respostas
-
-var jaClicouPraJogar = false;
-respostaA.addEventListener('click', function () {
-  var nQuestao = a;
-  var resposta = a;
-  chamaAcertou(nQuestao, resposta);
-});
-respostaB.addEventListener('click', function () {
-  var nQuestao = b;
-  var resposta = b;
-  chamaAcertou(nQuestao, resposta);
-});
-respostaC.addEventListener('click', function () {
-  var nQuestao = c;
-  var resposta = c;
-  chamaAcertou(nQuestao, resposta);
-});
-respostaD.addEventListener('click', function () {
-  var nQuestao = d;
-  var resposta = d;
-  chamaAcertou(nQuestao, resposta);
-}); // configura botões
-
-var clicou = ''; // // 1
-// botao_j1.addEventListener('click', () => {
-//     // configEquipe_1();
-//     instrucoes.textContent = `${jogador1.textContent} joga!`;
-//     clicou = 'jogador1';
-//     botao_j2.disabled = true;
-//     clicouPrajogar = true;
-// });
-
-botao_j1.addEventListener('click', function () {
-  console.log('clicou'); // config(5);
-
-  startTime();
-}); // // 2
-// botao_j2.addEventListener('click', () => {
-//     // configEquipe_1();
-//     instrucoes.textContent = `${jogador2.textContent} joga!`;
-//     clicou = 'jogador2';
-//     botao_j1.disabled = true;
-//     clicouPrajogar = true;
-// });
-// Pontos jogadores
-
-var pontos_j1 = document.querySelector('.pontos_1');
-var pontos_j1_num = 0;
-var pontos_j2 = document.querySelector('.pontos_2');
-var pontos_j2_num = 0; // número 
-
-var numero = document.querySelector('#numero'); // total
-
-var total = document.querySelector('#total'); // Coloca um numero "1" de 7
+var numero = document.querySelector('#numero'); // Coloca um numero "1" de 7
 
 var q0 = questoes[0];
-numero.textContent = q0.numQuestao; // Coloca o número 1 de "7"
-
-var totalDeQuestoes = questoes.length - 1;
-console.log("Total de questões " + totalDeQuestoes);
-total.textContent = totalDeQuestoes; // MONTAR A 1a QUESTAO COMPLETA, para iniciar o Quiz
-// // Coloca o número da questão em azul
-
-var q1 = questoes[1];
-numQuestao.textContent = q1.numQuestao; // // Coloca o parametro da questão 
-
-pergunta.textContent = q1.pergunta; // // Coloca o texto das alternativas
-
-a.textContent = q1.alternativaA;
-b.textContent = q1.alternativaB;
-c.textContent = q1.alternativaC;
-d.textContent = q1.alternativaD; // CONFIGURAR O VALUE INICIAL DA 1a QUESTAO COMPLETA
-
-a.setAttribute('value', '1A');
-b.setAttribute('value', '1B');
-c.setAttribute('value', '1C');
-d.setAttribute('value', '1D'); // PARA MONTAR AS PROXIMAS QUESTOES
-
-function proximaQuestao(nQuestao) {
-  // Abilita o clicou para jogar
-  clicouPrajogar = false; // Abilita os botões
-
-  botao_j1.disabled = false;
-  botao_j2.disabled = false; // ja cliclou
-
-  jaClicouPraJogar = false; // coloca o número
-
-  numero.textContent = nQuestao; // Coloca o número da questão em azul
-
-  numQuestao.textContent = questoes[nQuestao].numQuestao; // Coloca o parametro da questão
-
-  pergunta.textContent = questoes[nQuestao].pergunta; // Coloca o texto das alternativas
-
-  a.textContent = questoes[nQuestao].alternativaA;
-  b.textContent = questoes[nQuestao].alternativaB;
-  c.textContent = questoes[nQuestao].alternativaC;
-  d.textContent = questoes[nQuestao].alternativaD; // Configura o value da questão
-
-  a.setAttribute('value', nQuestao + 'A');
-  b.setAttribute('value', nQuestao + 'B');
-  c.setAttribute('value', nQuestao + 'C');
-  d.setAttribute('value', nQuestao + 'D');
-}
-
-; // Verifica se já foi escolhida a resposta certa
-
-function chamaAcertou(nQuestao, resposta) {
-  if (jaClicouPraJogar === false) {
-    verificarSeAcertou(nQuestao, resposta);
-  } else {
-    alert('Você não pode clicar de novo!');
-  }
-
-  ;
-}
-
-; // Verifica se acertou a resposta
-
-var clicouPrajogar = false;
-
-function verificarSeAcertou(nQuestao, resposta) {
-  if (clicouPrajogar === true) {
-    jaClicouPraJogar = true;
-    var numeroDaQuestao = nQuestao.value;
-    console.log("Questão " + numeroDaQuestao); // Pega resposta escolhida
-
-    var respostaEscolhida = resposta.textContent; // Pega resposta certa
-
-    var certa = questoes[numeroDaQuestao].correta;
-
-    if (respostaEscolhida == certa) {
-      if (clicou === 'jogador1') {
-        pontos_j1_num += 10;
-        pontos_j1.textContent = 'Pontos: ' + pontos_j1_num;
-        console.log('Pontos jogador 1 ' + pontos_j1_num);
-      }
-
-      ;
-
-      if (clicou === 'jogador2') {
-        pontos_j2_num += 10;
-        pontos_j2.textContent = 'Pontos: ' + pontos_j2_num;
-        console.log('Pontos jogador 2 ' + pontos_j2_num);
-      }
-
-      ;
-      instrucoes.textContent = 'Acertou! Parabéns!';
-      setTimeout(function () {
-        instrucoes.textContent = "Leia a quest\xE3o e clique na resposta correta";
-      }, 5000);
-    } else {
-      instrucoes.textContent = 'Errou, preste mais atenção!';
-      setTimeout(function () {
-        instrucoes.textContent = "Leia a quest\xE3o e clique na resposta correta";
-      }, 5000);
-    }
-
-    ;
-    setTimeout(function () {
-      var proxima = numeroDaQuestao + 1;
-
-      if (proxima > totalDeQuestoes) {
-        console.log('Fim do Jogo!');
-        fimDoJogo();
-      } else {
-        proximaQuestao(proxima);
-      }
-
-      ;
-    }, 5000);
-  } else {
-    alert('Calma!!, quem clicar primeiro joga!');
-  }
-
-  ;
-}
-
-;
-
-function fimDoJogo() {
-  instrucoes.textContent = "Fim de Jogo!";
-  numQuestao.textContent = "";
-
-  if (pontos_j1_num > pontos_j2_num) {
-    var pont = '';
-    pontos_j1_num === 0 ? pont = 'ponto' : pont = 'pontos';
-    var avisoFinal = "\n            Parab\xE9ns ".concat(j1.nome, "\n\n            Voc\xEA conseguiu ").concat(pontos_j1_num, " ").concat(pont, "\n        ");
-    aviso.textContent = avisoFinal;
-  }
-
-  ;
-
-  if (pontos_j2_num > pontos_j1_num) {
-    var _pont = '';
-    pontos_j2_num === 0 ? _pont = 'ponto' : _pont = 'pontos';
-
-    var _avisoFinal = "\n            Parab\xE9ns ".concat(j2.nome, "\n\n            Voc\xEA conseguiu ").concat(pontos_j2_num, " ").concat(_pont, "\n        ");
-
-    aviso.textContent = _avisoFinal;
-  }
-
-  ;
-
-  if (pontos_j1_num === pontos_j2_num) {
-    var _avisoFinal2 = "\n            Parab\xE9ns ".concat(j1.nome, " e ").concat(j2.nome, "\n\n            Tivemos um empate!\n        ");
-
-    aviso.textContent = _avisoFinal2;
-  }
-
-  ;
-  a.textContent = "";
-  b.textContent = "";
-  c.textContent = "";
-  d.textContent = "";
-  a.setAttribute('value', '0');
-  b.setAttribute('value', '0');
-  c.setAttribute('value', '0');
-  d.setAttribute('value', '0'); // OCULTAR O ARTICLE DA QUESTAO
-
-  articleQuestoes.style.display = 'none';
-  divJogador1.style.display = 'none';
-  divJogador2.style.display = 'none'; // Faz com que a página recarregue
-
-  setTimeout(function () {
-    pontos_j1_num = 0;
-    pontos_j2_num = 0;
-    location.reload();
-  }, 10000);
-}
-
-;
+numero.textContent = q0.numQuestao;
+pergunta.textContent = q0.pergunta;
+a.textContent = q0.alternativaA;
+b.textContent = q0.alternativaB;
+c.textContent = q0.alternativaC;
+d.textContent = q0.alternativaD;
 })();
 
 /******/ })()
