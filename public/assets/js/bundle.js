@@ -2431,8 +2431,15 @@ var _require2 = __webpack_require__(/*! ./timer */ "./src/modules/timer.js"),
     start_clique = _require2.start_clique,
     stop = _require2.stop,
     start_ler = _require2.start_ler,
-    stop_ler = _require2.stop_ler; // Total de perguntas
+    stop_ler = _require2.stop_ler; // Só para exemplo;
+// Click Equipe
 
+
+var click_equipe_1 = document.querySelector('.click_eq_1');
+var click_equipe_2 = document.querySelector('.click_eq_2');
+var click_equipe_3 = document.querySelector('.click_eq_3');
+var click_equipe_4 = document.querySelector('.click_eq_4'); // Só para exemplo;
+// Total de perguntas
 
 var total = document.querySelector('#total'); // Aviso
 
@@ -2695,8 +2702,36 @@ function _configQuestoes() {
             ; // Fim de jogo
 
             ;
+            click_equipe_1.addEventListener('click', function () {
+              setTimeout(function () {
+                cont_questoes++;
+                instrucoes.textContent = "Leia a quest\xE3o e clique na resposta correta";
+                proximaQuestao(cont_questoes);
+              }, 5000);
+            });
+            click_equipe_2.addEventListener('click', function () {
+              setTimeout(function () {
+                cont_questoes++;
+                instrucoes.textContent = "Leia a quest\xE3o e clique na resposta correta";
+                proximaQuestao(cont_questoes);
+              }, 5000);
+            });
+            click_equipe_3.addEventListener('click', function () {
+              setTimeout(function () {
+                cont_questoes++;
+                instrucoes.textContent = "Leia a quest\xE3o e clique na resposta correta";
+                proximaQuestao(cont_questoes);
+              }, 5000);
+            });
+            click_equipe_4.addEventListener('click', function () {
+              setTimeout(function () {
+                cont_questoes++;
+                instrucoes.textContent = "Leia a quest\xE3o e clique na resposta correta";
+                proximaQuestao(cont_questoes);
+              }, 5000);
+            });
 
-          case 36:
+          case 40:
           case "end":
             return _context.stop();
         }

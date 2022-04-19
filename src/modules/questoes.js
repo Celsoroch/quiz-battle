@@ -2,6 +2,14 @@ const axios = require('axios');
 const { async } = require('regenerator-runtime');
 const {start_clique, stop, start_ler, stop_ler} = require('./timer');
 
+// Só para exemplo;
+// Click Equipe
+let click_equipe_1 = document.querySelector('.click_eq_1');
+let click_equipe_2 = document.querySelector('.click_eq_2');
+let click_equipe_3 = document.querySelector('.click_eq_3');
+let click_equipe_4 = document.querySelector('.click_eq_4');
+// Só para exemplo;
+
 // Total de perguntas
 let total  = document.querySelector('#total');
 
@@ -270,6 +278,39 @@ async function configQuestoes() {
             location.reload();
         }, 500); // 10000
     };
+
+    click_equipe_1.addEventListener('click', () => {
+        setTimeout(() => {
+            cont_questoes++;
+            instrucoes.textContent = `Leia a questão e clique na resposta correta`;
+            proximaQuestao(cont_questoes);
+        }, 5000);
+    });
+
+    click_equipe_2.addEventListener('click', () => {
+        setTimeout(() => {
+            cont_questoes++;
+            instrucoes.textContent = `Leia a questão e clique na resposta correta`;
+            proximaQuestao(cont_questoes);
+        }, 5000);
+    });
+
+    click_equipe_3.addEventListener('click', () => {
+        setTimeout(() => {
+            cont_questoes++;
+            instrucoes.textContent = `Leia a questão e clique na resposta correta`;
+            proximaQuestao(cont_questoes);
+        }, 5000);
+    });
+
+    click_equipe_4.addEventListener('click', () => {
+        setTimeout(() => {
+            cont_questoes++;
+            instrucoes.textContent = `Leia a questão e clique na resposta correta`;
+            proximaQuestao(cont_questoes);
+        }, 5000);
+    });
+
 
 }
 
