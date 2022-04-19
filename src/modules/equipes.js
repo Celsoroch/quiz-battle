@@ -1,5 +1,15 @@
 const axios = require('axios');
 const { async } = require('regenerator-runtime');
+const {start_clique, stop, stop_ler} = require('./timer');
+
+// Intruções
+let instrucoes = document.querySelector('#instrucoes');
+
+// Click Equipe
+let click_equipe_1 = document.querySelector('.click_eq_1');
+let click_equipe_2 = document.querySelector('.click_eq_2');
+let click_equipe_3 = document.querySelector('.click_eq_3');
+let click_equipe_4 = document.querySelector('.click_eq_4');
 
 // Minha equipe
 let jog_1_meq = document.querySelector('.jog_1_meq');
@@ -35,7 +45,34 @@ let jog_2_eq4 = document.querySelector('.jog_2_eq4');
 let jog_3_eq4 = document.querySelector('.jog_3_eq4');
 let jog_4_eq4 = document.querySelector('.jog_4_eq4');
 
+
 async function config_eqps() {
+    
+    // Validações 
+    let clique_botao = false;
+    let qual_botao = '';
+    let escolheu_equipe = false;
+
+    let botao_j2 = document.querySelector('.botao_passar');
+    setTimeout(function() {
+        botao_j2.addEventListener('click', () => {
+            if (clique_botao === false) {
+                equipe_1.setAttribute('class', 'cor_red');
+                equipe_2.setAttribute('class', 'cor_red');
+                equipe_3.setAttribute('class', 'cor_red');
+                equipe_4.setAttribute('class', 'cor_red');
+                qual_botao = 'Passar';
+                // console.log('Clicou 2');
+                clique_botao = true;
+                instrucoes.textContent = 'Escolha a equipe que vai jogar!'
+                stop_ler()
+                start_clique();
+            } else {
+                alert('Você já clicou!');
+            }
+        });        
+    }, 5000);
+
 
     let { data } = await axios ('http://localhost:3000/equipe');
     // console.log(data);
@@ -103,6 +140,47 @@ async function config_eqps() {
     jog_2_meq.textContent = data_meq[1].nome;
     jog_3_meq.textContent = data_meq[2].nome;
     jog_4_meq.textContent = data_meq[3].nome;
+
+    click_equipe_1.addEventListener('click', () => {
+        if (qual_botao === 'Passar' && escolheu_equipe === false) {
+            escolheu_equipe = true;
+            // console.log('Clique equipe 1');
+            instrucoes.textContent = id_eq1 + ' joga!';
+            stop();
+        } else {
+            alert('Você não pode clicar aqui!');
+        }
+    });
+    click_equipe_2.addEventListener('click', () => {
+        if (qual_botao === 'Passar' && escolheu_equipe === false) {
+            escolheu_equipe = true;
+            // console.log('Clique equipe 2');
+            instrucoes.textContent = id_eq2 + ' joga!';
+            stop();
+        } else {
+            alert('Você não pode clicar aqui!');
+        }
+    });
+    click_equipe_3.addEventListener('click', () => {
+        if (qual_botao === 'Passar' && escolheu_equipe === false) {
+            escolheu_equipe = true;
+            // console.log('Clique equipe 3');
+            instrucoes.textContent = id_eq3 + ' joga!';
+            stop();
+        } else {
+            alert('Você não pode clicar aqui!');
+        }
+    });
+    click_equipe_4.addEventListener('click', () => {
+        if (qual_botao === 'Passar' && escolheu_equipe === false) {
+            escolheu_equipe = true;
+            // console.log('Clique equipe 4');
+            instrucoes.textContent = id_eq4 + ' joga!';
+            stop();
+        } else {
+            alert('Você não pode clicar aqui!');
+        }
+    });
 };
 
-config_eqps();
+module.exports = config_eqps;

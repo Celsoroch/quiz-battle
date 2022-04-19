@@ -2167,7 +2167,7 @@ module.exports = {
 /*!********************************!*\
   !*** ./src/modules/equipes.js ***!
   \********************************/
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -2176,8 +2176,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
 var _require = __webpack_require__(/*! regenerator-runtime */ "./node_modules/regenerator-runtime/runtime.js"),
-    async = _require.async; // Minha equipe
+    async = _require.async;
 
+var _require2 = __webpack_require__(/*! ./timer */ "./src/modules/timer.js"),
+    start_clique = _require2.start_clique,
+    stop = _require2.stop,
+    stop_ler = _require2.stop_ler; // Intruções
+
+
+var instrucoes = document.querySelector('#instrucoes'); // Click Equipe
+
+var click_equipe_1 = document.querySelector('.click_eq_1');
+var click_equipe_2 = document.querySelector('.click_eq_2');
+var click_equipe_3 = document.querySelector('.click_eq_3');
+var click_equipe_4 = document.querySelector('.click_eq_4'); // Minha equipe
 
 var jog_1_meq = document.querySelector('.jog_1_meq');
 var jog_2_meq = document.querySelector('.jog_2_meq');
@@ -2214,16 +2226,39 @@ function config_eqps() {
 
 function _config_eqps() {
   _config_eqps = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    var _yield$axios, data, tamanho, minimo, nums, random, id_eq1, jogs1, data_jog1, id_eq2, jogs2, data_jog2, id_eq3, jogs3, data_jog3, id_eq4, jogs4, data_jog4, id_minha, jogsM, data_meq;
+    var clique_botao, qual_botao, escolheu_equipe, botao_j2, _yield$axios, data, tamanho, minimo, nums, random, id_eq1, jogs1, data_jog1, id_eq2, jogs2, data_jog2, id_eq3, jogs3, data_jog3, id_eq4, jogs4, data_jog4, id_minha, jogsM, data_meq;
 
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            _context.next = 2;
+            // Validações 
+            clique_botao = false;
+            qual_botao = '';
+            escolheu_equipe = false;
+            botao_j2 = document.querySelector('.botao_passar');
+            setTimeout(function () {
+              botao_j2.addEventListener('click', function () {
+                if (clique_botao === false) {
+                  equipe_1.setAttribute('class', 'cor_red');
+                  equipe_2.setAttribute('class', 'cor_red');
+                  equipe_3.setAttribute('class', 'cor_red');
+                  equipe_4.setAttribute('class', 'cor_red');
+                  qual_botao = 'Passar'; // console.log('Clicou 2');
+
+                  clique_botao = true;
+                  instrucoes.textContent = 'Escolha a equipe que vai jogar!';
+                  stop_ler();
+                  start_clique();
+                } else {
+                  alert('Você já clicou!');
+                }
+              });
+            }, 5000);
+            _context.next = 7;
             return axios('http://localhost:3000/equipe');
 
-          case 2:
+          case 7:
             _yield$axios = _context.sent;
             data = _yield$axios.data;
             // console.log(data);
@@ -2232,16 +2267,16 @@ function _config_eqps() {
             minimo = 0;
             nums = [];
 
-          case 7:
+          case 12:
             if (!(nums.length < 4)) {
-              _context.next = 14;
+              _context.next = 19;
               break;
             }
 
-            _context.next = 10;
+            _context.next = 15;
             return Math.floor(Math.random() * (tamanho - minimo) + minimo);
 
-          case 10:
+          case 15:
             random = _context.sent;
 
             if (data[random].id_equipe !== 'Eq-ps') {
@@ -2251,17 +2286,17 @@ function _config_eqps() {
               }
             }
 
-            _context.next = 7;
+            _context.next = 12;
             break;
 
-          case 14:
+          case 19:
             // equipe 1
             equipe_1.textContent = data[nums[0]].id_equipe;
             id_eq1 = data[nums[0]].id_equipe;
-            _context.next = 18;
+            _context.next = 23;
             return axios("http://localhost:3000/jogadoresid/".concat(id_eq1));
 
-          case 18:
+          case 23:
             jogs1 = _context.sent;
             data_jog1 = jogs1.data; // console.log(data_jog1);
 
@@ -2272,10 +2307,10 @@ function _config_eqps() {
 
             equipe_2.textContent = data[nums[1]].id_equipe;
             id_eq2 = data[nums[1]].id_equipe;
-            _context.next = 28;
+            _context.next = 33;
             return axios("http://localhost:3000/jogadoresid/".concat(id_eq2));
 
-          case 28:
+          case 33:
             jogs2 = _context.sent;
             data_jog2 = jogs2.data;
             jog_1_eq2.textContent = data_jog2[0].nome;
@@ -2285,10 +2320,10 @@ function _config_eqps() {
 
             equipe_3.textContent = data[nums[2]].id_equipe;
             id_eq3 = data[nums[2]].id_equipe;
-            _context.next = 38;
+            _context.next = 43;
             return axios("http://localhost:3000/jogadoresid/".concat(id_eq3));
 
-          case 38:
+          case 43:
             jogs3 = _context.sent;
             data_jog3 = jogs3.data;
             jog_1_eq3.textContent = data_jog3[0].nome;
@@ -2298,10 +2333,10 @@ function _config_eqps() {
 
             equipe_4.textContent = data[nums[3]].id_equipe;
             id_eq4 = data[nums[3]].id_equipe;
-            _context.next = 48;
+            _context.next = 53;
             return axios("http://localhost:3000/jogadoresid/".concat(id_eq4));
 
-          case 48:
+          case 53:
             jogs4 = _context.sent;
             data_jog4 = jogs4.data;
             jog_1_eq4.textContent = data_jog4[0].nome;
@@ -2310,10 +2345,10 @@ function _config_eqps() {
             jog_4_eq4.textContent = data_jog4[3].nome; // Minha equipe
 
             id_minha = 'Eq-ps';
-            _context.next = 57;
+            _context.next = 62;
             return axios("http://localhost:3000/jogadoresid/".concat(id_minha));
 
-          case 57:
+          case 62:
             jogsM = _context.sent;
             data_meq = jogsM.data; // console.log(data_meq);
 
@@ -2321,8 +2356,48 @@ function _config_eqps() {
             jog_2_meq.textContent = data_meq[1].nome;
             jog_3_meq.textContent = data_meq[2].nome;
             jog_4_meq.textContent = data_meq[3].nome;
+            click_equipe_1.addEventListener('click', function () {
+              if (qual_botao === 'Passar' && escolheu_equipe === false) {
+                escolheu_equipe = true; // console.log('Clique equipe 1');
 
-          case 63:
+                instrucoes.textContent = id_eq1 + ' joga!';
+                stop();
+              } else {
+                alert('Você não pode clicar aqui!');
+              }
+            });
+            click_equipe_2.addEventListener('click', function () {
+              if (qual_botao === 'Passar' && escolheu_equipe === false) {
+                escolheu_equipe = true; // console.log('Clique equipe 2');
+
+                instrucoes.textContent = id_eq2 + ' joga!';
+                stop();
+              } else {
+                alert('Você não pode clicar aqui!');
+              }
+            });
+            click_equipe_3.addEventListener('click', function () {
+              if (qual_botao === 'Passar' && escolheu_equipe === false) {
+                escolheu_equipe = true; // console.log('Clique equipe 3');
+
+                instrucoes.textContent = id_eq3 + ' joga!';
+                stop();
+              } else {
+                alert('Você não pode clicar aqui!');
+              }
+            });
+            click_equipe_4.addEventListener('click', function () {
+              if (qual_botao === 'Passar' && escolheu_equipe === false) {
+                escolheu_equipe = true; // console.log('Clique equipe 4');
+
+                instrucoes.textContent = id_eq4 + ' joga!';
+                stop();
+              } else {
+                alert('Você não pode clicar aqui!');
+              }
+            });
+
+          case 72:
           case "end":
             return _context.stop();
         }
@@ -2333,7 +2408,7 @@ function _config_eqps() {
 }
 
 ;
-config_eqps();
+module.exports = config_eqps;
 
 /***/ }),
 
@@ -2347,27 +2422,16 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-// Questões
-var q0 = {
-  numQuestao: 0,
-  pergunta: "Pergunta",
-  alternativaA: "Alternativa A",
-  alternativaB: "Alternativa B",
-  alternativaC: "Alternativa C",
-  alternativaD: "Alternativa D",
-  correta: "0"
-}; // Para TEste
-
-var botao_j1 = document.querySelector('.botao_j1');
-botao_j1.addEventListener('click', function () {
-  console.log('clicou');
-  clicouPrajogar = true;
-}); // 
-
 var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
 var _require = __webpack_require__(/*! regenerator-runtime */ "./node_modules/regenerator-runtime/runtime.js"),
-    async = _require.async; // Total de perguntas
+    async = _require.async;
+
+var _require2 = __webpack_require__(/*! ./timer */ "./src/modules/timer.js"),
+    start_clique = _require2.start_clique,
+    stop = _require2.stop,
+    start_ler = _require2.start_ler,
+    stop_ler = _require2.stop_ler; // Total de perguntas
 
 
 var total = document.querySelector('#total'); // Aviso
@@ -2397,7 +2461,12 @@ var d = document.querySelector('#d'); // configura respostas
 var respostaA = document.querySelector('.respostaA');
 var respostaB = document.querySelector('.respostaB');
 var respostaC = document.querySelector('.respostaC');
-var respostaD = document.querySelector('.respostaD');
+var respostaD = document.querySelector('.respostaD'); // Instruções
+
+var instrucoes = document.querySelector('#instrucoes'); // // Configurações de botões
+// Botões
+
+var botao_j1 = document.querySelector('.botao_responder');
 
 function configQuestoes() {
   return _configQuestoes.apply(this, arguments);
@@ -2405,7 +2474,7 @@ function configQuestoes() {
 
 function _configQuestoes() {
   _configQuestoes = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    var jaClicouPraJogar, clicouPrajogar, cont_questoes, _yield$axios, data, totalDeQuestoes, correta, chamaAcertou, verificarSeAcertou, proximaQuestao, fimDoJogo;
+    var clique_botao, qual_botao, jaClicouPraJogar, clicouPrajogar, cont_questoes, _yield$axios, data, totalDeQuestoes, chamaAcertou, verificarSeAcertou, proximaQuestao, fimDoJogo;
 
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
@@ -2415,10 +2484,7 @@ function _configQuestoes() {
               instrucoes.textContent = "Fim de Jogo!";
               numQuestao.textContent = "";
               pergunta.textContent = "";
-              quiz.textContent = ""; // contador.styles.display = 'none';
-              // centro.styles.display = 'none';
-              // questoesHTML.styles.display = 'none';
-
+              quiz.textContent = "";
               contador.remove('contador');
               centro.remove('centro');
               questoesHTML.remove('questoes');
@@ -2437,17 +2503,21 @@ function _configQuestoes() {
 
               setTimeout(function () {
                 location.reload();
-              }, 10000);
+              }, 500); // 10000
             };
 
             proximaQuestao = function _proximaQuestao(nQuestao) {
-              // Abilita o clicou para jogar
+              // configura timer
+              start_ler(); // 
+
+              qual_botao = ''; // Abilita o clicou para jogar
+
               clicouPrajogar = false; // ja cliclou
 
               jaClicouPraJogar = false; // coloca o número
 
-              numero.textContent = nQuestao + 1;
-              console.log(nQuestao); // Coloca o número da questão em azul
+              numero.textContent = nQuestao + 1; // console.log(nQuestao);
+              // Coloca o número da questão em azul
 
               numQuestao.textContent = nQuestao + 1; // Coloca o parametro da questão
 
@@ -2462,21 +2532,20 @@ function _configQuestoes() {
               a.setAttribute('value', nQuestao + 'A');
               b.setAttribute('value', nQuestao + 'B');
               c.setAttribute('value', nQuestao + 'C');
-              d.setAttribute('value', nQuestao + 'D');
+              d.setAttribute('value', nQuestao + 'D'); // console.log('a value' +  a.value);
             };
 
             verificarSeAcertou = function _verificarSeAcertou(resposta) {
               if (clicouPrajogar === true) {
-                console.log('verifica acertou = true');
+                // console.log('verifica acertou = true');
                 jaClicouPraJogar = true; // let numeroDaQuestao = nQuestao.value;
                 // console.log("Questão " + numeroDaQuestao);
                 // Pega resposta escolhida
 
-                var respostaEscolhida = resposta.textContent;
-                console.log('resposta = ' + respostaEscolhida); // Pega resposta certa
+                var respostaEscolhida = resposta.textContent; // console.log('resposta = ' + respostaEscolhida);
+                // Pega resposta certa
 
-                var certa = data[cont_questoes].correta;
-                console.log('certa = ' + certa);
+                var certa = data[cont_questoes].correta; // console.log('certa = ' + certa);
 
                 if (respostaEscolhida == certa) {
                   instrucoes.textContent = 'Acertou! Parabéns!';
@@ -2484,27 +2553,28 @@ function _configQuestoes() {
                   pontosMinhaEq.textContent = pontos;
                   setTimeout(function () {
                     instrucoes.textContent = "Leia a quest\xE3o e clique na resposta correta";
-                  }, 100);
+                  }, 5000);
                 } else {
                   instrucoes.textContent = 'Errou, preste mais atenção!';
                   setTimeout(function () {
                     instrucoes.textContent = "Leia a quest\xE3o e clique na resposta correta";
-                  }, 100);
+                  }, 5000);
                 }
 
                 ;
                 setTimeout(function () {
-                  cont_questoes++; // cont_questoes === totalDeQuestoes
+                  cont_questoes++;
 
-                  if (cont_questoes === 3) {
-                    console.log('Fim do Jogo!');
+                  if (cont_questoes === totalDeQuestoes) {
+                    // console.log('Fim do Jogo!');
                     fimDoJogo();
                   } else {
+                    clicouPrajogar = false;
                     proximaQuestao(cont_questoes);
                   }
 
                   ;
-                }, 100);
+                }, 5000);
               } else {
                 alert('Calma!!, quem clicar primeiro joga!');
               }
@@ -2523,17 +2593,21 @@ function _configQuestoes() {
               ;
             };
 
-            // Configurações de cliques
+            // let clicouPrajogar = false;
+            clique_botao = false;
+            qual_botao = ''; // Configurações de cliques
+
             jaClicouPraJogar = false;
             clicouPrajogar = false;
+            start_ler();
             cont_questoes = 0;
-            _context.next = 9;
+            _context.next = 12;
             return axios('http://localhost:3000/questoes/1');
 
-          case 9:
+          case 12:
             _yield$axios = _context.sent;
             data = _yield$axios.data;
-            console.log(data);
+            // console.log(data);
             totalDeQuestoes = data.length; // console.log('Total de questões = ' + totalDeQuestoes);
 
             total.textContent = data.length;
@@ -2544,30 +2618,74 @@ function _configQuestoes() {
             b.textContent = data[cont_questoes].alternativa_b;
             c.textContent = data[cont_questoes].alternativa_c;
             d.textContent = data[cont_questoes].alternativa_d;
-            correta = data[cont_questoes].correta;
             a.setAttribute('value', cont_questoes + 'A');
             b.setAttribute('value', cont_questoes + 'B');
             c.setAttribute('value', cont_questoes + 'C');
             d.setAttribute('value', cont_questoes + 'D');
+            botao_j1.addEventListener('click', function () {
+              if (clique_botao === false) {
+                qual_botao = 'Jogar'; // console.log('Clicou');
+
+                clique_botao = true;
+                instrucoes.textContent = 'Você joga!';
+                stop_ler();
+                start_clique();
+              } else {
+                alert('Você já clicou!');
+              }
+            });
             respostaA.addEventListener('click', function () {
-              var resposta = a;
-              clicouPrajogar = true;
-              chamaAcertou(resposta);
+              if (qual_botao === 'Jogar') {
+                clique_botao = false; // stop();
+
+                pause();
+                var resposta = a;
+                clicouPrajogar = true;
+                chamaAcertou(resposta);
+              } else {
+                alert('Você não pode clicar aqui!');
+              }
+
+              ;
             });
             respostaB.addEventListener('click', function () {
-              var resposta = b;
-              clicouPrajogar = true;
-              chamaAcertou(resposta);
+              if (qual_botao === 'Jogar') {
+                clique_botao = false;
+                stop();
+                var resposta = b;
+                clicouPrajogar = true;
+                chamaAcertou(resposta);
+              } else {
+                alert('Você não pode clicar aqui!');
+              }
+
+              ;
             });
             respostaC.addEventListener('click', function () {
-              var resposta = c;
-              clicouPrajogar = true;
-              chamaAcertou(resposta);
+              if (qual_botao === 'Jogar') {
+                clique_botao = false;
+                stop();
+                var resposta = c;
+                clicouPrajogar = true;
+                chamaAcertou(resposta);
+              } else {
+                alert('Você não pode clicar aqui!');
+              }
+
+              ;
             });
             respostaD.addEventListener('click', function () {
-              var resposta = d;
-              clicouPrajogar = true;
-              chamaAcertou(resposta);
+              if (qual_botao === 'Jogar') {
+                clique_botao = false;
+                stop();
+                var resposta = d;
+                clicouPrajogar = true;
+                chamaAcertou(resposta);
+              } else {
+                alert('Você não pode clicar aqui!');
+              }
+
+              ;
             }); // Chama acertou;
 
             ; // // Verifica se acertou;
@@ -2578,7 +2696,7 @@ function _configQuestoes() {
 
             ;
 
-          case 34:
+          case 36:
           case "end":
             return _context.stop();
         }
@@ -2588,9 +2706,7 @@ function _configQuestoes() {
   return _configQuestoes.apply(this, arguments);
 }
 
-configQuestoes();
-var questoes = [q0];
-module.exports = questoes;
+module.exports = configQuestoes;
 
 /***/ }),
 
@@ -2601,38 +2717,117 @@ module.exports = questoes;
 /***/ ((module) => {
 
 var time_sec = document.querySelector('#time_sec');
-var ss = 15;
+var ss = '';
 var tempo = 1000;
 var cron;
+var cron_ler;
+var cron_ini;
+var format = "".concat(ss);
 
-function start() {
+function start_clique() {
+  ss = 15;
+  format = "".concat(ss);
+  time_sec.textContent = format;
   cron = setInterval(function () {
     timer();
   }, tempo);
 }
 
-function pause() {
-  clearInterval(cron);
-}
-
 function stop() {
   clearInterval(cron);
+  ss = '--';
+  format = "".concat(ss);
+  time_sec.textContent = format;
 }
 
 function timer() {
   ss--;
 
   if (ss === 0) {
-    stop();
-    console.log('Acabou!');
+    stop(); // console.log('Acabou!');
   }
 
   ;
-  var format = "".concat(ss);
+
+  if (ss > 10) {
+    format = "".concat(ss);
+  } else {
+    format = "0".concat(ss);
+  }
+
   time_sec.textContent = format;
 }
 
-module.exports = start;
+function start_ler() {
+  ss = 10;
+  format = "".concat(ss);
+  time_sec.textContent = format;
+  cron_ler = setInterval(function () {
+    timer_ler();
+  }, tempo);
+}
+
+function stop_ler() {
+  clearInterval(cron_ler);
+}
+
+function timer_ler() {
+  ss--;
+
+  if (ss === 0) {
+    stop_ler(); // console.log('Acabou!');
+  }
+
+  ;
+
+  if (ss > 10) {
+    format = "".concat(ss);
+  } else {
+    format = "0".concat(ss);
+  }
+
+  time_sec.textContent = format;
+}
+
+function start_ini() {
+  ss = 5;
+  format = "0".concat(ss);
+  time_sec.textContent = format;
+  cron_ini = setInterval(function () {
+    timer_ini();
+  }, tempo);
+}
+
+function stop_ini() {
+  clearInterval(cron_ini);
+}
+
+function timer_ini() {
+  ss--;
+
+  if (ss === 0) {
+    stop_ler(); // console.log('Acabou!');
+  }
+
+  ;
+
+  if (ss > 10) {
+    format = "".concat(ss);
+  } else {
+    format = "0".concat(ss);
+  }
+
+  time_sec.textContent = format;
+}
+
+module.exports = {
+  start_clique: start_clique,
+  stop: stop,
+  start_ler: start_ler,
+  stop_ler: stop_ler,
+  start_ini: start_ini,
+  stop_ini: stop_ini
+};
 
 /***/ }),
 
@@ -2657,7 +2852,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ":root {\r\n\r\n    /*CORES A SEREM ADICIONADAS*/\r\n    --fundo-color: #254b9c;\r\n    --contador-color: #194cbb;\r\n    --equipes-color: #52D0E6;\r\n    --equipePRINC-color: #4EFCE8;\r\n    --respost-color: #4BF2AF;\r\n    --respostMOUSE-color: #3f68c2;\r\n    --contorno-color: #03ff9e;\r\n\r\n\r\n    /*GRADUAÇÃO DE CORES*/\r\n    --gradual-color: linear-gradient(-40deg, #678d87, #106570, #9e4fa8, #007c53);\r\n    --gradualEQUIPE-color: linear-gradient(-40deg,  #00754e, #74357c, #0d7a7e, #0f3291);\r\n    --gradualBOTAO-color: linear-gradient(-40deg,  #61073e, #670774, #151fa1, #074aa1);\r\n\r\n    /*ADICIONAR FONTES PARA TEXTO*/\r\n\r\n}\r\n\r\n* {\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\r\n    font-family: 'Roboto', sans-serif;\r\n    font-size: 1.25rem;   \r\n}\r\n\r\nbody {\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n    min-height: 100vh;\r\n    background: var(--gradual-color);\r\n    background-size: 800% 100%;\r\n    animation: colors 20s ease infinite;\r\n    color: #fff;\r\n}\r\n\r\n@keyframes colors {\r\n    0% {\r\n        background-position: 0% 50%;\r\n    }\r\n    25% {\r\n        background-position: 50% 0%;\r\n    }\r\n    50% {\r\n        background-position: 100% 50%;\r\n    }\r\n    75% {\r\n        background-position: 50% 0%;\r\n    }\r\n    100% {\r\n        background-position: 0% 50%;\r\n    }\r\n}\r\n\r\nmain {\r\n    flex-grow: 3;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: center;\r\n    width: 80%;\r\n    padding: 50px; /* espacamento interno */\r\n}\r\n\r\nsection {\r\n    width: 100%;\r\n    margin: 0 auto;\r\n    height: 700px;\r\n    padding: 1rem;\r\n    margin-bottom: 0.625rem;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\nh1 {\r\n    position: relative;\r\n    text-align: center;\r\n    font-size: 1.75rem;\r\n    margin: 0.625rem;\r\n}\r\n\r\n.centro {\r\n    text-align: center;\r\n}\r\n\r\n.questao {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n}\r\n\r\n#numQuestao {\r\n    display: block;\r\n    background: #00b0ff;\r\n    padding: 4px 10px 2px 10px;\r\n    border-radius: 50%;\r\n}\r\n\r\n#pergunta {\r\n    margin-left: 1rem;\r\n}\r\n\r\n.questoes {\r\n    display: flex;\r\n    flex-direction: column;\r\n    padding: 10px 5px;\r\n    border: 3px solid var(--contorno-color);\r\n    border-radius: 5px;\r\n    margin-bottom: 20px;\r\n    min-width: 60%;\r\n    max-width: 90%;\r\n    background: var(--fundo-color);\r\n}\r\n\r\n.questoes ol li {\r\n    display: block;\r\n    margin: 1rem;\r\n    padding: 1rem;\r\n    border-radius: 8px;\r\n}\r\n\r\n.questoes ol li:hover {\r\n    background: #00b0ff;\r\n    cursor: pointer;\r\n}\r\n\r\n.bloqueado {\r\n    display: none;\r\n}\r\n\r\n.bloqueado li:hover {\r\n    display: none;\r\n}\r\n\r\n#instrucoes {\r\n    background: rgb(8, 211, 126);\r\n    color: #191919;\r\n    padding: 0.625rem;\r\n    border-radius: 8px;\r\n    display: flex;\r\n    justify-content: center;\r\n    margin-bottom: 1rem;\r\n    animation: piscar .75s infinite alternate;\r\n}\r\n\r\n#aviso {\r\n    color: #600872;\r\n}\r\n\r\n.botao{\r\n    color: whitesmoke;\r\n\r\n    height: 50px;\r\n    margin-top: 5px;\r\n}\r\n\r\n.botao:hover {\r\n    background: #00b0ff;\r\n    cursor: pointer;\r\n}\r\n\r\n.pontos_1, .pontos_2 {\r\n    color:#00b0ff;\r\n    background-color: #ffffff;\r\n    margin-top: 0px;\r\n}\r\n\r\n/* ANIMACAO */\r\n\r\n/* Animar o input */\r\n@keyframes piscar {\r\n    0% {\r\n        filter: drop-shadow(0 0 20px #00b0ff);\r\n        -webkit-filter: drop-shadow(0 0 20px #00b0ff);\r\n        -moz-filter: drop-shadow(0 0 20px #00b0ff);\r\n        -o-filter: drop-shadow(0 0 20px #00b0ff);\r\n        -ms-filter: drop-shadow(0 0 20px #00b0ff);\r\n    }\r\n    100% {\r\n    }\r\n}\r\n\r\n.animar {\r\n    animation: piscar .75s infinite alternate;\r\n}\r\n\r\n.aparecer {\r\n    animation: aparecer .5s infinite alternate;\r\n}\r\n\r\n@keyframes aparecer {\r\n    0% {\r\n        opacity: 0\r\n    }\r\n    100% {\r\n        opacity: 1\r\n    }\r\n}\r\n\r\n.timer {\r\n    display: flex;\r\n    background: var(--contador-color);\r\n    padding: 0.45rem;\r\n    border-radius: 50%;\r\n    margin-bottom: 10px;\r\n}\r\n/* TELA DAS TABELAS */\r\n.box_equipes {\r\n    display: flex;\r\n    flex-direction: column;        \r\n}\r\n/* TELA DA TABELA */\r\n.equipes {\r\n    position: relative;\r\n    top: 22%;\r\n    padding: 25px 28px;\r\n    border: 3px solid var(--contorno-color);\r\n    border-radius: 5px;\r\n    right: 30px;\r\n    max-width: 100%;\r\n    background: var(--gradualEQUIPE-color);\r\n    background-size: 800% 100%;\r\n    animation: colors 15s ease infinite;\r\n}\r\n\r\n@keyframes colors {\r\n    0% {\r\n        background-position: 0% 50%;\r\n    }\r\n    25% {\r\n        background-position: 50% 0%;\r\n    }\r\n    50% {\r\n        background-position: 100% 50%;\r\n    }\r\n    75% {\r\n        background-position: 50% 0%;\r\n    }\r\n    100% {\r\n        background-position: 0% 50%;\r\n    }\r\n}\r\n\r\n.tabelas {\r\n    text-align: center;\r\n}\r\n/* TELA DO USUARIO COM SUA EQUIPE/BOTAO  */\r\n.equipe_botao {\r\n    position: relative;\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-self: flex-start;\r\n    top: 30%;\r\n    left: 15%;\r\n    text-align: center;\r\n}\r\n/* TELA DO USUARIO COM SUA EQUIPE  */\r\n.box_Tela-Usuario {\r\n    position: relative;\r\n    display: flex;\r\n    flex-direction: column;\r\n    padding: 5px 10px;\r\n    border: 2px solid var(--contorno-color);\r\n    border-radius: 10rem;\r\n    background: var(--gradualEQUIPE-color);\r\n    background-size: 800% 100%;\r\n    animation: colors 12s ease infinite;\r\n}\r\n\r\n@keyframes colors {\r\n    0% {\r\n        background-position: 0% 50%;\r\n    }\r\n    25% {\r\n        background-position: 50% 0%;\r\n    }\r\n    50% {\r\n        background-position: 100% 50%;\r\n    }\r\n    75% {\r\n        background-position: 50% 0%;\r\n    }\r\n    100% {\r\n        background-position: 0% 50%;\r\n    }\r\n}\r\n/* botao*/\r\n.players {\r\n    position: relative;\r\n    display: flex;\r\n    flex-direction: row;\r\n}\r\n.jogador2 {\r\n    margin-left: 30%;\r\n    \r\n}\r\n\r\n.botao {\r\n    border-radius: 10rem;\r\n    padding: 10px;\r\n    border: 2px solid var(--contorno-color);\r\n    background: var(--gradualBOTAO-color);\r\n    background-size: 800% 100%;\r\n    animation: colors 7s ease infinite;\r\n}\r\n\r\n@keyframes colors {\r\n    0% {\r\n        background-position: 0% 50%;\r\n    }\r\n    25% {\r\n        background-position: 50% 0%;\r\n    }\r\n    50% {\r\n        background-position: 100% 50%;\r\n    }\r\n    75% {\r\n        background-position: 50% 0%;\r\n    }\r\n    100% {\r\n        background-position: 0% 50%;\r\n    }\r\n}\r\n\r\n\r\n.jog_equipe {\r\n    padding-left: 15px;\r\n    padding-right: 5px;\r\n}", "",{"version":3,"sources":["webpack://./src/assets/css/styles.css"],"names":[],"mappings":"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","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');\r\n\r\n:root {\r\n\r\n    /*CORES A SEREM ADICIONADAS*/\r\n    --fundo-color: #254b9c;\r\n    --contador-color: #194cbb;\r\n    --equipes-color: #52D0E6;\r\n    --equipePRINC-color: #4EFCE8;\r\n    --respost-color: #4BF2AF;\r\n    --respostMOUSE-color: #3f68c2;\r\n    --contorno-color: #03ff9e;\r\n\r\n\r\n    /*GRADUAÇÃO DE CORES*/\r\n    --gradual-color: linear-gradient(-40deg, #678d87, #106570, #9e4fa8, #007c53);\r\n    --gradualEQUIPE-color: linear-gradient(-40deg,  #00754e, #74357c, #0d7a7e, #0f3291);\r\n    --gradualBOTAO-color: linear-gradient(-40deg,  #61073e, #670774, #151fa1, #074aa1);\r\n\r\n    /*ADICIONAR FONTES PARA TEXTO*/\r\n\r\n}\r\n\r\n* {\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\r\n    font-family: 'Roboto', sans-serif;\r\n    font-size: 1.25rem;   \r\n}\r\n\r\nbody {\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n    min-height: 100vh;\r\n    background: var(--gradual-color);\r\n    background-size: 800% 100%;\r\n    animation: colors 20s ease infinite;\r\n    color: #fff;\r\n}\r\n\r\n@keyframes colors {\r\n    0% {\r\n        background-position: 0% 50%;\r\n    }\r\n    25% {\r\n        background-position: 50% 0%;\r\n    }\r\n    50% {\r\n        background-position: 100% 50%;\r\n    }\r\n    75% {\r\n        background-position: 50% 0%;\r\n    }\r\n    100% {\r\n        background-position: 0% 50%;\r\n    }\r\n}\r\n\r\nmain {\r\n    flex-grow: 3;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: center;\r\n    width: 80%;\r\n    padding: 50px; /* espacamento interno */\r\n}\r\n\r\nsection {\r\n    width: 100%;\r\n    margin: 0 auto;\r\n    height: 700px;\r\n    padding: 1rem;\r\n    margin-bottom: 0.625rem;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\nh1 {\r\n    position: relative;\r\n    text-align: center;\r\n    font-size: 1.75rem;\r\n    margin: 0.625rem;\r\n}\r\n\r\n.centro {\r\n    text-align: center;\r\n}\r\n\r\n.questao {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n}\r\n\r\n#numQuestao {\r\n    display: block;\r\n    background: #00b0ff;\r\n    padding: 4px 10px 2px 10px;\r\n    border-radius: 50%;\r\n}\r\n\r\n#pergunta {\r\n    margin-left: 1rem;\r\n}\r\n\r\n.questoes {\r\n    display: flex;\r\n    flex-direction: column;\r\n    padding: 10px 5px;\r\n    border: 3px solid var(--contorno-color);\r\n    border-radius: 5px;\r\n    margin-bottom: 20px;\r\n    min-width: 60%;\r\n    max-width: 90%;\r\n    background: var(--fundo-color);\r\n}\r\n\r\n.questoes ol li {\r\n    display: block;\r\n    margin: 1rem;\r\n    padding: 1rem;\r\n    border-radius: 8px;\r\n}\r\n\r\n.questoes ol li:hover {\r\n    background: #00b0ff;\r\n    cursor: pointer;\r\n}\r\n\r\n.bloqueado {\r\n    display: none;\r\n}\r\n\r\n.bloqueado li:hover {\r\n    display: none;\r\n}\r\n\r\n#instrucoes {\r\n    background: rgb(8, 211, 126);\r\n    color: #191919;\r\n    padding: 0.625rem;\r\n    border-radius: 8px;\r\n    display: flex;\r\n    justify-content: center;\r\n    margin-bottom: 1rem;\r\n    animation: piscar .75s infinite alternate;\r\n}\r\n\r\n#aviso {\r\n    color: #600872;\r\n}\r\n\r\n.botao{\r\n    color: whitesmoke;\r\n\r\n    height: 50px;\r\n    margin-top: 5px;\r\n}\r\n\r\n.botao:hover {\r\n    background: #00b0ff;\r\n    cursor: pointer;\r\n}\r\n\r\n.pontos_1, .pontos_2 {\r\n    color:#00b0ff;\r\n    background-color: #ffffff;\r\n    margin-top: 0px;\r\n}\r\n\r\n/* ANIMACAO */\r\n\r\n/* Animar o input */\r\n@keyframes piscar {\r\n    0% {\r\n        filter: drop-shadow(0 0 20px #00b0ff);\r\n        -webkit-filter: drop-shadow(0 0 20px #00b0ff);\r\n        -moz-filter: drop-shadow(0 0 20px #00b0ff);\r\n        -o-filter: drop-shadow(0 0 20px #00b0ff);\r\n        -ms-filter: drop-shadow(0 0 20px #00b0ff);\r\n    }\r\n    100% {\r\n    }\r\n}\r\n\r\n.animar {\r\n    animation: piscar .75s infinite alternate;\r\n}\r\n\r\n.aparecer {\r\n    animation: aparecer .5s infinite alternate;\r\n}\r\n\r\n@keyframes aparecer {\r\n    0% {\r\n        opacity: 0\r\n    }\r\n    100% {\r\n        opacity: 1\r\n    }\r\n}\r\n\r\n.timer {\r\n    display: flex;\r\n    background: var(--contador-color);\r\n    padding: 0.45rem;\r\n    border-radius: 50%;\r\n    margin-bottom: 10px;\r\n}\r\n/* TELA DAS TABELAS */\r\n.box_equipes {\r\n    display: flex;\r\n    flex-direction: column;        \r\n}\r\n/* TELA DA TABELA */\r\n.equipes {\r\n    position: relative;\r\n    top: 22%;\r\n    padding: 25px 28px;\r\n    border: 3px solid var(--contorno-color);\r\n    border-radius: 5px;\r\n    right: 30px;\r\n    max-width: 100%;\r\n    background: var(--gradualEQUIPE-color);\r\n    background-size: 800% 100%;\r\n    animation: colors 15s ease infinite;\r\n}\r\n\r\n@keyframes colors {\r\n    0% {\r\n        background-position: 0% 50%;\r\n    }\r\n    25% {\r\n        background-position: 50% 0%;\r\n    }\r\n    50% {\r\n        background-position: 100% 50%;\r\n    }\r\n    75% {\r\n        background-position: 50% 0%;\r\n    }\r\n    100% {\r\n        background-position: 0% 50%;\r\n    }\r\n}\r\n\r\n.tabelas {\r\n    text-align: center;\r\n}\r\n/* TELA DO USUARIO COM SUA EQUIPE/BOTAO  */\r\n.equipe_botao {\r\n    position: relative;\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-self: flex-start;\r\n    top: 30%;\r\n    left: 15%;\r\n    text-align: center;\r\n}\r\n/* TELA DO USUARIO COM SUA EQUIPE  */\r\n.box_Tela-Usuario {\r\n    position: relative;\r\n    display: flex;\r\n    flex-direction: column;\r\n    padding: 5px 10px;\r\n    border: 2px solid var(--contorno-color);\r\n    border-radius: 10rem;\r\n    background: var(--gradualEQUIPE-color);\r\n    background-size: 800% 100%;\r\n    animation: colors 12s ease infinite;\r\n}\r\n\r\n@keyframes colors {\r\n    0% {\r\n        background-position: 0% 50%;\r\n    }\r\n    25% {\r\n        background-position: 50% 0%;\r\n    }\r\n    50% {\r\n        background-position: 100% 50%;\r\n    }\r\n    75% {\r\n        background-position: 50% 0%;\r\n    }\r\n    100% {\r\n        background-position: 0% 50%;\r\n    }\r\n}\r\n/* botao*/\r\n.players {\r\n    position: relative;\r\n    display: flex;\r\n    flex-direction: row;\r\n}\r\n.jogador2 {\r\n    margin-left: 30%;\r\n    \r\n}\r\n\r\n.botao {\r\n    border-radius: 10rem;\r\n    padding: 10px;\r\n    border: 2px solid var(--contorno-color);\r\n    background: var(--gradualBOTAO-color);\r\n    background-size: 800% 100%;\r\n    animation: colors 7s ease infinite;\r\n}\r\n\r\n@keyframes colors {\r\n    0% {\r\n        background-position: 0% 50%;\r\n    }\r\n    25% {\r\n        background-position: 50% 0%;\r\n    }\r\n    50% {\r\n        background-position: 100% 50%;\r\n    }\r\n    75% {\r\n        background-position: 50% 0%;\r\n    }\r\n    100% {\r\n        background-position: 0% 50%;\r\n    }\r\n}\r\n\r\n\r\n.jog_equipe {\r\n    padding-left: 15px;\r\n    padding-right: 5px;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ":root {\r\n\r\n    /*CORES A SEREM ADICIONADAS*/\r\n    --fundo-color: #254b9c;\r\n    --contador-color: #194cbb;\r\n    --equipes-color: #52D0E6;\r\n    --equipePRINC-color: #4EFCE8;\r\n    --respost-color: #4BF2AF;\r\n    --respostMOUSE-color: #3f68c2;\r\n    --contorno-color: #03ff9e;\r\n\r\n\r\n    /*GRADUAÇÃO DE CORES*/\r\n    --gradual-color: linear-gradient(-40deg, #678d87, #106570, #9e4fa8, #007c53);\r\n    --gradualEQUIPE-color: linear-gradient(-40deg,  #00754e, #74357c, #0d7a7e, #0f3291);\r\n    --gradualBOTAO-color: linear-gradient(-40deg,  #61073e, #670774, #151fa1, #074aa1);\r\n\r\n    /*ADICIONAR FONTES PARA TEXTO*/\r\n\r\n}\r\n\r\n* {\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\r\n    font-family: 'Roboto', sans-serif;\r\n    font-size: 1.25rem;   \r\n}\r\n\r\nbody {\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n    min-height: 100vh;\r\n    background: var(--gradual-color);\r\n    background-size: 800% 100%;\r\n    animation: colors 20s ease infinite;\r\n    color: #fff;\r\n}\r\n\r\n@keyframes colors {\r\n    0% {\r\n        background-position: 0% 50%;\r\n    }\r\n    25% {\r\n        background-position: 50% 0%;\r\n    }\r\n    50% {\r\n        background-position: 100% 50%;\r\n    }\r\n    75% {\r\n        background-position: 50% 0%;\r\n    }\r\n    100% {\r\n        background-position: 0% 50%;\r\n    }\r\n}\r\n\r\nmain {\r\n    flex-grow: 3;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: center;\r\n    width: 80%;\r\n    padding: 50px; /* espacamento interno */\r\n}\r\n\r\nsection {\r\n    width: 100%;\r\n    margin: 0 auto;\r\n    height: 700px;\r\n    padding: 1rem;\r\n    margin-bottom: 0.625rem;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\nh1 {\r\n    position: relative;\r\n    text-align: center;\r\n    font-size: 1.75rem;\r\n    margin: 0.625rem;\r\n}\r\n\r\n.centro {\r\n    text-align: center;\r\n}\r\n\r\n.questao {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n}\r\n\r\n#numQuestao {\r\n    display: block;\r\n    background: #00b0ff;\r\n    padding: 4px 10px 2px 10px;\r\n    border-radius: 50%;\r\n}\r\n\r\n#pergunta {\r\n    margin-left: 1rem;\r\n}\r\n\r\n.questoes {\r\n    display: flex;\r\n    flex-direction: column;\r\n    padding: 10px 5px;\r\n    border: 3px solid var(--contorno-color);\r\n    border-radius: 5px;\r\n    margin-bottom: 20px;\r\n    min-width: 60%;\r\n    max-width: 90%;\r\n    background: var(--fundo-color);\r\n}\r\n\r\n.questoes ol li {\r\n    display: block;\r\n    margin: 1rem;\r\n    padding: 1rem;\r\n    border-radius: 8px;\r\n}\r\n\r\n.questoes ol li:hover {\r\n    background: #00b0ff;\r\n    cursor: pointer;\r\n}\r\n\r\n.bloqueado {\r\n    display: none;\r\n}\r\n\r\n.bloqueado li:hover {\r\n    display: none;\r\n}\r\n\r\n#instrucoes {\r\n    background: rgb(8, 211, 126);\r\n    color: #191919;\r\n    padding: 0.625rem;\r\n    border-radius: 8px;\r\n    display: flex;\r\n    justify-content: center;\r\n    margin-bottom: 1rem;\r\n    animation: piscar .75s infinite alternate;\r\n}\r\n\r\n#aviso {\r\n    color: #600872;\r\n}\r\n\r\n.botao{\r\n    color: whitesmoke;\r\n\r\n    height: 50px;\r\n    margin-top: 5px;\r\n}\r\n\r\n.botao:hover {\r\n    background: #00b0ff;\r\n    cursor: pointer;\r\n}\r\n\r\n.pontos_1, .pontos_2 {\r\n    color:#00b0ff;\r\n    background-color: #ffffff;\r\n    margin-top: 0px;\r\n}\r\n\r\n/* ANIMACAO */\r\n\r\n/* Animar o input */\r\n@keyframes piscar {\r\n    0% {\r\n        filter: drop-shadow(0 0 20px #00b0ff);\r\n        -webkit-filter: drop-shadow(0 0 20px #00b0ff);\r\n        -moz-filter: drop-shadow(0 0 20px #00b0ff);\r\n        -o-filter: drop-shadow(0 0 20px #00b0ff);\r\n        -ms-filter: drop-shadow(0 0 20px #00b0ff);\r\n    }\r\n    100% {\r\n    }\r\n}\r\n\r\n.animar {\r\n    animation: piscar .75s infinite alternate;\r\n}\r\n\r\n.aparecer {\r\n    animation: aparecer .5s infinite alternate;\r\n}\r\n\r\n@keyframes aparecer {\r\n    0% {\r\n        opacity: 0\r\n    }\r\n    100% {\r\n        opacity: 1\r\n    }\r\n}\r\n\r\n.timer {\r\n    display: flex;\r\n    background: var(--contador-color);\r\n    padding: 0.45rem;\r\n    border-radius: 50%;\r\n    margin-bottom: 10px;\r\n}\r\n/* TELA DAS TABELAS */\r\n.box_equipes {\r\n    display: flex;\r\n    flex-direction: column;        \r\n}\r\n/* TELA DA TABELA */\r\n.equipes {\r\n    position: relative;\r\n    top: 22%;\r\n    padding: 25px 28px;\r\n    border: 3px solid var(--contorno-color);\r\n    border-radius: 5px;\r\n    right: 30px;\r\n    max-width: 100%;\r\n    background: var(--gradualEQUIPE-color);\r\n    background-size: 800% 100%;\r\n    animation: colors 15s ease infinite;\r\n}\r\n\r\n@keyframes colors {\r\n    0% {\r\n        background-position: 0% 50%;\r\n    }\r\n    25% {\r\n        background-position: 50% 0%;\r\n    }\r\n    50% {\r\n        background-position: 100% 50%;\r\n    }\r\n    75% {\r\n        background-position: 50% 0%;\r\n    }\r\n    100% {\r\n        background-position: 0% 50%;\r\n    }\r\n}\r\n\r\n.tabelas {\r\n    text-align: center;\r\n}\r\n/* TELA DO USUARIO COM SUA EQUIPE/BOTAO  */\r\n.equipe_botao {\r\n    position: relative;\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-self: flex-start;\r\n    top: 30%;\r\n    left: 15%;\r\n    text-align: center;\r\n}\r\n/* TELA DO USUARIO COM SUA EQUIPE  */\r\n.box_Tela-Usuario {\r\n    position: relative;\r\n    display: flex;\r\n    flex-direction: column;\r\n    padding: 5px 10px;\r\n    border: 2px solid var(--contorno-color);\r\n    border-radius: 10rem;\r\n    background: var(--gradualEQUIPE-color);\r\n    background-size: 800% 100%;\r\n    animation: colors 12s ease infinite;\r\n}\r\n\r\n@keyframes colors {\r\n    0% {\r\n        background-position: 0% 50%;\r\n    }\r\n    25% {\r\n        background-position: 50% 0%;\r\n    }\r\n    50% {\r\n        background-position: 100% 50%;\r\n    }\r\n    75% {\r\n        background-position: 50% 0%;\r\n    }\r\n    100% {\r\n        background-position: 0% 50%;\r\n    }\r\n}\r\n/* botao*/\r\n.players {\r\n    position: relative;\r\n    display: flex;\r\n    flex-direction: row;\r\n}\r\n.jogador2 {\r\n    margin-left: 30%;\r\n    \r\n}\r\n\r\n.botao {\r\n    border-radius: 10rem;\r\n    padding: 10px;\r\n    border: 2px solid var(--contorno-color);\r\n    background: var(--gradualBOTAO-color);\r\n    background-size: 800% 100%;\r\n    animation: colors 7s ease infinite;\r\n}\r\n\r\n@keyframes colors {\r\n    0% {\r\n        background-position: 0% 50%;\r\n    }\r\n    25% {\r\n        background-position: 50% 0%;\r\n    }\r\n    50% {\r\n        background-position: 100% 50%;\r\n    }\r\n    75% {\r\n        background-position: 50% 0%;\r\n    }\r\n    100% {\r\n        background-position: 0% 50%;\r\n    }\r\n}\r\n\r\n\r\n.jog_equipe {\r\n    padding-left: 15px;\r\n    padding-right: 5px;\r\n}\r\n\r\n/*  */\r\n\r\n.cor_red:hover {\r\n    background: #00b0ff;\r\n    cursor: pointer;\r\n}", "",{"version":3,"sources":["webpack://./src/assets/css/styles.css"],"names":[],"mappings":"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","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');\r\n\r\n:root {\r\n\r\n    /*CORES A SEREM ADICIONADAS*/\r\n    --fundo-color: #254b9c;\r\n    --contador-color: #194cbb;\r\n    --equipes-color: #52D0E6;\r\n    --equipePRINC-color: #4EFCE8;\r\n    --respost-color: #4BF2AF;\r\n    --respostMOUSE-color: #3f68c2;\r\n    --contorno-color: #03ff9e;\r\n\r\n\r\n    /*GRADUAÇÃO DE CORES*/\r\n    --gradual-color: linear-gradient(-40deg, #678d87, #106570, #9e4fa8, #007c53);\r\n    --gradualEQUIPE-color: linear-gradient(-40deg,  #00754e, #74357c, #0d7a7e, #0f3291);\r\n    --gradualBOTAO-color: linear-gradient(-40deg,  #61073e, #670774, #151fa1, #074aa1);\r\n\r\n    /*ADICIONAR FONTES PARA TEXTO*/\r\n\r\n}\r\n\r\n* {\r\n    margin: 0;\r\n    padding: 0;\r\n    box-sizing: border-box;\r\n    font-family: 'Roboto', sans-serif;\r\n    font-size: 1.25rem;   \r\n}\r\n\r\nbody {\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n    min-height: 100vh;\r\n    background: var(--gradual-color);\r\n    background-size: 800% 100%;\r\n    animation: colors 20s ease infinite;\r\n    color: #fff;\r\n}\r\n\r\n@keyframes colors {\r\n    0% {\r\n        background-position: 0% 50%;\r\n    }\r\n    25% {\r\n        background-position: 50% 0%;\r\n    }\r\n    50% {\r\n        background-position: 100% 50%;\r\n    }\r\n    75% {\r\n        background-position: 50% 0%;\r\n    }\r\n    100% {\r\n        background-position: 0% 50%;\r\n    }\r\n}\r\n\r\nmain {\r\n    flex-grow: 3;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: center;\r\n    width: 80%;\r\n    padding: 50px; /* espacamento interno */\r\n}\r\n\r\nsection {\r\n    width: 100%;\r\n    margin: 0 auto;\r\n    height: 700px;\r\n    padding: 1rem;\r\n    margin-bottom: 0.625rem;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\nh1 {\r\n    position: relative;\r\n    text-align: center;\r\n    font-size: 1.75rem;\r\n    margin: 0.625rem;\r\n}\r\n\r\n.centro {\r\n    text-align: center;\r\n}\r\n\r\n.questao {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    justify-content: space-between;\r\n}\r\n\r\n#numQuestao {\r\n    display: block;\r\n    background: #00b0ff;\r\n    padding: 4px 10px 2px 10px;\r\n    border-radius: 50%;\r\n}\r\n\r\n#pergunta {\r\n    margin-left: 1rem;\r\n}\r\n\r\n.questoes {\r\n    display: flex;\r\n    flex-direction: column;\r\n    padding: 10px 5px;\r\n    border: 3px solid var(--contorno-color);\r\n    border-radius: 5px;\r\n    margin-bottom: 20px;\r\n    min-width: 60%;\r\n    max-width: 90%;\r\n    background: var(--fundo-color);\r\n}\r\n\r\n.questoes ol li {\r\n    display: block;\r\n    margin: 1rem;\r\n    padding: 1rem;\r\n    border-radius: 8px;\r\n}\r\n\r\n.questoes ol li:hover {\r\n    background: #00b0ff;\r\n    cursor: pointer;\r\n}\r\n\r\n.bloqueado {\r\n    display: none;\r\n}\r\n\r\n.bloqueado li:hover {\r\n    display: none;\r\n}\r\n\r\n#instrucoes {\r\n    background: rgb(8, 211, 126);\r\n    color: #191919;\r\n    padding: 0.625rem;\r\n    border-radius: 8px;\r\n    display: flex;\r\n    justify-content: center;\r\n    margin-bottom: 1rem;\r\n    animation: piscar .75s infinite alternate;\r\n}\r\n\r\n#aviso {\r\n    color: #600872;\r\n}\r\n\r\n.botao{\r\n    color: whitesmoke;\r\n\r\n    height: 50px;\r\n    margin-top: 5px;\r\n}\r\n\r\n.botao:hover {\r\n    background: #00b0ff;\r\n    cursor: pointer;\r\n}\r\n\r\n.pontos_1, .pontos_2 {\r\n    color:#00b0ff;\r\n    background-color: #ffffff;\r\n    margin-top: 0px;\r\n}\r\n\r\n/* ANIMACAO */\r\n\r\n/* Animar o input */\r\n@keyframes piscar {\r\n    0% {\r\n        filter: drop-shadow(0 0 20px #00b0ff);\r\n        -webkit-filter: drop-shadow(0 0 20px #00b0ff);\r\n        -moz-filter: drop-shadow(0 0 20px #00b0ff);\r\n        -o-filter: drop-shadow(0 0 20px #00b0ff);\r\n        -ms-filter: drop-shadow(0 0 20px #00b0ff);\r\n    }\r\n    100% {\r\n    }\r\n}\r\n\r\n.animar {\r\n    animation: piscar .75s infinite alternate;\r\n}\r\n\r\n.aparecer {\r\n    animation: aparecer .5s infinite alternate;\r\n}\r\n\r\n@keyframes aparecer {\r\n    0% {\r\n        opacity: 0\r\n    }\r\n    100% {\r\n        opacity: 1\r\n    }\r\n}\r\n\r\n.timer {\r\n    display: flex;\r\n    background: var(--contador-color);\r\n    padding: 0.45rem;\r\n    border-radius: 50%;\r\n    margin-bottom: 10px;\r\n}\r\n/* TELA DAS TABELAS */\r\n.box_equipes {\r\n    display: flex;\r\n    flex-direction: column;        \r\n}\r\n/* TELA DA TABELA */\r\n.equipes {\r\n    position: relative;\r\n    top: 22%;\r\n    padding: 25px 28px;\r\n    border: 3px solid var(--contorno-color);\r\n    border-radius: 5px;\r\n    right: 30px;\r\n    max-width: 100%;\r\n    background: var(--gradualEQUIPE-color);\r\n    background-size: 800% 100%;\r\n    animation: colors 15s ease infinite;\r\n}\r\n\r\n@keyframes colors {\r\n    0% {\r\n        background-position: 0% 50%;\r\n    }\r\n    25% {\r\n        background-position: 50% 0%;\r\n    }\r\n    50% {\r\n        background-position: 100% 50%;\r\n    }\r\n    75% {\r\n        background-position: 50% 0%;\r\n    }\r\n    100% {\r\n        background-position: 0% 50%;\r\n    }\r\n}\r\n\r\n.tabelas {\r\n    text-align: center;\r\n}\r\n/* TELA DO USUARIO COM SUA EQUIPE/BOTAO  */\r\n.equipe_botao {\r\n    position: relative;\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-self: flex-start;\r\n    top: 30%;\r\n    left: 15%;\r\n    text-align: center;\r\n}\r\n/* TELA DO USUARIO COM SUA EQUIPE  */\r\n.box_Tela-Usuario {\r\n    position: relative;\r\n    display: flex;\r\n    flex-direction: column;\r\n    padding: 5px 10px;\r\n    border: 2px solid var(--contorno-color);\r\n    border-radius: 10rem;\r\n    background: var(--gradualEQUIPE-color);\r\n    background-size: 800% 100%;\r\n    animation: colors 12s ease infinite;\r\n}\r\n\r\n@keyframes colors {\r\n    0% {\r\n        background-position: 0% 50%;\r\n    }\r\n    25% {\r\n        background-position: 50% 0%;\r\n    }\r\n    50% {\r\n        background-position: 100% 50%;\r\n    }\r\n    75% {\r\n        background-position: 50% 0%;\r\n    }\r\n    100% {\r\n        background-position: 0% 50%;\r\n    }\r\n}\r\n/* botao*/\r\n.players {\r\n    position: relative;\r\n    display: flex;\r\n    flex-direction: row;\r\n}\r\n.jogador2 {\r\n    margin-left: 30%;\r\n    \r\n}\r\n\r\n.botao {\r\n    border-radius: 10rem;\r\n    padding: 10px;\r\n    border: 2px solid var(--contorno-color);\r\n    background: var(--gradualBOTAO-color);\r\n    background-size: 800% 100%;\r\n    animation: colors 7s ease infinite;\r\n}\r\n\r\n@keyframes colors {\r\n    0% {\r\n        background-position: 0% 50%;\r\n    }\r\n    25% {\r\n        background-position: 50% 0%;\r\n    }\r\n    50% {\r\n        background-position: 100% 50%;\r\n    }\r\n    75% {\r\n        background-position: 50% 0%;\r\n    }\r\n    100% {\r\n        background-position: 0% 50%;\r\n    }\r\n}\r\n\r\n\r\n.jog_equipe {\r\n    padding-left: 15px;\r\n    padding-right: 5px;\r\n}\r\n\r\n/*  */\r\n\r\n.cor_red:hover {\r\n    background: #00b0ff;\r\n    cursor: pointer;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -4018,29 +4213,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_css_styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/css/styles.css */ "./src/assets/css/styles.css");
 
 
-var questoes = __webpack_require__(/*! ./modules/questoes */ "./src/modules/questoes.js");
+var config_eqps = __webpack_require__(/*! ./modules/equipes */ "./src/modules/equipes.js");
 
-var equipes = __webpack_require__(/*! ./modules/equipes */ "./src/modules/equipes.js");
+var configQuestoes = __webpack_require__(/*! ./modules/questoes */ "./src/modules/questoes.js");
 
-var startTime = __webpack_require__(/*! ./modules/timer */ "./src/modules/timer.js"); // PERGUNTA
+var _require = __webpack_require__(/*! ./modules/timer */ "./src/modules/timer.js"),
+    start_ini = _require.start_ini,
+    stop_ini = _require.stop_ini;
 
-
-var pergunta = document.querySelector('#pergunta'); // ALTERNATIVAS
-
-var a = document.querySelector('#a');
-var b = document.querySelector('#b');
-var c = document.querySelector('#c');
-var d = document.querySelector('#d'); // número 
-
-var numero = document.querySelector('#numero'); // Coloca um numero "1" de 7
-
-var q0 = questoes[0];
-numero.textContent = q0.numQuestao;
-pergunta.textContent = q0.pergunta;
-a.textContent = q0.alternativaA;
-b.textContent = q0.alternativaB;
-c.textContent = q0.alternativaC;
-d.textContent = q0.alternativaD;
+var instrucoes = document.querySelector('#instrucoes');
+instrucoes.textContent = 'Assim que o tempo acabar o jogo começará!Preste atenção!';
+config_eqps();
+start_ini();
+setTimeout(function () {
+  instrucoes.textContent = 'Leia a questão e clique na resposta correta!';
+  stop_ini();
+  configQuestoes();
+}, 5000);
 })();
 
 /******/ })()

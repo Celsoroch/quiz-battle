@@ -336,3 +336,10 @@ h1 {
     padding-left: 15px;
     padding-right: 5px;
 }
+
+/*  */
+
+.cor_red:hover {
+    background: #00b0ff;
+    cursor: pointer;
+}

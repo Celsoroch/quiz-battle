@@ -1,26 +1,6 @@
-// Questões
-const q0 = {
-    numQuestao   : 0,
-    pergunta     : "Pergunta",
-    alternativaA : "Alternativa A",
-    alternativaB : "Alternativa B",
-    alternativaC : "Alternativa C",
-    alternativaD : "Alternativa D",
-    correta      : "0",
-};
-
-// Para TEste
-let botao_j1 = document.querySelector('.botao_j1');
-
-botao_j1.addEventListener('click', ()=> {
-    console.log('clicou');
-    clicouPrajogar = true;
-})
-
-// 
-
 const axios = require('axios');
 const { async } = require('regenerator-runtime');
+const {start_clique, stop, start_ler, stop_ler} = require('./timer');
 
 // Total de perguntas
 let total  = document.querySelector('#total');
@@ -29,12 +9,12 @@ let total  = document.querySelector('#total');
 let aviso = document.querySelector('#aviso');
 
 // Opcoes de tela
-const contador = document.querySelector('.contador');
-const centro = document.querySelector('.centro');
-const questoesHTML = document.querySelector('.questoes');
-const quiz = document.querySelector('.quiz');
-const box_equipe = document.querySelector('.box_equipes');
-const minhaEqui = document.querySelector('.equipe_botao');
+let contador = document.querySelector('.contador');
+let centro = document.querySelector('.centro');
+let questoesHTML = document.querySelector('.questoes');
+let quiz = document.querySelector('.quiz');
+let box_equipe = document.querySelector('.box_equipes');
+let minhaEqui = document.querySelector('.equipe_botao');
 
 // Minha equipe
 let pontosMinhaEq = document.querySelector('.pontos_meq');
@@ -58,15 +38,27 @@ let respostaB = document.querySelector('.respostaB');
 let respostaC = document.querySelector('.respostaC');
 let respostaD = document.querySelector('.respostaD');
 
+// Instruções
+let instrucoes = document.querySelector('#instrucoes');
+
+// // Configurações de botões
+// Botões
+let botao_j1 = document.querySelector('.botao_responder');
+
 async function configQuestoes() {
+
+    // let clicouPrajogar = false;
+    let clique_botao = false
+    let qual_botao = '';
 
     // Configurações de cliques
     let jaClicouPraJogar = false;
     let clicouPrajogar = false;
 
+    start_ler();
     let cont_questoes = 0;
     let { data } = await axios ('http://localhost:3000/questoes/1');
-    console.log(data);
+    // console.log(data);
     const totalDeQuestoes = data.length;
     // console.log('Total de questões = ' + totalDeQuestoes);
     total.textContent = data.length;
@@ -78,32 +70,68 @@ async function configQuestoes() {
     b.textContent = data[cont_questoes].alternativa_b;
     c.textContent = data[cont_questoes].alternativa_c;
     d.textContent = data[cont_questoes].alternativa_d;
-    let correta = data[cont_questoes].correta;
-
     a.setAttribute('value', cont_questoes+'A');
     b.setAttribute('value', cont_questoes+'B');
     c.setAttribute('value', cont_questoes+'C');
     d.setAttribute('value', cont_questoes+'D');
 
+    botao_j1.addEventListener('click', ()=> {
+        if (clique_botao === false) {
+            qual_botao = 'Jogar';
+            // console.log('Clicou');
+            clique_botao = true;
+            instrucoes.textContent = 'Você joga!'
+            stop_ler();
+            start_clique();
+        } else {
+            alert('Você já clicou!');
+        }
+    });
+
     respostaA.addEventListener('click', () => {
-        let resposta = a;
-        clicouPrajogar = true;
-        chamaAcertou(resposta);
+        if (qual_botao === 'Jogar') {
+            clique_botao = false;
+            // stop();
+            pause();
+            let resposta = a;
+            clicouPrajogar = true;
+            chamaAcertou(resposta);
+        } else {
+            alert('Você não pode clicar aqui!');
+        };
     });
     respostaB.addEventListener('click', () => {
-        let resposta = b;
-        clicouPrajogar = true;
-        chamaAcertou(resposta);
+        if (qual_botao === 'Jogar') {
+            clique_botao = false;
+            stop();
+            let resposta = b;
+            clicouPrajogar = true;
+            chamaAcertou(resposta);
+        } else {
+            alert('Você não pode clicar aqui!');
+        };
     });
     respostaC.addEventListener('click', () => {
-        let resposta = c;
-        clicouPrajogar = true;
-        chamaAcertou(resposta);
+        if (qual_botao === 'Jogar') {
+            clique_botao = false;
+            stop();
+            let resposta = c;
+            clicouPrajogar = true;
+            chamaAcertou(resposta);
+        } else {
+            alert('Você não pode clicar aqui!');
+        };
     });
     respostaD.addEventListener('click', () => {
-        let resposta = d;
-        clicouPrajogar = true;
-        chamaAcertou(resposta);
+        if (qual_botao === 'Jogar') {
+            clique_botao = false;
+            stop();
+            let resposta = d;
+            clicouPrajogar = true;
+            chamaAcertou(resposta);
+        } else {
+            alert('Você não pode clicar aqui!');
+        };
     });
     
     // Chama acertou;
@@ -120,18 +148,18 @@ async function configQuestoes() {
     function verificarSeAcertou(resposta) {
 
         if (clicouPrajogar === true) {
-            console.log('verifica acertou = true');
+            // console.log('verifica acertou = true');
             jaClicouPraJogar = true;
             // let numeroDaQuestao = nQuestao.value;
             // console.log("Questão " + numeroDaQuestao);
         
             // Pega resposta escolhida
             let respostaEscolhida = resposta.textContent;
-            console.log('resposta = ' + respostaEscolhida);
+            // console.log('resposta = ' + respostaEscolhida);
         
             // Pega resposta certa
             let certa = data[cont_questoes].correta;
-            console.log('certa = ' + certa);
+            // console.log('certa = ' + certa);
         
             if(respostaEscolhida == certa) {
                 instrucoes.textContent = 'Acertou! Parabéns!';
@@ -141,26 +169,26 @@ async function configQuestoes() {
 
                 setTimeout(function() {
                     instrucoes.textContent = `Leia a questão e clique na resposta correta`;
-                }, 100);
+                }, 5000);
             } else {
                 instrucoes.textContent = 'Errou, preste mais atenção!';
-    
+
                 setTimeout(function() {
                     instrucoes.textContent = `Leia a questão e clique na resposta correta`;
-                }, 100);
+                }, 5000);
             };
         
             setTimeout(function() {
                 cont_questoes++;
         
-                // cont_questoes === totalDeQuestoes
-                if(cont_questoes === 3) {
-                    console.log('Fim do Jogo!');
+                if(cont_questoes === totalDeQuestoes) {
+                    // console.log('Fim do Jogo!');
                     fimDoJogo();
                 } else {
+                    clicouPrajogar = false;
                     proximaQuestao(cont_questoes);
                 };
-            }, 100);
+            }, 5000);
         } else {
             alert('Calma!!, quem clicar primeiro joga!');
         };
@@ -169,6 +197,12 @@ async function configQuestoes() {
 
     // Proxima questão
     function proximaQuestao(nQuestao) {
+        // configura timer
+        start_ler();
+
+        // 
+        qual_botao = '';
+
         // Abilita o clicou para jogar
         clicouPrajogar = false;
     
@@ -177,7 +211,7 @@ async function configQuestoes() {
     
         // coloca o número
         numero.textContent = nQuestao + 1;
-        console.log(nQuestao);
+        // console.log(nQuestao);
     
         // Coloca o número da questão em azul
         numQuestao.textContent = nQuestao+1;
@@ -197,6 +231,7 @@ async function configQuestoes() {
         b.setAttribute('value', nQuestao+'B');
         c.setAttribute('value', nQuestao+'C');
         d.setAttribute('value', nQuestao+'D');
+        // console.log('a value' +  a.value);
     };
 
     // Fim de jogo
@@ -206,10 +241,6 @@ async function configQuestoes() {
         numQuestao.textContent = "";
         pergunta.textContent = "";
         quiz.textContent = "";
-
-        // contador.styles.display = 'none';
-        // centro.styles.display = 'none';
-        // questoesHTML.styles.display = 'none';
 
         contador.remove('contador');
         centro.remove('centro');
@@ -237,13 +268,9 @@ async function configQuestoes() {
         // Faz com que a página recarregue
         setTimeout(function() {
             location.reload();
-        }, 10000);
+        }, 500); // 10000
     };
 
 }
 
-configQuestoes();
-
-const questoes = [q0];
-
-module.exports = questoes;
+module.exports = configQuestoes;
