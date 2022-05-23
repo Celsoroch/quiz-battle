@@ -2298,8 +2298,7 @@ function _config_eqps() {
 
           case 23:
             jogs1 = _context.sent;
-            data_jog1 = jogs1.data; // console.log(data_jog1);
-
+            data_jog1 = jogs1.data;
             jog_1_eq1.textContent = data_jog1[0].nome;
             jog_2_eq1.textContent = data_jog1[1].nome;
             jog_3_eq1.textContent = data_jog1[2].nome;
@@ -2361,7 +2360,15 @@ function _config_eqps() {
                 escolheu_equipe = true; // console.log('Clique equipe 1');
 
                 instrucoes.textContent = id_eq1 + ' joga!';
+                equipe_1.classList.remove('cor_red');
+                equipe_2.classList.remove('cor_red');
+                equipe_3.classList.remove('cor_red');
+                equipe_4.classList.remove('cor_red');
                 stop();
+                setTimeout(function () {
+                  clique_botao = false;
+                  escolheu_equipe = false;
+                }, 5000);
               } else {
                 alert('Você não pode clicar aqui!');
               }
@@ -2371,7 +2378,15 @@ function _config_eqps() {
                 escolheu_equipe = true; // console.log('Clique equipe 2');
 
                 instrucoes.textContent = id_eq2 + ' joga!';
+                equipe_1.classList.remove('cor_red');
+                equipe_2.classList.remove('cor_red');
+                equipe_3.classList.remove('cor_red');
+                equipe_4.classList.remove('cor_red');
                 stop();
+                setTimeout(function () {
+                  clique_botao = false;
+                  escolheu_equipe = false;
+                }, 5000);
               } else {
                 alert('Você não pode clicar aqui!');
               }
@@ -2381,7 +2396,15 @@ function _config_eqps() {
                 escolheu_equipe = true; // console.log('Clique equipe 3');
 
                 instrucoes.textContent = id_eq3 + ' joga!';
+                equipe_1.classList.remove('cor_red');
+                equipe_2.classList.remove('cor_red');
+                equipe_3.classList.remove('cor_red');
+                equipe_4.classList.remove('cor_red');
                 stop();
+                setTimeout(function () {
+                  clique_botao = false;
+                  escolheu_equipe = false;
+                }, 5000);
               } else {
                 alert('Você não pode clicar aqui!');
               }
@@ -2391,7 +2414,15 @@ function _config_eqps() {
                 escolheu_equipe = true; // console.log('Clique equipe 4');
 
                 instrucoes.textContent = id_eq4 + ' joga!';
+                equipe_1.classList.remove('cor_red');
+                equipe_2.classList.remove('cor_red');
+                equipe_3.classList.remove('cor_red');
+                equipe_4.classList.remove('cor_red');
                 stop();
+                setTimeout(function () {
+                  clique_botao = false;
+                  escolheu_equipe = false;
+                }, 5000);
               } else {
                 alert('Você não pode clicar aqui!');
               }
@@ -2481,7 +2512,7 @@ function configQuestoes() {
 
 function _configQuestoes() {
   _configQuestoes = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    var clique_botao, qual_botao, jaClicouPraJogar, clicouPrajogar, cont_questoes, _yield$axios, data, totalDeQuestoes, chamaAcertou, verificarSeAcertou, proximaQuestao, fimDoJogo;
+    var clique_botao, qual_botao, jaClicouPraJogar, clicouPrajogar, cont_questoes, _yield$axios, data, totalDeQuestoes, chamaAcertou, verificarSeAcertou, proximaQuestao, fimDoJogo, botao_j2, clicou_passar;
 
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
@@ -2702,36 +2733,61 @@ function _configQuestoes() {
             ; // Fim de jogo
 
             ;
+            botao_j2 = document.querySelector('.botao_passar');
+            clicou_passar = false;
+            botao_j2.addEventListener('click', function () {
+              clicou_passar = true;
+            });
             click_equipe_1.addEventListener('click', function () {
-              setTimeout(function () {
-                cont_questoes++;
-                instrucoes.textContent = "Leia a quest\xE3o e clique na resposta correta";
-                proximaQuestao(cont_questoes);
-              }, 5000);
+              if (clicou_passar === true) {
+                clicou_passar = false;
+                setTimeout(function () {
+                  cont_questoes++;
+                  instrucoes.textContent = "Leia a quest\xE3o e clique na resposta correta";
+                  proximaQuestao(cont_questoes);
+                }, 5000);
+              } else {
+                alert('Você tem que clicar pra passar!');
+              }
             });
             click_equipe_2.addEventListener('click', function () {
-              setTimeout(function () {
-                cont_questoes++;
-                instrucoes.textContent = "Leia a quest\xE3o e clique na resposta correta";
-                proximaQuestao(cont_questoes);
-              }, 5000);
+              if (clicou_passar === true) {
+                setTimeout(function () {
+                  cont_questoes++;
+                  instrucoes.textContent = "Leia a quest\xE3o e clique na resposta correta";
+                  proximaQuestao(cont_questoes);
+                  clicou_passar = false;
+                }, 5000);
+              } else {
+                alert('Você tem que clicar pra passar!');
+              }
             });
             click_equipe_3.addEventListener('click', function () {
-              setTimeout(function () {
-                cont_questoes++;
-                instrucoes.textContent = "Leia a quest\xE3o e clique na resposta correta";
-                proximaQuestao(cont_questoes);
-              }, 5000);
+              if (clicou_passar === true) {
+                setTimeout(function () {
+                  cont_questoes++;
+                  instrucoes.textContent = "Leia a quest\xE3o e clique na resposta correta";
+                  proximaQuestao(cont_questoes);
+                  clicou_passar = false;
+                }, 5000);
+              } else {
+                alert('Você tem que clicar pra passar!');
+              }
             });
             click_equipe_4.addEventListener('click', function () {
-              setTimeout(function () {
-                cont_questoes++;
-                instrucoes.textContent = "Leia a quest\xE3o e clique na resposta correta";
-                proximaQuestao(cont_questoes);
-              }, 5000);
+              if (clicou_passar === true) {
+                setTimeout(function () {
+                  cont_questoes++;
+                  instrucoes.textContent = "Leia a quest\xE3o e clique na resposta correta";
+                  proximaQuestao(cont_questoes);
+                  clicou_passar = false;
+                }, 5000);
+              } else {
+                alert('Você tem que clicar pra passar!');
+              }
             });
 
-          case 40:
+          case 43:
           case "end":
             return _context.stop();
         }

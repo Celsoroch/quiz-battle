@@ -95,7 +95,6 @@ async function config_eqps() {
     let id_eq1 = data[nums[0]].id_equipe;
     let jogs1 = await axios (`http://localhost:3000/jogadoresid/${id_eq1}`);
     let data_jog1 = jogs1.data;
-    // console.log(data_jog1);
     jog_1_eq1.textContent = data_jog1[0].nome;
     jog_2_eq1.textContent = data_jog1[1].nome;
     jog_3_eq1.textContent = data_jog1[2].nome;
@@ -146,7 +145,15 @@ async function config_eqps() {
             escolheu_equipe = true;
             // console.log('Clique equipe 1');
             instrucoes.textContent = id_eq1 + ' joga!';
+            equipe_1.classList.remove('cor_red');
+            equipe_2.classList.remove('cor_red');
+            equipe_3.classList.remove('cor_red');
+            equipe_4.classList.remove('cor_red');
             stop();
+            setTimeout(() => {
+                clique_botao = false;
+                escolheu_equipe = false;
+            }, 5000);
         } else {
             alert('Você não pode clicar aqui!');
         }
@@ -156,7 +163,15 @@ async function config_eqps() {
             escolheu_equipe = true;
             // console.log('Clique equipe 2');
             instrucoes.textContent = id_eq2 + ' joga!';
+            equipe_1.classList.remove('cor_red');
+            equipe_2.classList.remove('cor_red');
+            equipe_3.classList.remove('cor_red');
+            equipe_4.classList.remove('cor_red');
             stop();
+            setTimeout(() => {
+                clique_botao = false;
+                escolheu_equipe = false;
+            }, 5000);
         } else {
             alert('Você não pode clicar aqui!');
         }
@@ -166,7 +181,15 @@ async function config_eqps() {
             escolheu_equipe = true;
             // console.log('Clique equipe 3');
             instrucoes.textContent = id_eq3 + ' joga!';
+            equipe_1.classList.remove('cor_red');
+            equipe_2.classList.remove('cor_red');
+            equipe_3.classList.remove('cor_red');
+            equipe_4.classList.remove('cor_red');
             stop();
+            setTimeout(() => {
+                clique_botao = false;
+                escolheu_equipe = false;
+            }, 5000);
         } else {
             alert('Você não pode clicar aqui!');
         }
@@ -176,7 +199,15 @@ async function config_eqps() {
             escolheu_equipe = true;
             // console.log('Clique equipe 4');
             instrucoes.textContent = id_eq4 + ' joga!';
+            equipe_1.classList.remove('cor_red');
+            equipe_2.classList.remove('cor_red');
+            equipe_3.classList.remove('cor_red');
+            equipe_4.classList.remove('cor_red');
             stop();
+            setTimeout(() => {
+                clique_botao = false;
+                escolheu_equipe = false;
+            }, 5000);
         } else {
             alert('Você não pode clicar aqui!');
         }

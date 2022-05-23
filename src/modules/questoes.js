@@ -279,39 +279,64 @@ async function configQuestoes() {
         }, 500); // 10000
     };
 
+    let botao_j2 = document.querySelector('.botao_passar');
+    let clicou_passar = false;
+
+    botao_j2.addEventListener('click', () => {
+        clicou_passar = true;
+    });
+
     click_equipe_1.addEventListener('click', () => {
-        setTimeout(() => {
-            cont_questoes++;
-            instrucoes.textContent = `Leia a questão e clique na resposta correta`;
-            proximaQuestao(cont_questoes);
-        }, 5000);
+        if(clicou_passar === true) {
+            clicou_passar = false;
+            setTimeout(() => {
+                cont_questoes++;
+                instrucoes.textContent = `Leia a questão e clique na resposta correta`;
+                proximaQuestao(cont_questoes);
+            }, 5000);
+        } else {
+            alert('Você tem que clicar pra passar!');
+        }
     });
 
     click_equipe_2.addEventListener('click', () => {
-        setTimeout(() => {
-            cont_questoes++;
-            instrucoes.textContent = `Leia a questão e clique na resposta correta`;
-            proximaQuestao(cont_questoes);
-        }, 5000);
+        if(clicou_passar === true) {
+            setTimeout(() => {
+                cont_questoes++;
+                instrucoes.textContent = `Leia a questão e clique na resposta correta`;
+                proximaQuestao(cont_questoes);
+                clicou_passar = false;
+            }, 5000);
+        } else {
+            alert('Você tem que clicar pra passar!');
+        }
     });
 
     click_equipe_3.addEventListener('click', () => {
-        setTimeout(() => {
-            cont_questoes++;
-            instrucoes.textContent = `Leia a questão e clique na resposta correta`;
-            proximaQuestao(cont_questoes);
-        }, 5000);
+        if(clicou_passar === true) {
+            setTimeout(() => {
+                cont_questoes++;
+                instrucoes.textContent = `Leia a questão e clique na resposta correta`;
+                proximaQuestao(cont_questoes);
+                clicou_passar = false;
+            }, 5000);
+        } else {
+            alert('Você tem que clicar pra passar!');
+        }
     });
 
     click_equipe_4.addEventListener('click', () => {
-        setTimeout(() => {
-            cont_questoes++;
-            instrucoes.textContent = `Leia a questão e clique na resposta correta`;
-            proximaQuestao(cont_questoes);
-        }, 5000);
+        if(clicou_passar === true) {
+            setTimeout(() => {
+                cont_questoes++;
+                instrucoes.textContent = `Leia a questão e clique na resposta correta`;
+                proximaQuestao(cont_questoes);
+                clicou_passar = false;
+            }, 5000);
+        } else {
+            alert('Você tem que clicar pra passar!');
+        }
     });
-
-
 }
 
 module.exports = configQuestoes;
