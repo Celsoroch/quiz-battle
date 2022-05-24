@@ -45,6 +45,9 @@ let jog_2_eq4 = document.querySelector('.jog_2_eq4');
 let jog_3_eq4 = document.querySelector('.jog_3_eq4');
 let jog_4_eq4 = document.querySelector('.jog_4_eq4');
 
+// Pontos minha equipe
+let pontosMinhaEq = document.querySelector('.pontos_meq');
+let pontos = '';
 
 async function config_eqps() {
     
@@ -56,19 +59,23 @@ async function config_eqps() {
     let botao_j2 = document.querySelector('.botao_passar');
     setTimeout(function() {
         botao_j2.addEventListener('click', () => {
-            if (clique_botao === false) {
-                equipe_1.setAttribute('class', 'cor_red');
-                equipe_2.setAttribute('class', 'cor_red');
-                equipe_3.setAttribute('class', 'cor_red');
-                equipe_4.setAttribute('class', 'cor_red');
-                qual_botao = 'Passar';
-                // console.log('Clicou 2');
-                clique_botao = true;
-                instrucoes.textContent = 'Escolha a equipe que vai jogar!'
-                stop_ler()
-                start_clique();
-            } else {
-                alert('Você já clicou!');
+            pontos = parseInt(pontosMinhaEq.getAttribute('value'));
+            if (pontos > 75) {
+                pontos -= 75;
+                if (clique_botao === false) {
+                    equipe_1.setAttribute('class', 'cor_red');
+                    equipe_2.setAttribute('class', 'cor_red');
+                    equipe_3.setAttribute('class', 'cor_red');
+                    equipe_4.setAttribute('class', 'cor_red');
+                    qual_botao = 'Passar';
+                    // console.log('Clicou 2');
+                    clique_botao = true;
+                    instrucoes.textContent = 'Escolha a equipe que vai jogar!'
+                    stop_ler()
+                    start_clique();
+                } else {
+                    alert('Você já clicou!');
+                }
             }
         });        
     }, 5000);
@@ -153,7 +160,8 @@ async function config_eqps() {
             setTimeout(() => {
                 clique_botao = false;
                 escolheu_equipe = false;
-            }, 5000);
+                qual_botao = '';
+            }, 2500);
         } else {
             alert('Você não pode clicar aqui!');
         }
@@ -171,7 +179,8 @@ async function config_eqps() {
             setTimeout(() => {
                 clique_botao = false;
                 escolheu_equipe = false;
-            }, 5000);
+                qual_botao = '';
+            }, 2500);
         } else {
             alert('Você não pode clicar aqui!');
         }
@@ -189,7 +198,8 @@ async function config_eqps() {
             setTimeout(() => {
                 clique_botao = false;
                 escolheu_equipe = false;
-            }, 5000);
+                qual_botao = '';
+            }, 2500);
         } else {
             alert('Você não pode clicar aqui!');
         }
@@ -207,7 +217,8 @@ async function config_eqps() {
             setTimeout(() => {
                 clique_botao = false;
                 escolheu_equipe = false;
-            }, 5000);
+                qual_botao = '';
+            }, 2500);
         } else {
             alert('Você não pode clicar aqui!');
         }

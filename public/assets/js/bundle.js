@@ -2218,7 +2218,10 @@ var equipe_4 = document.querySelector('.equipe_4');
 var jog_1_eq4 = document.querySelector('.jog_1_eq4');
 var jog_2_eq4 = document.querySelector('.jog_2_eq4');
 var jog_3_eq4 = document.querySelector('.jog_3_eq4');
-var jog_4_eq4 = document.querySelector('.jog_4_eq4');
+var jog_4_eq4 = document.querySelector('.jog_4_eq4'); // Pontos minha equipe
+
+var pontosMinhaEq = document.querySelector('.pontos_meq');
+var pontos = '';
 
 function config_eqps() {
   return _config_eqps.apply(this, arguments);
@@ -2239,19 +2242,25 @@ function _config_eqps() {
             botao_j2 = document.querySelector('.botao_passar');
             setTimeout(function () {
               botao_j2.addEventListener('click', function () {
-                if (clique_botao === false) {
-                  equipe_1.setAttribute('class', 'cor_red');
-                  equipe_2.setAttribute('class', 'cor_red');
-                  equipe_3.setAttribute('class', 'cor_red');
-                  equipe_4.setAttribute('class', 'cor_red');
-                  qual_botao = 'Passar'; // console.log('Clicou 2');
+                pontos = parseInt(pontosMinhaEq.getAttribute('value'));
 
-                  clique_botao = true;
-                  instrucoes.textContent = 'Escolha a equipe que vai jogar!';
-                  stop_ler();
-                  start_clique();
-                } else {
-                  alert('Você já clicou!');
+                if (pontos > 75) {
+                  pontos -= 75;
+
+                  if (clique_botao === false) {
+                    equipe_1.setAttribute('class', 'cor_red');
+                    equipe_2.setAttribute('class', 'cor_red');
+                    equipe_3.setAttribute('class', 'cor_red');
+                    equipe_4.setAttribute('class', 'cor_red');
+                    qual_botao = 'Passar'; // console.log('Clicou 2');
+
+                    clique_botao = true;
+                    instrucoes.textContent = 'Escolha a equipe que vai jogar!';
+                    stop_ler();
+                    start_clique();
+                  } else {
+                    alert('Você já clicou!');
+                  }
                 }
               });
             }, 5000);
@@ -2368,7 +2377,8 @@ function _config_eqps() {
                 setTimeout(function () {
                   clique_botao = false;
                   escolheu_equipe = false;
-                }, 5000);
+                  qual_botao = '';
+                }, 2500);
               } else {
                 alert('Você não pode clicar aqui!');
               }
@@ -2386,7 +2396,8 @@ function _config_eqps() {
                 setTimeout(function () {
                   clique_botao = false;
                   escolheu_equipe = false;
-                }, 5000);
+                  qual_botao = '';
+                }, 2500);
               } else {
                 alert('Você não pode clicar aqui!');
               }
@@ -2404,7 +2415,8 @@ function _config_eqps() {
                 setTimeout(function () {
                   clique_botao = false;
                   escolheu_equipe = false;
-                }, 5000);
+                  qual_botao = '';
+                }, 2500);
               } else {
                 alert('Você não pode clicar aqui!');
               }
@@ -2422,7 +2434,8 @@ function _config_eqps() {
                 setTimeout(function () {
                   clique_botao = false;
                   escolheu_equipe = false;
-                }, 5000);
+                  qual_botao = '';
+                }, 2500);
               } else {
                 alert('Você não pode clicar aqui!');
               }
@@ -2485,6 +2498,7 @@ var minhaEqui = document.querySelector('.equipe_botao'); // Minha equipe
 
 var pontosMinhaEq = document.querySelector('.pontos_meq');
 var pontos = 0;
+pontosMinhaEq.setAttribute('value', pontos);
 pontosMinhaEq.textContent = pontos; // PERGUNTA
 
 var numQuestao = document.querySelector('#numQuestao');
@@ -2587,7 +2601,8 @@ function _configQuestoes() {
 
                 if (respostaEscolhida == certa) {
                   instrucoes.textContent = 'Acertou! Parabéns!';
-                  pontos += 10;
+                  pontos += 100;
+                  pontosMinhaEq.setAttribute('value', pontos);
                   pontosMinhaEq.textContent = pontos;
                   setTimeout(function () {
                     instrucoes.textContent = "Leia a quest\xE3o e clique na resposta correta";
@@ -2674,9 +2689,9 @@ function _configQuestoes() {
             });
             respostaA.addEventListener('click', function () {
               if (qual_botao === 'Jogar') {
-                clique_botao = false; // stop();
+                clique_botao = false;
+                stop(); // pause();
 
-                pause();
                 var resposta = a;
                 clicouPrajogar = true;
                 chamaAcertou(resposta);
@@ -2736,7 +2751,16 @@ function _configQuestoes() {
             botao_j2 = document.querySelector('.botao_passar');
             clicou_passar = false;
             botao_j2.addEventListener('click', function () {
-              clicou_passar = true;
+              pontos = parseInt(pontosMinhaEq.getAttribute('value'));
+
+              if (pontos > 75) {
+                clicou_passar = true;
+                pontos -= 75;
+                pontosMinhaEq.setAttribute('value', pontos);
+                pontosMinhaEq.textContent = pontos;
+              } else {
+                alert('Você não tem pontos suficiente!');
+              }
             });
             click_equipe_1.addEventListener('click', function () {
               if (clicou_passar === true) {
@@ -2745,7 +2769,7 @@ function _configQuestoes() {
                   cont_questoes++;
                   instrucoes.textContent = "Leia a quest\xE3o e clique na resposta correta";
                   proximaQuestao(cont_questoes);
-                }, 5000);
+                }, 2500);
               } else {
                 alert('Você tem que clicar pra passar!');
               }
@@ -2757,7 +2781,7 @@ function _configQuestoes() {
                   instrucoes.textContent = "Leia a quest\xE3o e clique na resposta correta";
                   proximaQuestao(cont_questoes);
                   clicou_passar = false;
-                }, 5000);
+                }, 2500);
               } else {
                 alert('Você tem que clicar pra passar!');
               }
@@ -2769,7 +2793,7 @@ function _configQuestoes() {
                   instrucoes.textContent = "Leia a quest\xE3o e clique na resposta correta";
                   proximaQuestao(cont_questoes);
                   clicou_passar = false;
-                }, 5000);
+                }, 2500);
               } else {
                 alert('Você tem que clicar pra passar!');
               }
@@ -2781,7 +2805,7 @@ function _configQuestoes() {
                   instrucoes.textContent = "Leia a quest\xE3o e clique na resposta correta";
                   proximaQuestao(cont_questoes);
                   clicou_passar = false;
-                }, 5000);
+                }, 2500);
               } else {
                 alert('Você tem que clicar pra passar!');
               }

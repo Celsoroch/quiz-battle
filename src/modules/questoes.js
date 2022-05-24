@@ -26,7 +26,8 @@ let minhaEqui = document.querySelector('.equipe_botao');
 
 // Minha equipe
 let pontosMinhaEq = document.querySelector('.pontos_meq');
-let pontos = 0
+let pontos = 0;
+pontosMinhaEq.setAttribute('value', pontos);
 pontosMinhaEq.textContent = pontos;
 
 // PERGUNTA
@@ -99,8 +100,8 @@ async function configQuestoes() {
     respostaA.addEventListener('click', () => {
         if (qual_botao === 'Jogar') {
             clique_botao = false;
-            // stop();
-            pause();
+            stop();
+            // pause();
             let resposta = a;
             clicouPrajogar = true;
             chamaAcertou(resposta);
@@ -172,7 +173,8 @@ async function configQuestoes() {
             if(respostaEscolhida == certa) {
                 instrucoes.textContent = 'Acertou! Parabéns!';
                 
-                pontos += 10;
+                pontos += 100;
+                pontosMinhaEq.setAttribute('value', pontos);
                 pontosMinhaEq.textContent = pontos;
 
                 setTimeout(function() {
@@ -283,7 +285,15 @@ async function configQuestoes() {
     let clicou_passar = false;
 
     botao_j2.addEventListener('click', () => {
-        clicou_passar = true;
+        pontos = parseInt(pontosMinhaEq.getAttribute('value'));
+        if (pontos > 75) {
+            clicou_passar = true;
+            pontos -= 75;
+            pontosMinhaEq.setAttribute('value', pontos);
+            pontosMinhaEq.textContent = pontos;
+        } else {
+            alert('Você não tem pontos suficiente!');
+        }
     });
 
     click_equipe_1.addEventListener('click', () => {
@@ -293,7 +303,7 @@ async function configQuestoes() {
                 cont_questoes++;
                 instrucoes.textContent = `Leia a questão e clique na resposta correta`;
                 proximaQuestao(cont_questoes);
-            }, 5000);
+            }, 2500);
         } else {
             alert('Você tem que clicar pra passar!');
         }
@@ -306,7 +316,7 @@ async function configQuestoes() {
                 instrucoes.textContent = `Leia a questão e clique na resposta correta`;
                 proximaQuestao(cont_questoes);
                 clicou_passar = false;
-            }, 5000);
+            }, 2500);
         } else {
             alert('Você tem que clicar pra passar!');
         }
@@ -319,7 +329,7 @@ async function configQuestoes() {
                 instrucoes.textContent = `Leia a questão e clique na resposta correta`;
                 proximaQuestao(cont_questoes);
                 clicou_passar = false;
-            }, 5000);
+            }, 2500);
         } else {
             alert('Você tem que clicar pra passar!');
         }
@@ -332,7 +342,7 @@ async function configQuestoes() {
                 instrucoes.textContent = `Leia a questão e clique na resposta correta`;
                 proximaQuestao(cont_questoes);
                 clicou_passar = false;
-            }, 5000);
+            }, 2500);
         } else {
             alert('Você tem que clicar pra passar!');
         }
