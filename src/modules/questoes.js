@@ -84,16 +84,27 @@ async function configQuestoes() {
     c.setAttribute('value', cont_questoes+'C');
     d.setAttribute('value', cont_questoes+'D');
 
+    // Jogador
+    let id_jog = 'lm35';
+    let jog = await axios(`http://localhost:3000/jogadores/${id_jog}`);
+    let jog_data = jog.data;
+    let nome_jog = jog_data.nome;
+    let isLider = jog_data.lider;
+
     botao_j1.addEventListener('click', ()=> {
-        if (clique_botao === false) {
-            qual_botao = 'Jogar';
-            // console.log('Clicou');
-            clique_botao = true;
-            instrucoes.textContent = 'Você joga!'
-            stop_ler();
-            start_clique();
+        if (isLider) {
+            if (clique_botao === false) {
+                qual_botao = 'Jogar';
+                // console.log('Clicou');
+                clique_botao = true;
+                instrucoes.textContent = 'Você joga!'
+                stop_ler();
+                start_clique();
+            } else {
+                alert('Você já clicou!');
+            }
         } else {
-            alert('Você já clicou!');
+            alert('Você não é líder, somente o líder pode clicar!');
         }
     });
 
@@ -285,14 +296,18 @@ async function configQuestoes() {
     let clicou_passar = false;
 
     botao_j2.addEventListener('click', () => {
-        pontos = parseInt(pontosMinhaEq.getAttribute('value'));
-        if (pontos > 75) {
-            clicou_passar = true;
-            pontos -= 75;
-            pontosMinhaEq.setAttribute('value', pontos);
-            pontosMinhaEq.textContent = pontos;
+        if(isLider) {
+            pontos = parseInt(pontosMinhaEq.getAttribute('value'));
+            if (pontos > 75) {
+                clicou_passar = true;
+                pontos -= 75;
+                pontosMinhaEq.setAttribute('value', pontos);
+                pontosMinhaEq.textContent = pontos;
+            } else {
+                alert('Você não tem pontos suficiente!');
+            }
         } else {
-            alert('Você não tem pontos suficiente!');
+            alert('Você não é líder, somente o líder pode clicar!');
         }
     });
 

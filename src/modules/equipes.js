@@ -56,26 +56,36 @@ async function config_eqps() {
     let qual_botao = '';
     let escolheu_equipe = false;
 
+    // Jogador
+    let id_jog = 'lm35';
+    let jog = await axios(`http://localhost:3000/jogadores/${id_jog}`);
+    let jog_data = jog.data;
+    let isLider = jog_data.lider;
+
     let botao_j2 = document.querySelector('.botao_passar');
     setTimeout(function() {
         botao_j2.addEventListener('click', () => {
-            pontos = parseInt(pontosMinhaEq.getAttribute('value'));
-            if (pontos > 75) {
-                pontos -= 75;
-                if (clique_botao === false) {
-                    equipe_1.setAttribute('class', 'cor_red');
-                    equipe_2.setAttribute('class', 'cor_red');
-                    equipe_3.setAttribute('class', 'cor_red');
-                    equipe_4.setAttribute('class', 'cor_red');
-                    qual_botao = 'Passar';
-                    // console.log('Clicou 2');
-                    clique_botao = true;
-                    instrucoes.textContent = 'Escolha a equipe que vai jogar!'
-                    stop_ler()
-                    start_clique();
-                } else {
-                    alert('Você já clicou!');
+            if(isLider) {
+                pontos = parseInt(pontosMinhaEq.getAttribute('value'));
+                if (pontos > 75) {
+                    pontos -= 75;
+                    if (clique_botao === false) {
+                        equipe_1.setAttribute('class', 'cor_red');
+                        equipe_2.setAttribute('class', 'cor_red');
+                        equipe_3.setAttribute('class', 'cor_red');
+                        equipe_4.setAttribute('class', 'cor_red');
+                        qual_botao = 'Passar';
+                        // console.log('Clicou 2');
+                        clique_botao = true;
+                        instrucoes.textContent = 'Escolha a equipe que vai jogar!'
+                        stop_ler()
+                        start_clique();
+                    } else {
+                        alert('Você já clicou!');
+                    }
                 }
+            } else {
+                alert('Você não é líder, somente o líder pode clicar!');
             }
         });        
     }, 5000);

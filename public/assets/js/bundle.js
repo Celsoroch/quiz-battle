@@ -2229,7 +2229,7 @@ function config_eqps() {
 
 function _config_eqps() {
   _config_eqps = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    var clique_botao, qual_botao, escolheu_equipe, botao_j2, _yield$axios, data, tamanho, minimo, nums, random, id_eq1, jogs1, data_jog1, id_eq2, jogs2, data_jog2, id_eq3, jogs3, data_jog3, id_eq4, jogs4, data_jog4, id_minha, jogsM, data_meq;
+    var clique_botao, qual_botao, escolheu_equipe, id_jog, jog, jog_data, isLider, botao_j2, _yield$axios, data, tamanho, minimo, nums, random, id_eq1, jogs1, data_jog1, id_eq2, jogs2, data_jog2, id_eq3, jogs3, data_jog3, id_eq4, jogs4, data_jog4, id_minha, jogsM, data_meq;
 
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
@@ -2238,36 +2238,49 @@ function _config_eqps() {
             // Validações 
             clique_botao = false;
             qual_botao = '';
-            escolheu_equipe = false;
+            escolheu_equipe = false; // Jogador
+
+            id_jog = 'lm35';
+            _context.next = 6;
+            return axios("http://localhost:3000/jogadores/".concat(id_jog));
+
+          case 6:
+            jog = _context.sent;
+            jog_data = jog.data;
+            isLider = jog_data.lider;
             botao_j2 = document.querySelector('.botao_passar');
             setTimeout(function () {
               botao_j2.addEventListener('click', function () {
-                pontos = parseInt(pontosMinhaEq.getAttribute('value'));
+                if (isLider) {
+                  pontos = parseInt(pontosMinhaEq.getAttribute('value'));
 
-                if (pontos > 75) {
-                  pontos -= 75;
+                  if (pontos > 75) {
+                    pontos -= 75;
 
-                  if (clique_botao === false) {
-                    equipe_1.setAttribute('class', 'cor_red');
-                    equipe_2.setAttribute('class', 'cor_red');
-                    equipe_3.setAttribute('class', 'cor_red');
-                    equipe_4.setAttribute('class', 'cor_red');
-                    qual_botao = 'Passar'; // console.log('Clicou 2');
+                    if (clique_botao === false) {
+                      equipe_1.setAttribute('class', 'cor_red');
+                      equipe_2.setAttribute('class', 'cor_red');
+                      equipe_3.setAttribute('class', 'cor_red');
+                      equipe_4.setAttribute('class', 'cor_red');
+                      qual_botao = 'Passar'; // console.log('Clicou 2');
 
-                    clique_botao = true;
-                    instrucoes.textContent = 'Escolha a equipe que vai jogar!';
-                    stop_ler();
-                    start_clique();
-                  } else {
-                    alert('Você já clicou!');
+                      clique_botao = true;
+                      instrucoes.textContent = 'Escolha a equipe que vai jogar!';
+                      stop_ler();
+                      start_clique();
+                    } else {
+                      alert('Você já clicou!');
+                    }
                   }
+                } else {
+                  alert('Você não é líder, somente o líder pode clicar!');
                 }
               });
             }, 5000);
-            _context.next = 7;
+            _context.next = 13;
             return axios('http://localhost:3000/equipe');
 
-          case 7:
+          case 13:
             _yield$axios = _context.sent;
             data = _yield$axios.data;
             // console.log(data);
@@ -2276,16 +2289,16 @@ function _config_eqps() {
             minimo = 0;
             nums = [];
 
-          case 12:
+          case 18:
             if (!(nums.length < 4)) {
-              _context.next = 19;
+              _context.next = 25;
               break;
             }
 
-            _context.next = 15;
+            _context.next = 21;
             return Math.floor(Math.random() * (tamanho - minimo) + minimo);
 
-          case 15:
+          case 21:
             random = _context.sent;
 
             if (data[random].id_equipe !== 'Eq-ps') {
@@ -2295,17 +2308,17 @@ function _config_eqps() {
               }
             }
 
-            _context.next = 12;
+            _context.next = 18;
             break;
 
-          case 19:
+          case 25:
             // equipe 1
             equipe_1.textContent = data[nums[0]].id_equipe;
             id_eq1 = data[nums[0]].id_equipe;
-            _context.next = 23;
+            _context.next = 29;
             return axios("http://localhost:3000/jogadoresid/".concat(id_eq1));
 
-          case 23:
+          case 29:
             jogs1 = _context.sent;
             data_jog1 = jogs1.data;
             jog_1_eq1.textContent = data_jog1[0].nome;
@@ -2315,10 +2328,10 @@ function _config_eqps() {
 
             equipe_2.textContent = data[nums[1]].id_equipe;
             id_eq2 = data[nums[1]].id_equipe;
-            _context.next = 33;
+            _context.next = 39;
             return axios("http://localhost:3000/jogadoresid/".concat(id_eq2));
 
-          case 33:
+          case 39:
             jogs2 = _context.sent;
             data_jog2 = jogs2.data;
             jog_1_eq2.textContent = data_jog2[0].nome;
@@ -2328,10 +2341,10 @@ function _config_eqps() {
 
             equipe_3.textContent = data[nums[2]].id_equipe;
             id_eq3 = data[nums[2]].id_equipe;
-            _context.next = 43;
+            _context.next = 49;
             return axios("http://localhost:3000/jogadoresid/".concat(id_eq3));
 
-          case 43:
+          case 49:
             jogs3 = _context.sent;
             data_jog3 = jogs3.data;
             jog_1_eq3.textContent = data_jog3[0].nome;
@@ -2341,10 +2354,10 @@ function _config_eqps() {
 
             equipe_4.textContent = data[nums[3]].id_equipe;
             id_eq4 = data[nums[3]].id_equipe;
-            _context.next = 53;
+            _context.next = 59;
             return axios("http://localhost:3000/jogadoresid/".concat(id_eq4));
 
-          case 53:
+          case 59:
             jogs4 = _context.sent;
             data_jog4 = jogs4.data;
             jog_1_eq4.textContent = data_jog4[0].nome;
@@ -2353,10 +2366,10 @@ function _config_eqps() {
             jog_4_eq4.textContent = data_jog4[3].nome; // Minha equipe
 
             id_minha = 'Eq-ps';
-            _context.next = 62;
+            _context.next = 68;
             return axios("http://localhost:3000/jogadoresid/".concat(id_minha));
 
-          case 62:
+          case 68:
             jogsM = _context.sent;
             data_meq = jogsM.data; // console.log(data_meq);
 
@@ -2441,7 +2454,7 @@ function _config_eqps() {
               }
             });
 
-          case 72:
+          case 78:
           case "end":
             return _context.stop();
         }
@@ -2526,7 +2539,7 @@ function configQuestoes() {
 
 function _configQuestoes() {
   _configQuestoes = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-    var clique_botao, qual_botao, jaClicouPraJogar, clicouPrajogar, cont_questoes, _yield$axios, data, totalDeQuestoes, chamaAcertou, verificarSeAcertou, proximaQuestao, fimDoJogo, botao_j2, clicou_passar;
+    var clique_botao, qual_botao, jaClicouPraJogar, clicouPrajogar, cont_questoes, _yield$axios, data, totalDeQuestoes, id_jog, jog, jog_data, nome_jog, isLider, chamaAcertou, verificarSeAcertou, proximaQuestao, fimDoJogo, botao_j2, clicou_passar;
 
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
@@ -2674,17 +2687,31 @@ function _configQuestoes() {
             a.setAttribute('value', cont_questoes + 'A');
             b.setAttribute('value', cont_questoes + 'B');
             c.setAttribute('value', cont_questoes + 'C');
-            d.setAttribute('value', cont_questoes + 'D');
-            botao_j1.addEventListener('click', function () {
-              if (clique_botao === false) {
-                qual_botao = 'Jogar'; // console.log('Clicou');
+            d.setAttribute('value', cont_questoes + 'D'); // Jogador
 
-                clique_botao = true;
-                instrucoes.textContent = 'Você joga!';
-                stop_ler();
-                start_clique();
+            id_jog = 'lm35';
+            _context.next = 30;
+            return axios("http://localhost:3000/jogadores/".concat(id_jog));
+
+          case 30:
+            jog = _context.sent;
+            jog_data = jog.data;
+            nome_jog = jog_data.nome;
+            isLider = jog_data.lider;
+            botao_j1.addEventListener('click', function () {
+              if (isLider) {
+                if (clique_botao === false) {
+                  qual_botao = 'Jogar'; // console.log('Clicou');
+
+                  clique_botao = true;
+                  instrucoes.textContent = 'Você joga!';
+                  stop_ler();
+                  start_clique();
+                } else {
+                  alert('Você já clicou!');
+                }
               } else {
-                alert('Você já clicou!');
+                alert('Você não é líder, somente o líder pode clicar!');
               }
             });
             respostaA.addEventListener('click', function () {
@@ -2751,15 +2778,19 @@ function _configQuestoes() {
             botao_j2 = document.querySelector('.botao_passar');
             clicou_passar = false;
             botao_j2.addEventListener('click', function () {
-              pontos = parseInt(pontosMinhaEq.getAttribute('value'));
+              if (isLider) {
+                pontos = parseInt(pontosMinhaEq.getAttribute('value'));
 
-              if (pontos > 75) {
-                clicou_passar = true;
-                pontos -= 75;
-                pontosMinhaEq.setAttribute('value', pontos);
-                pontosMinhaEq.textContent = pontos;
+                if (pontos > 75) {
+                  clicou_passar = true;
+                  pontos -= 75;
+                  pontosMinhaEq.setAttribute('value', pontos);
+                  pontosMinhaEq.textContent = pontos;
+                } else {
+                  alert('Você não tem pontos suficiente!');
+                }
               } else {
-                alert('Você não tem pontos suficiente!');
+                alert('Você não é líder, somente o líder pode clicar!');
               }
             });
             click_equipe_1.addEventListener('click', function () {
@@ -2811,7 +2842,7 @@ function _configQuestoes() {
               }
             });
 
-          case 43:
+          case 50:
           case "end":
             return _context.stop();
         }
