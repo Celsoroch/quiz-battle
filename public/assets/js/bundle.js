@@ -2163,6 +2163,126 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./src/modules/chat.js":
+/*!*****************************!*\
+  !*** ./src/modules/chat.js ***!
+  \*****************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+
+function chat() {
+  return _chat.apply(this, arguments);
+}
+
+function _chat() {
+  _chat = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+    var id_jog, jog, jog_data, isLider, nomeJogador, classe, coll, i, getTime, getResponse, buttonSendText, sendButton, textInput;
+    return regeneratorRuntime.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            sendButton = function _sendButton() {
+              getResponse();
+            };
+
+            buttonSendText = function _buttonSendText(sampleText) {
+              var userHtml = '<p class="userText"><span>' + sampleText + '</span></p>';
+              $("#textInput").val("");
+              $("#chatbox").append(userHtml);
+              document.getElementById("chat-bar-bottom").scrollIntoView(true);
+            };
+
+            getResponse = function _getResponse() {
+              var userText = $("#textInput").val();
+
+              if (userText == "") {
+                userText = "";
+              }
+
+              var userHtml = "<p class=\"userText\"><span class=\"".concat(classe, "\">").concat(nomeJogador, "</span><span class=\"texto\">").concat(userText, "</span></p>");
+              $("#textInput").val("");
+              $("#chatbox").append(userHtml);
+              document.getElementById("chat-bar-bottom").scrollIntoView(true);
+            };
+
+            getTime = function _getTime() {
+              var today = new Date();
+              hours = today.getHours();
+              minutes = today.getMinutes();
+
+              if (hours < 10) {
+                hours = "0" + hours;
+              }
+
+              if (minutes < 10) {
+                minutes = "0" + minutes;
+              }
+
+              var time = hours + ":" + minutes;
+              return time;
+            };
+
+            // Jogador
+            id_jog = 'lm35';
+            _context.next = 7;
+            return axios("http://localhost:3000/jogadores/".concat(id_jog));
+
+          case 7:
+            jog = _context.sent;
+            jog_data = jog.data;
+            isLider = jog_data.lider;
+            nomeJogador = jog_data.nome;
+            classe = '';
+
+            if (isLider) {
+              classe = 'isLider';
+            } else {
+              classe = 'nomeJog';
+            } // Collapsible
+
+
+            coll = document.getElementsByClassName("collapsible");
+
+            for (i = 0; i < coll.length; i++) {
+              coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+
+                if (content.style.maxHeight) {
+                  content.style.maxHeight = null;
+                } else {
+                  content.style.maxHeight = content.scrollHeight + "px";
+                }
+              });
+            }
+
+            // Press enter to send a message
+            textInput = document.querySelector('#textInput');
+            textInput.addEventListener('keypress', function (e) {
+              if (e.which === 13) {
+                getResponse();
+              }
+            });
+
+          case 17:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+  return _chat.apply(this, arguments);
+}
+
+module.exports = chat;
+
+/***/ }),
+
 /***/ "./src/modules/equipes.js":
 /*!********************************!*\
   !*** ./src/modules/equipes.js ***!
@@ -2974,6 +3094,33 @@ module.exports = {
   start_ini: start_ini,
   stop_ini: stop_ini
 };
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/assets/css/chat.css":
+/*!***********************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/assets/css/chat.css ***!
+  \***********************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".chat-bar-collapsible {\r\n    position: fixed;\r\n    bottom: 0;\r\n    left: 50px;\r\n    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.collapsible {\r\n    background-color: #194cbb;\r\n    color: white;\r\n    cursor: pointer;\r\n    padding: 12px;\r\n    width: 350px;\r\n    text-align: center;\r\n    outline: none;\r\n    font-size: 25px;\r\n    border-radius: 10px 10px 0px 0px;\r\n    border: 3px solid #03ff9e;\r\n    border-bottom: none;\r\n}\r\n\r\n.content {\r\n    max-height: 0;\r\n    overflow: hidden;\r\n    transition: max-height 0.2s ease-out;\r\n    background-color: #f1f1f1;\r\n}\r\n\r\n.full-chat-block {\r\n    width: 350px;\r\n    background: white;\r\n    text-align: center;\r\n    overflow: auto;\r\n    scrollbar-width: none;\r\n    height: max-content;\r\n    transition: max-height 0.2s ease-out;\r\n}\r\n\r\n.outer-container {\r\n    min-height: 500px;\r\n    bottom: 0%;\r\n    position: relative;\r\n}\r\n\r\n.chat-container {\r\n    max-height: 500px;\r\n    width: 100%;\r\n    position: absolute;\r\n    bottom: 0;\r\n    left: 0;\r\n    scroll-behavior: smooth;\r\n    hyphens: auto;\r\n}\r\n\r\n.chat-container::-webkit-scrollbar {\r\n    display: none;\r\n}\r\n\r\n.chat-bar-input-block {\r\n    display: flex;\r\n    float: left;\r\n    box-sizing: border-box;\r\n    justify-content: space-between;\r\n    width: 100%;\r\n    align-items: center;\r\n    background-color: rgb(235, 235, 235);\r\n    border-radius: 10px 10px 0px 0px;\r\n    padding: 10px 0px 10px 10px;\r\n}\r\n\r\n.chat-bar-icons {\r\n    display: flex;\r\n    justify-content: space-evenly;\r\n    box-sizing: border-box;\r\n    width: 25%;\r\n    float: right;\r\n    font-size: 20px;\r\n}\r\n\r\n#chat-icon:hover {\r\n    opacity: .7;\r\n}\r\n\r\n/* Chat bubbles */\r\n\r\n#userInput {\r\n    width: 200%;\r\n}\r\n\r\n.input-box {\r\n    float: left;\r\n    border: none;\r\n    box-sizing: border-box;\r\n    width: 100%;\r\n    border-radius: 10px;\r\n    padding: 10px;\r\n    font-size: 20px;\r\n    color: #000;\r\n    background-color: white;\r\n    outline: none\r\n}\r\n\r\n.userText {\r\n    color: white;\r\n    font-family: Helvetica;\r\n    font-size: 16px;\r\n    font-weight: normal;\r\n    text-align: left;\r\n    clear: both;\r\n}\r\n\r\n.userText span {\r\n    font-size: 20px;\r\n    line-height: 1.5em;\r\n    display: inline-block;\r\n    padding: 10px;\r\n    border-radius: 8px;\r\n    border-bottom-left-radius: 2px;\r\n    max-width: 80%;\r\n    margin-left: 10px;\r\n    margin-bottom: 10px;\r\n    animation: floatup .5s forwards\r\n}\r\n\r\n.texto {\r\n    background: #3d98ff;\r\n    \r\n}\r\n\r\n.isLider {\r\n    color: black;\r\n    background: goldenrod;\r\n}\r\n\r\n.nomeJog {\r\n    background: #002efd;\r\n\r\n}\r\n\r\n@keyframes floatup {\r\n    from {\r\n        transform: translateY(14px);\r\n        opacity: .0;\r\n    }\r\n    to {\r\n        transform: translateY(0px);\r\n        opacity: 1;\r\n    }\r\n}\r\n\r\n@media screen and (max-width:600px) {\r\n    .full-chat-block {\r\n        width: 100%;\r\n        border-radius: 0px;\r\n        \r\n    }\r\n    .chat-bar-collapsible {\r\n        position: fixed;\r\n        bottom: 0;\r\n        right: 0;\r\n        width: 100%;\r\n        border-radius: 10px;\r\n    }\r\n    .collapsible {\r\n        width: 100%;\r\n        border: 0px;\r\n        border-top: 3px solid white;\r\n        border-radius: 0px;\r\n    }\r\n    \r\n}", "",{"version":3,"sources":["webpack://./src/assets/css/chat.css"],"names":[],"mappings":"AAAA;IACI,eAAe;IACf,SAAS;IACT,UAAU;IACV,2CAA2C;AAC/C;;AAEA;IACI,yBAAyB;IACzB,YAAY;IACZ,eAAe;IACf,aAAa;IACb,YAAY;IACZ,kBAAkB;IAClB,aAAa;IACb,eAAe;IACf,gCAAgC;IAChC,yBAAyB;IACzB,mBAAmB;AACvB;;AAEA;IACI,aAAa;IACb,gBAAgB;IAChB,oCAAoC;IACpC,yBAAyB;AAC7B;;AAEA;IACI,YAAY;IACZ,iBAAiB;IACjB,kBAAkB;IAClB,cAAc;IACd,qBAAqB;IACrB,mBAAmB;IACnB,oCAAoC;AACxC;;AAEA;IACI,iBAAiB;IACjB,UAAU;IACV,kBAAkB;AACtB;;AAEA;IACI,iBAAiB;IACjB,WAAW;IACX,kBAAkB;IAClB,SAAS;IACT,OAAO;IACP,uBAAuB;IACvB,aAAa;AACjB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,aAAa;IACb,WAAW;IACX,sBAAsB;IACtB,8BAA8B;IAC9B,WAAW;IACX,mBAAmB;IACnB,oCAAoC;IACpC,gCAAgC;IAChC,2BAA2B;AAC/B;;AAEA;IACI,aAAa;IACb,6BAA6B;IAC7B,sBAAsB;IACtB,UAAU;IACV,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;AACf;;AAEA,iBAAiB;;AAEjB;IACI,WAAW;AACf;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,sBAAsB;IACtB,WAAW;IACX,mBAAmB;IACnB,aAAa;IACb,eAAe;IACf,WAAW;IACX,uBAAuB;IACvB;AACJ;;AAEA;IACI,YAAY;IACZ,sBAAsB;IACtB,eAAe;IACf,mBAAmB;IACnB,gBAAgB;IAChB,WAAW;AACf;;AAEA;IACI,eAAe;IACf,kBAAkB;IAClB,qBAAqB;IACrB,aAAa;IACb,kBAAkB;IAClB,8BAA8B;IAC9B,cAAc;IACd,iBAAiB;IACjB,mBAAmB;IACnB;AACJ;;AAEA;IACI,mBAAmB;;AAEvB;;AAEA;IACI,YAAY;IACZ,qBAAqB;AACzB;;AAEA;IACI,mBAAmB;;AAEvB;;AAEA;IACI;QACI,2BAA2B;QAC3B,WAAW;IACf;IACA;QACI,0BAA0B;QAC1B,UAAU;IACd;AACJ;;AAEA;IACI;QACI,WAAW;QACX,kBAAkB;;IAEtB;IACA;QACI,eAAe;QACf,SAAS;QACT,QAAQ;QACR,WAAW;QACX,mBAAmB;IACvB;IACA;QACI,WAAW;QACX,WAAW;QACX,2BAA2B;QAC3B,kBAAkB;IACtB;;AAEJ","sourcesContent":[".chat-bar-collapsible {\r\n    position: fixed;\r\n    bottom: 0;\r\n    left: 50px;\r\n    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.collapsible {\r\n    background-color: #194cbb;\r\n    color: white;\r\n    cursor: pointer;\r\n    padding: 12px;\r\n    width: 350px;\r\n    text-align: center;\r\n    outline: none;\r\n    font-size: 25px;\r\n    border-radius: 10px 10px 0px 0px;\r\n    border: 3px solid #03ff9e;\r\n    border-bottom: none;\r\n}\r\n\r\n.content {\r\n    max-height: 0;\r\n    overflow: hidden;\r\n    transition: max-height 0.2s ease-out;\r\n    background-color: #f1f1f1;\r\n}\r\n\r\n.full-chat-block {\r\n    width: 350px;\r\n    background: white;\r\n    text-align: center;\r\n    overflow: auto;\r\n    scrollbar-width: none;\r\n    height: max-content;\r\n    transition: max-height 0.2s ease-out;\r\n}\r\n\r\n.outer-container {\r\n    min-height: 500px;\r\n    bottom: 0%;\r\n    position: relative;\r\n}\r\n\r\n.chat-container {\r\n    max-height: 500px;\r\n    width: 100%;\r\n    position: absolute;\r\n    bottom: 0;\r\n    left: 0;\r\n    scroll-behavior: smooth;\r\n    hyphens: auto;\r\n}\r\n\r\n.chat-container::-webkit-scrollbar {\r\n    display: none;\r\n}\r\n\r\n.chat-bar-input-block {\r\n    display: flex;\r\n    float: left;\r\n    box-sizing: border-box;\r\n    justify-content: space-between;\r\n    width: 100%;\r\n    align-items: center;\r\n    background-color: rgb(235, 235, 235);\r\n    border-radius: 10px 10px 0px 0px;\r\n    padding: 10px 0px 10px 10px;\r\n}\r\n\r\n.chat-bar-icons {\r\n    display: flex;\r\n    justify-content: space-evenly;\r\n    box-sizing: border-box;\r\n    width: 25%;\r\n    float: right;\r\n    font-size: 20px;\r\n}\r\n\r\n#chat-icon:hover {\r\n    opacity: .7;\r\n}\r\n\r\n/* Chat bubbles */\r\n\r\n#userInput {\r\n    width: 200%;\r\n}\r\n\r\n.input-box {\r\n    float: left;\r\n    border: none;\r\n    box-sizing: border-box;\r\n    width: 100%;\r\n    border-radius: 10px;\r\n    padding: 10px;\r\n    font-size: 20px;\r\n    color: #000;\r\n    background-color: white;\r\n    outline: none\r\n}\r\n\r\n.userText {\r\n    color: white;\r\n    font-family: Helvetica;\r\n    font-size: 16px;\r\n    font-weight: normal;\r\n    text-align: left;\r\n    clear: both;\r\n}\r\n\r\n.userText span {\r\n    font-size: 20px;\r\n    line-height: 1.5em;\r\n    display: inline-block;\r\n    padding: 10px;\r\n    border-radius: 8px;\r\n    border-bottom-left-radius: 2px;\r\n    max-width: 80%;\r\n    margin-left: 10px;\r\n    margin-bottom: 10px;\r\n    animation: floatup .5s forwards\r\n}\r\n\r\n.texto {\r\n    background: #3d98ff;\r\n    \r\n}\r\n\r\n.isLider {\r\n    color: black;\r\n    background: goldenrod;\r\n}\r\n\r\n.nomeJog {\r\n    background: #002efd;\r\n\r\n}\r\n\r\n@keyframes floatup {\r\n    from {\r\n        transform: translateY(14px);\r\n        opacity: .0;\r\n    }\r\n    to {\r\n        transform: translateY(0px);\r\n        opacity: 1;\r\n    }\r\n}\r\n\r\n@media screen and (max-width:600px) {\r\n    .full-chat-block {\r\n        width: 100%;\r\n        border-radius: 0px;\r\n        \r\n    }\r\n    .chat-bar-collapsible {\r\n        position: fixed;\r\n        bottom: 0;\r\n        right: 0;\r\n        width: 100%;\r\n        border-radius: 10px;\r\n    }\r\n    .collapsible {\r\n        width: 100%;\r\n        border: 0px;\r\n        border-top: 3px solid white;\r\n        border-radius: 0px;\r\n    }\r\n    \r\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
 
 /***/ }),
 
@@ -3913,6 +4060,61 @@ try {
 
 /***/ }),
 
+/***/ "./src/assets/css/chat.css":
+/*!*********************************!*\
+  !*** ./src/assets/css/chat.css ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_chat_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../node_modules/css-loader/dist/cjs.js!./chat.css */ "./node_modules/css-loader/dist/cjs.js!./src/assets/css/chat.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_chat_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_chat_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_chat_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_chat_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
 /***/ "./src/assets/css/styles.css":
 /*!***********************************!*\
   !*** ./src/assets/css/styles.css ***!
@@ -4357,11 +4559,15 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_css_styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./assets/css/styles.css */ "./src/assets/css/styles.css");
+/* harmony import */ var _assets_css_chat_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./assets/css/chat.css */ "./src/assets/css/chat.css");
+
 
 
 var config_eqps = __webpack_require__(/*! ./modules/equipes */ "./src/modules/equipes.js");
 
 var configQuestoes = __webpack_require__(/*! ./modules/questoes */ "./src/modules/questoes.js");
+
+var chat = __webpack_require__(/*! ./modules/chat */ "./src/modules/chat.js");
 
 var _require = __webpack_require__(/*! ./modules/timer */ "./src/modules/timer.js"),
     start_ini = _require.start_ini,
@@ -4371,6 +4577,7 @@ var instrucoes = document.querySelector('#instrucoes');
 instrucoes.textContent = 'Assim que o tempo acabar o jogo começará!Preste atenção!';
 config_eqps();
 start_ini();
+chat();
 setTimeout(function () {
   instrucoes.textContent = 'Leia a questão e clique na resposta correta!';
   stop_ini();
