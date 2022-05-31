@@ -1,5 +1,7 @@
 import './assets/css/styles.css';
-import './assets/css/chat.css'
+import './assets/css/chat.css';
+import './assets/css/colorindoTela.css';
+
 const config_eqps = require('./modules/equipes');
 const configQuestoes = require('./modules/questoes');
 const chat = require('./modules/chat');
