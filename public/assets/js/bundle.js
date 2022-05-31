@@ -2236,7 +2236,8 @@ function _chat() {
             jog = _context.sent;
             jog_data = jog.data;
             isLider = jog_data.lider;
-            nomeJogador = jog_data.nome;
+            nomeJogador = jog_data.nome; // Caso seja ou não lider
+
             classe = '';
 
             if (isLider) {

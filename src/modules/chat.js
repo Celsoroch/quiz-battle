@@ -9,6 +9,7 @@ async function chat() {
     let isLider = jog_data.lider;
     let nomeJogador = jog_data.nome;
     
+    // Caso seja ou não lider
     let classe = '';
     if(isLider) {
         classe = 'isLider'
