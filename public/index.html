@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+    <div class="stars4"></div>
+    <div class="stars5"></div>
+    <div class="stars6"></div>
+    <div class="stars7"></div>
+    <div class="stars8"></div>
+    <div class="stars9"></div>
+
+    <main class="tela-principal">
+
+        <section class='conteudos'>
+
+            <h1 class="quiz">Quiz-Battle</h1>
+
+            <header class="contador">
+                <div class="timer">
+                    <div class="text-center" id="time_txt">Tempo:</div>
+                    <div id="time_sec">--</div>
+                </div>
+                <div class="time_line"></div>
+            </header>
+
+            <article class='centro' id='instrucoes'>
+                Leia a questão e clique na resposta correta
+            </article>
+
+            <article class='questoes'>
+                
+                <header class='questao'>
+                    <span id='numQuestao'></span>
+                    <h2 id='pergunta'>Pergunta</h2>
+                </header>
+
+                <div class='corpo'>
+                    <ol type='A' id='alternativas'>
+                        <li id='a' value='1A' class='respostas respostaA'>Alternativa A</li>
+                        <li id='b' value='1B' class='respostas respostaB'>Alternativa B</li>
+                        <li id='c' value='1C' class='respostas respostaC'>Alternativa C</li>
+                        <li id='d' value='1D' class='respostas respostaD'>Alternativa D</li>
+                    </ol>
+                </div>
+            </article>
+
+            <article id='aviso'>Questão <span id='numero'>0</span> de <span id='total'>0</span></article>
+            
+        </section>
+        
+        <div class="box_equipes">
+            <div class="equipes">
+                
+                <table class="tabelas" cellspacing="10">
+                    <tr class="element_principal">
+                        <th>Equipes</th>
+                        <th colspan="4">Nome Dos Jogadores</th>
+                        <th>Pontos</th>
+                    </tr>
+                    <tr>
+                        <td class="equipe_1 click_eq_1">Eq-1</td>
+                        <td class="jog_1_eq1">...</td>
+                        <td class="jog_2_eq1">...</td>
+                        <td class="jog_3_eq1">...</td>
+                        <td class="jog_4_eq1">...</td>
+                        <td class="pontos_eq1">0</td>
+                    </tr>
+                    <tr>
+                        <td class="equipe_2 click_eq_2">Eq-2</td>
+                        <td class="jog_1_eq2">...</td>
+                        <td class="jog_2_eq2">...</td>
+                        <td class="jog_3_eq2">...</td>
+                        <td class="jog_4_eq2">...</td>
+                        <td class="pontos_eq2">0</td>
+                    </tr>
+                    <tr>
+                        <td class="equipe_3 click_eq_3">Eq-3</td>
+                        <td class="jog_1_eq3">...</td>
+                        <td class="jog_2_eq3">...</td>
+                        <td class="jog_3_eq3">...</td>
+                        <td class="jog_4_eq3">...</td>
+                        <td class="pontos_eq3">0</td>
+                    </tr>
+                    <tr>
+                        <td class="equipe_4 click_eq_4">Eq-4</td>
+                        <td class="jog_1_eq4">...</td>
+                        <td class="jog_2_eq4">...</td>
+                        <td class="jog_3_eq4">...</td>
+                        <td class="jog_4_eq4">...</td>
+                        <td class="pontos_eq4">0</td>
+                    </tr>
+                </table>
+            </div>
+        
+            <div class="equipe_botao">    
+                <div class="box_Tela-Usuario">
+
+                    <table class="usuario_equipe">
+                        <tr>
+                            <th colspan="4">Minha Equipe</th>
+                            <th>Pontos</th>
+                        </tr>
+                        <tr>
+                            <td class="jog_1_meq jog_equipe">...</td>
+                            <td class="jog_2_meq jog_equipe">...</td>
+                            <td class="jog_3_meq jog_equipe">...</td>
+                            <td class="jog_4_meq jog_equipe">...</td>
+                            <td class="pontos_meq">0</td>
+                        </tr>
+                    </table>
+
+                </div>
+
+                <div class="players">
+                    <div class="jogador1">
+                        <article>
+                            <button class="botao botao_responder">RESPONDER</button>
+                        </article>
+                        
+                    </div>
+                
+                    <div class="jogador2">
+                        <article>
+                            <button class="botao botao_passar">PASSAR!</button>
+                        </article>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHAT BAR BLOCK -->
+        <div class="chat-bar-collapsible">
+            <button id="chat-button" type="button" class="collapsible">Chat da Equipe
+                <i id="chat-icon" style="color: #fff;" class="fa fa-fw fa-comments-o"></i>
+            </button>
+
+            <div class="content">
+                <div class="full-chat-block">
+                    <!-- Message Container -->
+                    <div class="outer-container">
+                        <div class="chat-container">
+                            <!-- Messages -->
+                            <div id="chatbox">
+                                <h5 id="chat-timestamp"></h5>
+                                <!-- <p class="userText"><span class="nomeJog"></span><span class="texto"></span></p> -->
+                            </div>
+
+                            <!-- User input box -->
+                            <div class="chat-bar-input-block">
+                                <div id="userInput">
+                                    <input id="textInput" class="input-box" type="text" name="msg"
+                                        placeholder="Aperte 'Enter' para enviar uma mensagem">
+                                    <p></p>
+                                </div>
+
+                                <div class="chat-bar-icons">
+                                    <i id="chat-icon" style="color: #333;" class="fa fa-arrow-circle-right" onclick="sendButton()"></i>
+                                </div>
+                            </div>
+
+                            <div id="chat-bar-bottom">
+                                <p></p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="box">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </main>
+
+<!-- JS externo -->
+    <script src="./assets/js/bundle.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</body>
+</html>

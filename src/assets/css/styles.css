@@ -1,0 +1,359 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
+:root {
+
+    /*CORES A SEREM ADICIONADAS*/
+    --fundo-color: #254b9c;
+    --contador-color: #194cbb;
+    --equipes-color: #52D0E6;
+    --equipePRINC-color: #4EFCE8;
+    --respost-color: #4BF2AF;
+    --respostMOUSE-color: #3f68c2;
+    --contorno-color: #03ff9e;
+
+
+    /*GRADUAÇÃO DE CORES*/
+    --gradual-color: linear-gradient(-40deg, #678d87, #106570, #9e4fa8, #007c53);
+    --gradualEQUIPE-color: linear-gradient(-40deg,  #00754e, #74357c, #0d7a7e, #0f3291);
+    --gradualBOTAO-color: linear-gradient(-40deg,  #61073e, #670774, #151fa1, #074aa1);
+
+    /*ADICIONAR FONTES PARA TEXTO*/
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.25rem;   
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--gradual-color);
+    background-size: 800% 100%;
+    animation: colors 20s ease infinite;
+    color: #fff;
+}
+
+@keyframes colors {
+    0% {
+        background-position: 0% 50%;
+    }
+    25% {
+        background-position: 50% 0%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    75% {
+        background-position: 50% 0%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+main {
+    flex-grow: 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 80%;
+    padding: 50px; /* espacamento interno */
+    /* color: black; */
+}
+
+section {
+    width: 100%;
+    margin: 0 auto;
+    height: 700px;
+    padding: 1rem;
+    margin-bottom: 0.625rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    position: relative;
+    text-align: center;
+    font-size: 1.75rem;
+    margin: 0.625rem;
+}
+
+.centro {
+    text-align: center;
+}
+
+.questao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#numQuestao {
+    display: block;
+    background: #00b0ff;
+    padding: 4px 10px 2px 10px;
+    border-radius: 50%;
+}
+
+#pergunta {
+    margin-left: 1rem;
+}
+
+.questoes {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 5px;
+    border: 3px solid var(--contorno-color);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    min-width: 60%;
+    max-width: 90%;
+    background: var(--fundo-color);
+}
+
+.questoes ol li {
+    display: block;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.questoes ol li:hover {
+    background: #00b0ff;
+    cursor: pointer;
+}
+
+.bloqueado {
+    display: none;
+}
+
+.bloqueado li:hover {
+    display: none;
+}
+
+#instrucoes {
+    background: rgb(8, 211, 126);
+    color: #191919;
+    padding: 0.625rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    animation: piscar .75s infinite alternate;
+}
+
+#aviso {
+    color: #600872;
+}
+
+.botao{
+    color: whitesmoke;
+
+    height: 50px;
+    margin-top: 5px;
+}
+
+.botao:hover {
+    background: #00b0ff;
+    cursor: pointer;
+}
+
+.pontos_1, .pontos_2 {
+    color:#00b0ff;
+    background-color: #ffffff;
+    margin-top: 0px;
+}
+
+/* ANIMACAO */
+
+/* Animar o input */
+@keyframes piscar {
+    0% {
+        filter: drop-shadow(0 0 20px #00b0ff);
+        -webkit-filter: drop-shadow(0 0 20px #00b0ff);
+        -moz-filter: drop-shadow(0 0 20px #00b0ff);
+        -o-filter: drop-shadow(0 0 20px #00b0ff);
+        -ms-filter: drop-shadow(0 0 20px #00b0ff);
+    }
+    100% {
+    }
+}
+
+.animar {
+    animation: piscar .75s infinite alternate;
+}
+
+.aparecer {
+    animation: aparecer .5s infinite alternate;
+}
+
+@keyframes aparecer {
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+.timer {
+    display: flex;
+    background: var(--contador-color);
+    padding: 0.45rem;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+/* TELA DAS TABELAS */
+.box_equipes {
+    display: flex;
+    flex-direction: column;        
+}
+/* TELA DA TABELA */
+.equipes {
+    position: relative;
+    top: 22%;
+    padding: 25px 28px;
+    border: 3px solid var(--contorno-color);
+    border-radius: 5px;
+    right: 30px;
+    max-width: 100%;
+    background: var(--gradualEQUIPE-color);
+    background-size: 800% 100%;
+    animation: colors 15s ease infinite;
+}
+
+@keyframes colors {
+    0% {
+        background-position: 0% 50%;
+    }
+    25% {
+        background-position: 50% 0%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    75% {
+        background-position: 50% 0%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.tabelas {
+    text-align: center;
+}
+/* TELA DO USUARIO COM SUA EQUIPE/BOTAO  */
+.equipe_botao {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    top: 30%;
+    right: 30px;
+    text-align: center;
+}
+/* TELA DO USUARIO COM SUA EQUIPE  */
+.box_Tela-Usuario {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 10px;
+    border: 2px solid var(--contorno-color);
+    border-radius: 10rem;
+    background: var(--gradualEQUIPE-color);
+    background-size: 800% 100%;
+    animation: colors 12s ease infinite;
+    min-width: 500px;
+}
+
+@keyframes colors {
+    0% {
+        background-position: 0% 50%;
+    }
+    25% {
+        background-position: 50% 0%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    75% {
+        background-position: 50% 0%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+/* botao*/
+.players {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+.jogador2 {
+    margin-left: auto;
+    
+}
+
+.botao {
+    border-radius: 10rem;
+    padding: 10px;
+    border: 2px solid var(--contorno-color);
+    background: var(--gradualBOTAO-color);
+    background-size: 800% 100%;
+    animation: colors 7s ease infinite;
+}
+
+@keyframes colors {
+    0% {
+        background-position: 0% 50%;
+    }
+    25% {
+        background-position: 50% 0%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    75% {
+        background-position: 50% 0%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+.jog_equipe {
+    padding-left: 15px;
+    padding-right: 5px;
+}
+
+/*  */
+
+.cor_red:hover {
+    background: #00b0ff;
+    cursor: pointer;
+}
+
+.quiz {
+    background: linear-gradient(rgb(0, 38, 192) 33%,#03ff9e 66%);
+    background-clip: text;
+    text-shadow: rgb(255, 255, 255) 0px -50px 125px,rgb(255, 255, 255) 20px 0px 100px, rgb(255, 255, 255) -20px 0px 100px;
+    font-family: monospace;
+    letter-spacing: 7px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 0.5px;
+    -webkit-text-stroke-color: white;
+}
